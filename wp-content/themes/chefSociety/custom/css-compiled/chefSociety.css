@@ -156,19 +156,19 @@ h1, h2, h3, h4, h5, h6, strong {
   font-family: "roboto";
   font-style: normal;
   font-weight: 400;
-  src: url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.eot#iefix') format("embedded-opentype"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff2') format("woff2"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff') format("woff"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.ttf') format("truetype"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.svg#roboto') format("svg");
+  src: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.eot?589e4bc8#iefix') format("embedded-opentype"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff2?589e4bc7') format("woff2"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.woff?589e4bc7') format("woff"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.ttf?589e4bc8') format("truetype"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_regular_macroman/Roboto-Regular-webfont.svg?589e4bc8#roboto') format("svg");
 }
 @font-face {
   font-family: "roboto";
   font-style: normal;
   font-weight: 500;
-  src: url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.eot#iefix') format("embedded-opentype"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.woff2') format("woff2"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.woff') format("woff"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.ttf') format("truetype"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.svg#roboto') format("svg");
+  src: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.eot?589e4bc6#iefix') format("embedded-opentype"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.woff2?589e4bc5') format("woff2"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.woff?589e4bc5') format("woff"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.ttf?589e4bc6') format("truetype"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_medium_macroman/Roboto-Medium-webfont.svg?589e4bc6#roboto') format("svg");
 }
 @font-face {
   font-family: "roboto";
   font-style: normal;
   font-weight: 700;
-  src: url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.eot#iefix') format("embedded-opentype"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.woff2') format("woff2"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.woff') format("woff"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.ttf') format("truetype"), url('//desarrolloesencial.com/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.svg#roboto') format("svg");
+  src: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.eot?589e4bc5#iefix') format("embedded-opentype"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.woff2?589e4bc4') format("woff2"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.woff?589e4bc4') format("woff"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.ttf?589e4bc4') format("truetype"), url('//desarrolloesencial.dev/wp-content/themes/chefSociety/fonts/roboto_bold_macroman/Roboto-Bold-webfont.svg?589e4bc4#roboto') format("svg");
 }
 /* line 5, wp-content/themes/chefSociety/scss/chefSociety/_typography.scss */
 body {
@@ -1011,7 +1011,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
     height: 203px;
     position: absolute;
     z-index: 1;
-    background: url('//desarrolloesencial.com/wp-content/themes/chefSociety/images/macbook.png');
+    background: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/images/macbook.png?589e4bce');
   }
   /* line 31, wp-content/themes/chefSociety/scss/chefSociety/_sample.scss */
   .sample-content .device-promo .macbook .macbook-color {
@@ -1028,7 +1028,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
     height: 203px;
     position: absolute;
     z-index: 2;
-    background: url('//desarrolloesencial.com/wp-content/themes/chefSociety/images/ipad.png');
+    background: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/images/ipad.png?589e4bd0');
   }
   /* line 46, wp-content/themes/chefSociety/scss/chefSociety/_sample.scss */
   .sample-content .device-promo .ipad .ipad-color {
@@ -1045,7 +1045,7 @@ input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focu
     height: 203px;
     position: absolute;
     z-index: 3;
-    background: url('//desarrolloesencial.com/wp-content/themes/chefSociety/images/iphone.png');
+    background: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/images/iphone.png?589e4bd0');
   }
   /* line 61, wp-content/themes/chefSociety/scss/chefSociety/_sample.scss */
   .sample-content .device-promo .iphone .iphone-color {
