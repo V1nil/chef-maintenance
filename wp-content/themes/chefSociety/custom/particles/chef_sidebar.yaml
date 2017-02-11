@@ -1,0 +1,13 @@
+name: Chef Sidebar
+description: Muestra el sidebar del usuario
+type: particle
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable WordPress Posts particles.
+      default: true
+
+    

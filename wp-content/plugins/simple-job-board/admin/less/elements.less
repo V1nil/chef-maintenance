@@ -1,0 +1,97 @@
+/*--------------------------
+# Elements
+----------------------------*/
+
+/**
+ * Job Detail Page -> Meta Boxes CSS
+ */
+.simple-job-board-metabox {
+    padding: 12px;
+    clear: both;
+}
+.simple-job-board-metabox::after, .simple-job-board-metabox::before {
+    content: "";
+    display: table;
+}
+.simple-job-board-metabox::after {
+    clear: both;
+}
+.metabox-field {
+    clear: both;
+    float: left;
+    line-height: 2em;
+    margin: 0 0 12px;
+    padding: 0 12px 0 0;
+    width: 50%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.metabox-field:nth-child(2n) {
+    clear: right;
+    float: right;
+    padding: 0 0 0 12px;
+}
+.metabox-field label {
+    display: block;
+    font-weight: 700;
+    margin: 0;
+    vertical-align: middle;
+}
+.metabox-field input[ type=text ],
+.metabox-field textarea
+{
+    width: 100%;
+}
+.metabox-field .file_url input {
+    width: 85.8%;
+}
+.metabox-field .tips {
+    color: #999;
+    cursor: help;
+    float: right;
+    font-weight: 400;
+}
+.meta_option_panel label {
+    cursor: default;
+    min-width: 175px;
+    display: inline-block;
+}
+#app_form_fields select, select#jobapp_field_type {
+    width: 200px;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+/* Meta Boxes & Settings -> Movable Fields */
+#job_features li label, #app_form_fields li label, #settings_job_features li label, #settings_app_form_fields li label{
+    cursor: move;
+}
+
+/* TinyMCE button */
+i.mce-i-icon {
+    font: 400 20px/1 dashicons;
+    padding: 0;
+    vertical-align: top;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: -2px;
+    padding-right: 2px
+}
+i.mce-ico.mce-i-icon.sjb-icon {
+    background-image: url(../images/jobs.png);    
+}
+body .mce-window .mce-container-body.mce-abs-layout {
+    overflow-y: hidden;
+}
+
+/* Settings Required Fields */
+.settings-field-options, .jobapp-field-options {
+    margin-right: 15px;
+}
+
+/* Footer Logo*/
+#job_general_options{
+    margin-bottom: 50px;
+}

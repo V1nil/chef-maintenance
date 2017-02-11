@@ -1,0 +1,79 @@
+name: _error
+timestamp: 1486769029
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  content:
+    system-content-9690: 'Page Content'
+  sample:
+    sample-3: Comunidad
+  slideshow:
+    slideshow-1585: Slideshow
+  logo:
+    logo-6178: 'Logo / Image'
+    logo-9856: 'Logo / Image'
+    logo-2686: 'Logo / Image'
+  social:
+    social-4968: Social
+  mobile-menu:
+    mobile-menu-2705: Mobile-menu
+  menu:
+    menu-2010: Menu
+    menu-3848: Menu
+  chef_search:
+    chef_search-7582: 'Chef Search'
+    chef_search-1718: 'Chef Search'
+  custom:
+    custom-2381: 'Custom HTML'
+    custom-2683: 'Custom HTML'
+    custom-7879: 'Custom HTML'
+    custom-6953: 'Custom HTML'
+    custom-3087: 'Custom HTML'
+    custom-6438: 'Custom HTML'
+  modal-login:
+    modal-login-4640: 'Modal Login'
+    modal-login-2331: 'Modal Login'
+    modal-login-1435: 'Modal Login'
+  spacer:
+    spacer-3699: Spacer
+    spacer-8205: Spacer
+  totop:
+    totop-3617: 'To Top'
+inherit:
+  pages:
+    navigation: navigation
+    logo-9856: logo-6922
+    menu-2010: menu-8101
+    chef_search-7582: chef_search-3140
+    custom-2381: custom-3320
+    modal-login-4640: modal-login-4598
+    logo-2686: logo-4062
+    menu-3848: menu-7976
+    custom-2683: custom-6133
+    modal-login-2331: modal-login-2830
+    chef_search-1718: chef_search-6337
+    modal-login-1435: modal-login-8521
+  home:
+    prefooter: prefooter
+    custom-7879: custom-8930
+    custom-6953: custom-2913
+    custom-3087: custom-2737
+    custom-6438: custom-8499
+    spacer-3699: spacer-4674
+    totop-3617: totop-2079
+    spacer-8205: spacer-5099

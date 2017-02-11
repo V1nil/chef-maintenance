@@ -1,0 +1,393 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+layout:
+  /header/: {  }
+  navigation: {  }
+  /showcase/:
+    -
+      - slideshow-4959
+    -
+      - slideshow-4793
+    -
+      - slideshow-9910
+  /feature/:
+    -
+      - custom-7698
+    -
+      - chef_contentarray-1184
+    -
+      - chef_contentarray-4665
+    -
+      - custom-6172
+  /main/:
+    -
+      - custom-5149
+  /subfeature/:
+    -
+      - sample-3
+    -
+      - slideshow-1585
+  /prefooter/:
+    -
+      - 'custom-8930 22'
+      - 'custom-2913 22'
+      - 'custom-2737 22'
+      - 'custom-8499 34'
+    -
+      - 'spacer-4674 45'
+      - 'totop-2079 22'
+      - 'spacer-5099 33'
+  /footer/:
+    -
+      - 'logo-6178 90'
+      - 'social-4968 10'
+  offcanvas:
+    -
+      - mobile-menu-5891
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  showcase:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+  feature:
+    type: section
+    attributes:
+      boxed: ''
+  main:
+    attributes:
+      boxed: ''
+      class: call-to-action-home
+  subfeature:
+    type: section
+    attributes:
+      boxed: ''
+      class: flush
+      extra:
+        -
+          style: 'background:#3c3c3b'
+  prefooter:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#D0D0D0'
+  footer:
+    attributes:
+      boxed: ''
+content:
+  slideshow-4959:
+    attributes:
+      height: '500'
+      navigation: none
+      animationDuration: '500'
+      items:
+        -
+          image: 'gantry-media://slide.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          overlaystyle: style1
+          overlayposition: middle-left
+          overlayanimation: slide-left
+          overlaywidth: '2'
+          class: ''
+          name: 'Slide 1'
+        -
+          image: 'gantry-media://slide-2.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          overlaystyle: style1
+          overlayposition: middle-left
+          overlayanimation: slide-left
+          overlaywidth: '2'
+          class: ''
+          name: 'Slide 2'
+        -
+          image: 'gantry-media://slide-3.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          overlaystyle: style1
+          overlayposition: middle-left
+          overlayanimation: slide-left
+          overlaywidth: '2'
+          class: ''
+          name: 'Slide 3'
+    block:
+      class: 'hidden-phone hidden-tablet'
+  slideshow-4793:
+    attributes:
+      height: '500'
+      navigation: none
+      animationDuration: '500'
+      items:
+        -
+          image: 'gantry-media://slide.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          overlaystyle: style1
+          overlayposition: left
+          overlayanimation: slide-left
+          overlaywidth: '2'
+          class: ''
+          name: 'Slide 1'
+        -
+          image: 'gantry-media://slide-2.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          overlaystyle: style1
+          overlayposition: left
+          overlayanimation: slide-left
+          overlaywidth: '2'
+          class: ''
+          name: 'Slide 2'
+        -
+          image: 'gantry-media://slide-3.jpg'
+          videoiframe: ''
+          alt: ''
+          title: 'THE CHEF''S KITCHEN [TEXTO 1]'
+          link: ''
+          target: _parent
+          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          overlaystyle: style1
+          overlayposition: left
+          overlayanimation: slide-left
+          overlaywidth: '2'
+          class: ''
+          name: 'Slide 3'
+    block:
+      class: hidden-desktop
+  slideshow-9910:
+    attributes:
+      height: '70'
+      autoplay: 'true'
+      autoplayInterval: '5000'
+      navigation: none
+      animation: swipe
+      css:
+        class: ''
+      items:
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+    block:
+      class: marcas
+  custom-7698:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h2>Qué se cuece</h2>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare ac sem ut posuere.</p>"
+  chef_contentarray-1184:
+    title: 'WP Posts Chef'
+    attributes:
+      post:
+        filter:
+          categories: '33'
+        limit:
+          total: '8'
+          columns: '4'
+        display:
+          title:
+            limit: '7'
+          text:
+            limit: '15'
+    block:
+      scalar: class
+  chef_contentarray-4665:
+    title: 'WP Posts Chef'
+    attributes:
+      post:
+        filter:
+          categories: '33'
+        limit:
+          total: '8'
+        display:
+          title:
+            limit: '7'
+          text:
+            limit: '15'
+    block:
+      class: visible-tablet
+  custom-6172:
+    title: 'Custom HTML'
+    attributes:
+      html: "<div class=\"gap-20\"></div>\n<p class=\"text-center\"><a href=\"/que-se-cuece/\" class=\"btn btn-primary btn-top pointer\">Ver más <i class=\"fa fa-plus-circle\" aria-hidden=\"true\"></i>\n</a></p>\n<div class=\"gap-20\"></div>\n<p class=\"text-center links-ver-mas\">O descubre:<br>\n<a href=\"/talleres/\">TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>,  <a href=\"/recetas/\">RECETAS <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a> o  <a href=\"/chefs/\">CHEFS <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a></p>\n"
+  custom-5149:
+    title: 'Custom HTML'
+    attributes:
+      html: "<img src=\"wp-content/themes/chefSociety/images/icon-logo.png\">\n<h2 class=\"c-w\">CALL TO ACTION</h2>\n<p class=\"lead c-w\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>\n<p class=\"c-w\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>\n<a class=\"read-more\" href=\"chef.php\"><i class=\"fa fa-plus-circle fa-4x\" aria-hidden=\"true\"></i></a>"
+    block:
+      class: text-center
+  sample-3:
+    title: Comunidad
+    attributes:
+      enabled: 0
+      headline: 'Comunidad de Chefs'
+      description: "<p>ChefSociety - A global community of creative chefs and foodie</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare ac sem ut posuere.</p>"
+      samples:
+        -
+          icon: 'fa fa-users'
+          subtitle: ''
+          description: '<p>Una comunidad de chefs donde compartir ideas y mostrar creaciones</p>'
+          id: ''
+          class: ''
+          variations: ''
+          title: 'Chefs como tu'
+        -
+          icon: 'fa fa-newspaper-o'
+          subtitle: ''
+          description: '<p>Las ultimas noticias del mundo de la cocina</p>'
+          id: ''
+          class: ''
+          variations: ''
+          title: Noticias
+        -
+          icon: 'fa fa-cubes'
+          subtitle: ''
+          description: '<p>Crea, publica y date a conocer</p>'
+          id: ''
+          class: ''
+          variations: ''
+          title: Conocimiento
+  slideshow-1585:
+    attributes:
+      height: '70'
+      autoplay: 'true'
+      autoplayInterval: '5000'
+      navigation: none
+      animation: swipe
+      items:
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+  custom-8930:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Secciones</h4>\n<ul>\n<li><a href=\"/que-se-cuece/\">Qué se cuece</a></li>\n<li><a href=\"/talleres/\">Talleres culinarios</a></li>\n<li><a href=\"/recetas/\">Recetas</a></li>\n</ul>\n                    \n"
+    block:
+      class: 'prefooter footer-block-1'
+  custom-2913:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>OPORTUNIDADES</h4>\n<ul>\n<li><a href=\"/promociones/\">Promociones</a></li>\n</ul>"
+    block:
+      class: 'prefooter footer-block-2'
+  custom-2737:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Información</h4>\n<ul>\n<li><a href=\"/aviso-legal/\">Aviso legal</a></li>\n<li><a href=\"/contacto/\">Contacto</a></li>\n<li><a href=\"/condiciones-de-uso/\">Condiciones de uso</a></li>\n</ul>"
+    block:
+      class: 'prefooter footer-block-3'
+  custom-8499:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Suscríbete a nuestra newsletter</h4>\n<p>Recibe promociones, noticias, ..</p>\n<form enctype=\"application/x-www-form-urlencoded\" action=\"http://chefsociety.ip-zone.com/ccm/subscribe/index/form/ixdcgqi7u7\" method=\"post\">\n<div style=\"display:flex\">\n\n<input class=\"button-subscribe\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Email\" type=\"text\" required=\"\">\n\n\t\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" name=\"submit\" id=\"submit\" value=\"Suscribirme\" type=\"submit\">\n</div>\n\n</form>\n                    \n"
+    block:
+      class: 'prefooter footer-block-4'
+  totop-2079:
+    title: 'To Top'
+    attributes:
+      icon: 'fa fa-angle-double-up fa-3x'
+      content: ''
+  logo-6178:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: disable-div-spaces
+  social-4968:
+    attributes:
+      css:
+        class: social-items
+      items: {  }
+    block:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px'
+  mobile-menu-5891:
+    title: 'Mobile Menu'

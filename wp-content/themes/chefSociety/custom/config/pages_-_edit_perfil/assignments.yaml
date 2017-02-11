@@ -1,0 +1,9 @@
+context: {  }
+menu: {  }
+post:
+  page:
+    240: true
+taxonomy: {  }
+archive: {  }
+woocommerce: {  }
+buddypress: {  }

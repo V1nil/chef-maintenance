@@ -1,0 +1,30 @@
+enabled: '1'
+post:
+  filter:
+    categories: ''
+  limit:
+    total: '2'
+    columns: '2'
+    start: '0'
+  sort:
+    orderby: date
+    ordering: DESC
+  display:
+    title:
+      limit: ''
+    date:
+      enabled: published
+      format: 'l, F d, Y'
+    author:
+      enabled: show
+    category:
+      enabled: link
+    comments:
+      enabled: show
+    text:
+      type: content
+      limit: ''
+      formatting: text
+css:
+  class: ''
+extra: {  }

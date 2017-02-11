@@ -1,0 +1,152 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1465201940
+layout:
+  /header/: {  }
+  /navigation/:
+    -
+      - 'logo-4772 22'
+      - 'menu-2475 43'
+      - 'custom-9242 17'
+      - 'custom-1799 6'
+      - 'modal-login-1860 12'
+    -
+      - 'logo-3297 25'
+      - 'menu-8882 55'
+      - 'custom-6479 10'
+      - 'modal-login-3489 10'
+    -
+      - 'custom-3421 50'
+      - 'modal-login-9838 50'
+  /main/:
+    -
+      - system-content-1600
+  /footer/:
+    -
+      - 'logo-8503 80'
+      - 'social-8889 20'
+  offcanvas:
+    -
+      - mobile-menu-4746
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+      extra:
+        -
+          style: 'padding-top:0.5em'
+  main:
+    attributes:
+      boxed: ''
+  footer:
+    attributes:
+      boxed: ''
+content:
+  logo-4772:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety1.png'
+      class: ''
+    block:
+      class: 'hidden-phone hidden-tablet'
+  menu-2475:
+    attributes:
+      menu: menu-main
+    block:
+      class: 'hidden-phone hidden-tablet top-menu-block'
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-9242:
+    title: 'Custom HTML'
+    attributes:
+      html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+    block:
+      class: 'hidden-phone hidden-tablet search-block'
+  custom-1799:
+    title: 'Custom HTML'
+    attributes:
+      html: '<ul><a href="carrito/"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></ul>'
+      twig: '1'
+      filter: '1'
+    block:
+      fixed: '1'
+  modal-login-1860:
+    title: 'Modal Login'
+    attributes:
+      textlogin: Entrar
+      textcreate: 'Crear Cuenta'
+      width: '660'
+      idmodal: '1'
+  logo-3297:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: hidden-desktop
+  menu-8882:
+    attributes:
+      menu: menu-main-long
+    block:
+      class: 'visible-tablet hidden-desktop'
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-6479:
+    title: 'Custom HTML'
+    attributes:
+      enabled: 0
+      html: '<ul class="carrito"><a href="carro/"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></ul>'
+    block:
+      class: hidden-desktop
+  modal-login-3489:
+    title: 'Modal Login'
+    attributes:
+      enabled: 0
+    block:
+      class: hidden-desktop
+  custom-3421:
+    title: 'Custom HTML'
+    attributes:
+      html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+    block:
+      class: 'hidden-desktop hidden-phone hidden-tablet'
+      extra:
+        -
+          style: 'margin-top:1em'
+  modal-login-9838:
+    title: 'Modal Login'
+    attributes:
+      textlogin: Entrar
+      textcreate: 'Crear Cuenta'
+      width: '660'
+      idmodal: '2'
+    block:
+      class: hidden-desktop
+      extra:
+        -
+          style: 'margin-top:2em'
+  logo-8503:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: disable-div-spaces
+  social-8889:
+    attributes:
+      css:
+        class: social-items
+      items: {  }
+    block:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px'

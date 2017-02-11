@@ -1,0 +1,156 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+layout:
+  /header/: {  }
+  navigation: {  }
+  /postnavigation/:
+    -
+      - custom-3022
+  /container-main/:
+    -
+      -
+        '/main/ 75':
+          -
+            - system-content-7284
+      -
+        'sidebar 25':
+          -
+            - chef_sidebar-7275
+  /main-mobile/:
+    -
+      - system-content-3611
+    -
+      - chef_sidebar-3012
+  /prefooter/:
+    -
+      - 'custom-8930 15'
+      - 'custom-2913 15'
+      - 'custom-2737 25'
+      - 'custom-8499 45'
+    -
+      - 'spacer-4674 45'
+      - 'totop-2079 22'
+      - 'spacer-5099 33'
+  /footer/:
+    -
+      - 'logo-6178 90'
+      - 'social-4968 10'
+  offcanvas:
+    -
+      - mobile-menu-5916
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  main:
+    attributes:
+      boxed: ''
+      class: ''
+  sidebar:
+    type: section
+    subtype: aside
+    attributes:
+      class: noticias-sidebar
+    block:
+      fixed: '1'
+  container-main:
+    attributes:
+      boxed: ''
+      class: 'hidden-phone hidden-tablet'
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  main-mobile:
+    title: Mobile
+    attributes:
+      boxed: '2'
+      class: 'visible-phone visible-tablet'
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  prefooter:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#D0D0D0'
+  footer:
+    attributes:
+      boxed: ''
+content:
+  custom-3022:
+    title: 'Custom HTML'
+    attributes:
+      html: '[breadcrumb]'
+      filter: '1'
+    block:
+      class: no-margin-particle
+  chef_sidebar-7275:
+    title: 'Chef Sidebar'
+  chef_sidebar-3012:
+    title: 'Chef Sidebar'
+  custom-8930:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Secciones</h4>\n<ul>\n<li><a href=\"/que-se-cuece/\">Qué se cuece</a></li>\n<li><a href=\"/talleres/\">Talleres culinarios</a></li>\n<li><a href=\"/recetas/\">Recetas</a></li>\n</ul>\n                    \n"
+    block:
+      class: prefooter
+  custom-2913:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>OPORTUNIDADES</h4>\n<ul>\n<li><a href=\"/promociones/\">Promociones</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-2737:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Información</h4>\n<ul>\n<li><a href=\"/aviso-legal/\">Aviso legal</a></li>\n<li><a href=\"/contacto/\">Contacto</a></li>\n<li><a href=\"/condiciones-de-uso/\">Condiciones de uso</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-8499:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Suscríbete a nuestra newsletter</h4>\n<p>Recibe promociones, noticias, ..</p>\n<form enctype=\"application/x-www-form-urlencoded\" action=\"http://chefsociety.ip-zone.com/ccm/subscribe/index/form/ixdcgqi7u7\" method=\"post\">\n<div style=\"display:flex\">\n\n<input class=\"button-subscribe\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Email\" type=\"text\" required=\"\">\n\n\t\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" name=\"submit\" id=\"submit\" value=\"Suscribirme\" type=\"submit\">\n</div>\n\n</form>\n                    \n"
+    block:
+      class: prefooter
+  totop-2079:
+    title: 'To Top'
+    attributes:
+      icon: 'fa fa-angle-double-up fa-3x'
+      content: ''
+  logo-6178:
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: disable-div-spaces
+  social-4968:
+    attributes:
+      css:
+        class: social-items
+      items: {  }
+    block:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px;'

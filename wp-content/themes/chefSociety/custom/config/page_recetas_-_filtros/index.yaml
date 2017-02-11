@@ -1,0 +1,92 @@
+name: page_recetas_-_filtros
+timestamp: 1486769043
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  custom:
+    custom-6958: Custom
+    custom-7075: 'Custom HTML'
+    custom-2622: 'Custom HTML'
+    custom-9679: 'Custom HTML'
+    custom-6378: 'Custom HTML'
+    custom-1182: 'Custom HTML'
+    custom-5744: 'Custom HTML'
+  menu:
+    menu-3116: Menu
+    menu-8837: Menu
+    menu-5430: Menu
+  logo:
+    logo-8380: 'Logo / Image'
+    logo-8671: 'Logo / Image'
+    logo-2795: 'Logo / Image'
+  chef_search:
+    chef_search-6701: 'Chef Search'
+    chef_search-9290: 'Chef Search'
+  modal-login:
+    modal-login-9055: 'Modal Login'
+    modal-login-8842: 'Modal Login'
+    modal-login-1939: 'Modal Login'
+  content:
+    system-content-9172: 'Page Content'
+  slideshow:
+    slideshow-5112: Slideshow
+  social:
+    social-9006: Social
+  mobile-menu:
+    mobile-menu-1209: 'Mobile Menu'
+  spacer:
+    spacer-2521: Spacer
+    spacer-3120: Spacer
+  totop:
+    totop-6295: 'To Top'
+inherit:
+  pages:
+    header: header
+    navigation: navigation
+    custom-6958: custom-3022
+    showcase: showcase
+    feature: feature
+    main: main
+    subfeature: subfeature
+    footer: footer
+    offcanvas: offcanvas
+    logo-8380: logo-6922
+    menu-8837: menu-8101
+    chef_search-6701: chef_search-3140
+    custom-7075: custom-3320
+    modal-login-9055: modal-login-4598
+    logo-8671: logo-4062
+    menu-5430: menu-7976
+    custom-2622: custom-6133
+    modal-login-8842: modal-login-2830
+    chef_search-9290: chef_search-6337
+    modal-login-1939: modal-login-8521
+    system-content-9172: system-content-6416
+    slideshow-5112: slideshow-3373
+    logo-2795: logo-6178
+    social-9006: social-4968
+    mobile-menu-1209: mobile-menu-5891
+  home:
+    prefooter: prefooter
+    custom-9679: custom-8930
+    custom-6378: custom-2913
+    custom-1182: custom-2737
+    custom-5744: custom-8499
+    spacer-2521: spacer-4674
+    totop-6295: totop-2079
+    spacer-3120: spacer-5099

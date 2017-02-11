@@ -1,0 +1,162 @@
+<div class="wrap timely ticketing">
+	<h2>{{ title | raw }}</h2>
+	<div id="poststuff">
+		<div class="ai1ec-tickets-manage">
+			<ul class="ai1ec-nav ai1ec-nav-tabs">
+				<li class="ai1ec-active">
+					<a href="#ai1ec_settings" data-toggle="ai1ec-tab">{{ settings_text }}</a>
+				</li>
+				<li>
+					<a href="#ai1ec_sales" data-toggle="ai1ec-tab">{{ sales_text }}</a>
+				</li>
+			</ul>
+			<div class="ai1ec-tab-content ai1ec-form-horizontal">
+				<div class="ai1ec-tab-pane ai1ec-active" id="ai1ec_settings">
+					<form action="" method="POST">
+						<input type="hidden" name="ai1ec_save_settings" value="1">
+						<ul class="ai1ec-payment-method ai1ec-panel">
+							<h4>{{ select_payment_text }}</h4>
+							<p>{{ select_payment_description_text }}</p>
+							<li class="ai1ec-payment-type">
+								<label for="ai1ec_payment_cheque">
+									<input type="radio" name="ai1ec_payment_method"
+										{% if 'cheque' == payment_method %} checked='checked' {% endif %}
+										id="ai1ec_payment_cheque" value="cheque">
+									{{ cheque_text }}
+								</label>
+								<div class="ai1ec-payment-details
+									{% if 'cheque' == payment_method %} ai1ec-active {% endif %}
+								">
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input type="text" name="ai1ec_street"
+										{% if street %} value='{{ street }}' {% endif %}
+										placeholder="Street Address" class="ai1ec-required" />
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input type="text" name="ai1ec_city"
+										{% if city %} value='{{ city }}' {% endif %} 
+										placeholder="City" class="ai1ec-required" />
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input type="text" name="ai1ec_state"
+										{% if state %} value='{{ state }}' {% endif %}
+										placeholder="State" class="ai1ec-required" />
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input type="text" name="ai1ec_country"
+										{% if country %} value='{{ country }}' {% endif %}
+										placeholder="Country" class="ai1ec-required" />
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input type="text" name="ai1ec_postcode"
+										{% if postcode %} value='{{ postcode }}' {% endif %}
+										placeholder="ZIP/Postal Code"
+										name="ai1ec_postal" class="ai1ec-required" />
+								</div>
+							</li>
+							<li class="ai1ec-payment-type">
+								<label for="ai1ec_payment_paypal">
+									<input type="radio" name="ai1ec_payment_method"
+										{% if 'paypal' == payment_method %} checked='checked' {% endif %}
+										id="ai1ec_payment_paypal" value="paypal">
+									{{ paypal_text }}
+								</label>
+								<div class="ai1ec-payment-details
+									{% if 'paypal' == payment_method %} ai1ec-active {% endif %}
+								">
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input name="ai1ec_paypal_email" type="email"
+										{% if paypal_email %} value='{{ paypal_email }}' {% endif %}
+										   placeholder="Email" class="ai1ec-required"/>
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input name="ai1ec_first_name" type="text"
+										{% if first_name %} value='{{ first_name }}' {% endif %}
+										   placeholder="First Name" class="ai1ec-required"/>
+									<div class="ai1ec-ticket-field-error">
+										{{ required_text }}
+									</div>
+									<input name="ai1ec_last_name" type="text"
+										{% if last_name %} value='{{ last_name }}' {% endif %}
+										   placeholder="Last Name" class="ai1ec-required"/>
+								</div>
+							</li>
+						</ul>
+						<div>
+							<a href="#" name="ai1ec_tickets_submit"
+							   class="ai1ec-btn ai1ec-btn-primary ai1ec-btn-lg">
+								{{ save_changes_text }}
+							</a>
+						</div>
+					</form>
+				</div>
+
+				<form method="post" action="{{ action }}" class="ai1ec-hidden">
+					<input type="hidden" name="ai1ec_signout" class="ai1ec-noauto" value="1" />
+					{{ wp_nonce_field( nonce.action, nonce.name, nonce.referrer ) }}
+					<button type="submit"
+					   class="ai1ec-btn ai1ec-btn-sm ai1ec-btn-default ai1ec-text-danger">
+						{{ sign_out_button_text }}
+					</button>
+				</form>
+				<div class="ai1ec-tab-pane" id="ai1ec_sales">
+					<table class="ai1ec-ticket-sales">
+						<thead>
+							<tr>
+								<th class="ai1ec-hidden-sm">{{ date_text }}</th>
+								<th>{{ event_text }}</th>
+								<th class="ai1ec-hidden-sm">{{ purchaser_text }}</th>
+								<th>{{ email_text }}</th>
+								<th>{{ tickets_text }}</th>
+								<th>{{ total_text }}</th>
+								<th>{{ status_text }}</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for purchase in purchases %}
+							<tr>
+								<td>
+									<div class="ai1ec-visible-sm">
+										{{ purchase.event_title }}
+									</div>
+									{{ purchase.created_at }}
+								</td>
+								<td class="ai1ec-hidden-sm">
+									{{ purchase.event_title }}
+								</td>
+								<td class="ai1ec-hidden-sm">
+									{{ purchase.purchaser_name }}
+								</td>
+								<td>
+									<div class="ai1ec-visible-sm">
+										{{ purchase.purchaser_name }}
+									</div>
+									{{ purchase.email }}
+								</td>
+								<td>
+									<div class="ai1ec-visible-sm">
+										{{ purchase.ticket_count }}
+									</div>
+									{{ purchase.ticket_count }}
+								</td>
+								<td>${{ purchase.total }} USD</td>
+								<td>{{ purchase.status }}</td>
+							</tr>
+							 {% endfor %}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>{# /#poststuff #}
+</div>{# /.wrap #}
+

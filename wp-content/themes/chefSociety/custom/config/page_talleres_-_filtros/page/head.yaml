@@ -1,0 +1,7 @@
+atoms:
+  -
+    title: 'UIkit for Gantry5'
+    type: uikit
+    attributes:
+      enabled: true
+      jslocation: footer

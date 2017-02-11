@@ -1,0 +1,100 @@
+/* Settings Page */
+.settings_panel h4:first-child {
+    margin-top: 30px;
+}
+.settings_panel h4 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+/* Settings Page -> Job Features */
+.settings_panel label{
+    cursor: default;
+    min-width: 250px;
+    display: inline-block;
+}
+
+/* Settings Page -> Application Form Fields */
+.app_form_fields:first-child{
+    *margin: 0;
+}
+.app_form_fields{
+    background: #F9F9F9;
+    padding: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+#settings_app_form_fields select{
+    min-width: 125px;
+}
+
+/**
+ * Meta Boxes CSS
+ */
+.simple-job-board-metabox {
+    padding: 12px;
+    clear: both;
+}
+.simple-job-board-metabox::after, .simple-job-board-metabox::before {
+    content: "";
+    display: table;
+}
+.simple-job-board-metabox::after {
+    clear: both;
+}
+.metabox-field {
+    clear: both;
+    float: left;
+    line-height: 2em;
+    margin: 0 0 12px;
+    padding: 0 12px 0 0;
+    width: 50%;
+    -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    
+}
+.metabox-field:nth-child(2n) {
+    clear: right;
+    float: right;
+    padding: 0 0 0 12px;
+}
+.metabox-field label {
+    display: block;
+    font-weight: 700;
+    margin: 0;
+    vertical-align: middle;
+}
+.metabox-field input[ type=text ],
+.metabox-field textarea
+{
+    width: 100%;
+}
+
+.metabox-field .file_url input {
+    width: 85.8%;
+}
+.metabox-field .tips {
+    color: #999;
+    cursor: help;
+    float: right;
+    font-weight: 400;
+}
+.meta_option_panel label {
+  cursor: default;
+  min-width: 175px;
+  display: inline-block;
+}
+
+/* Settings Uploded files Section */
+#upload-file-select {
+    width: 50%;
+    margin-top: 10px;
+    margin-bottom: 10px;    
+}
+#job_features li label, #app_form_fields li label, #settings_job_features li label, #settings_app_form_fields li label{
+    cursor: move;
+}
+#sjb-presstigers-logo{
+ float:right;   
+}

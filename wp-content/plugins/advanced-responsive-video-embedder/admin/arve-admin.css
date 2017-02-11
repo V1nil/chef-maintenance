@@ -1,0 +1,41 @@
+.arve-license-input {
+	width: 250px;
+}
+
+[data-nj-notice-id] p {
+	font-size: 1.2em;
+}
+
+.arve-btn {
+	padding-left: 3px;
+}
+
+.arve-icon:before {
+	content: "\f236" !important; /* dashicon-video-alt */
+}
+
+.arve-options-wrap {
+	max-width: 1000px;
+}
+
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .field-block {
+  padding-top: .4em;
+	padding-bottom: .4em;
+}
+
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .field-block label {
+	display: inline-block;
+	margin: 0;
+}
+
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .field-block label:first-child {
+	width: 110px;
+}
+
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .shortcode-ui-attribute-upload_date input,
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .shortcode-ui-attribute-aspect_ratio input,
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .shortcode-ui-attribute-url input,
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .shortcode-ui-attribute-title input,
+.edit-shortcode-form-fields.shortcode-ui-edit-arve .shortcode-ui-attribute-description input {
+	width: 700px;
+}

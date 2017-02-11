@@ -1,0 +1,6 @@
+enabled: '1'
+ua:
+  code: ''
+  anonym: '0'
+  ssl: '0'
+  debug: '0'

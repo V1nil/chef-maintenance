@@ -1,0 +1,518 @@
+# Copyright (C) 2015 Simple Job Board
+# This file is distributed under the same license as the Simple Job Board package
+msgid ""
+msgstr ""
+"Project-Id-Version: Simple Job Board 2.1.0\n"
+"POT-Creation-Date: 2015-10-05 16:13+0500\n"
+"PO-Revision-Date: 2016-01-26 15:19+0500\n"
+"Last-Translator: PressTigers <support@presstigers.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;gettext;gettext_noop\n"
+"X-Poedit-Basepath: /wp-content/plugins/simple-job-board\n"
+"Language: it_IT\n"
+
+#: admin/class-simple-job-board-admin-setup.php:50
+#: admin/class-simple-job-board-admin-setup.php:60
+msgid "Settings"
+msgstr "Impostazioni"
+
+#: admin/class-simple-job-board-admin-setup.php:62
+msgid "General"
+msgstr "Generale"
+
+#: admin/class-simple-job-board-admin-setup.php:77
+msgid "General Options"
+msgstr "Opzioni Generali"
+
+#: admin/class-simple-job-board-admin-setup.php:63
+#: templates/job-features.php:11
+msgid "Job Features"
+msgstr "caratteristiche offerta"
+
+#: admin/class-simple-job-board-admin-setup.php:64
+#: admin/class-simple-job-board-writepanels.php:53
+msgid "Application Form Fields"
+msgstr "campi modulo per candidatura"
+
+#: admin/class-simple-job-board-admin-setup.php:65
+msgid "Filters"
+msgstr "Filtri"
+
+#: admin/class-simple-job-board-admin-setup.php:66
+msgid "Email Notifications"
+msgstr "Notifiche Email"
+
+#: admin/class-simple-job-board-admin-setup.php:67
+#: admin/class-simple-job-board-admin-setup.php:491
+msgid "Upload File Extensions"
+msgstr "Caricamento file"
+
+#: admin/class-simple-job-board-admin-setup.php:60
+msgid "Appearance"
+msgstr "Apparenza"
+
+#: admin/class-simple-job-board-admin-setup.php:81
+msgid "Job Listing Views"
+msgstr "Visualizzare un elenco di posti di lavoro"
+
+#: admin/class-simple-job-board-admin-setup.php:134
+msgid "Job Listing Contents"
+msgstr "Contenuto della lista dei lavori"
+
+#: admin/class-simple-job-board-admin-setup.php:124
+msgid "Display job listing in list view"
+msgstr "Visualizzare posti di lavoro in liste"
+
+#: admin/class-simple-job-board-admin-setup.php:128
+msgid "Display job listing in grid view"
+msgstr "Visualizzare posti di lavoro in griglie"
+
+#: admin/class-simple-job-board-admin-setup.php:105
+msgid "Display job listing with company logo and detail"
+msgstr "Visualizzare l'elenco dei lavori con il logo aziendale e dettagli"
+
+#: admin/class-simple-job-board-admin-setup.php:109
+msgid "Display job listing without company logo and detail"
+msgstr ""
+"Visualizzare l'elenco dei posti di lavoro senza logo aziendale e dettagli"
+
+#: admin/class-simple-job-board-admin-setup.php:113
+msgid "Display job listing without company logo"
+msgstr "Visualizzare l'elenco dei posti di lavoro senza logo aziendale"
+
+#: admin/class-simple-job-board-admin-setup.php:123
+msgid "Default Feature List"
+msgstr "lista caratteristiche predefinita"
+
+#: admin/class-simple-job-board-admin-setup.php:160
+msgid "Field Name"
+msgstr "nome campo"
+
+#: admin/class-simple-job-board-admin-setup.php:170
+msgid "Add New Feature"
+msgstr "aggiungi nuova caratteristica"
+
+#: admin/class-simple-job-board-admin-setup.php:175
+#: admin/class-simple-job-board-writepanels.php:137
+msgid "Feature"
+msgstr "caratteristica"
+
+#: admin/class-simple-job-board-admin-setup.php:176
+#: admin/class-simple-job-board-writepanels.php:138
+msgid "Value"
+msgstr "valore"
+
+#: admin/class-simple-job-board-admin-setup.php:205
+msgid "Default Application Form Fields"
+msgstr "campi modulo candidatura predefiniti"
+
+#: admin/class-simple-job-board-admin-setup.php:280
+#: admin/class-simple-job-board-writepanels.php:255
+msgid "Field"
+msgstr "Campo"
+
+#: admin/class-simple-job-board-admin-setup.php:281
+#: admin/class-simple-job-board-writepanels.php:256
+msgid "Type"
+msgstr "Tipo"
+
+#: admin/class-simple-job-board-admin-setup.php:346
+msgid "Select filters that display on front-end"
+msgstr "seleziona filtri visibili sulla frontend"
+
+#: admin/class-simple-job-board-admin-setup.php:351
+msgid "Enable the Job Category Filter"
+msgstr "abilita il filtro categorie offerta"
+
+#: admin/class-simple-job-board-admin-setup.php:356
+msgid "Enable the Job Type Filter"
+msgstr "abilita il filtro tipo offerta"
+
+#: admin/class-simple-job-board-admin-setup.php:361
+msgid "Enable the Job Location Filter"
+msgstr "abilita il filtro località offerta"
+
+#: admin/class-simple-job-board-admin-setup.php:366
+msgid "Enable the Search Bar"
+msgstr "abilita il campo ricerca"
+
+#: admin/class-simple-job-board-admin-setup.php:414
+msgid "Enable Email Notification"
+msgstr "abilita notifiche email"
+
+#: admin/class-simple-job-board-admin-setup.php:419
+msgid "HR Email:"
+msgstr "Email al HR:"
+
+#: admin/class-simple-job-board-admin-setup.php:427
+msgid "Admin Email:"
+msgstr "email Admin"
+
+#: admin/class-simple-job-board-admin-setup.php:424
+msgid "Enable the HR email notification"
+msgstr "abilita notifiche email HR"
+
+#: admin/class-simple-job-board-admin-setup.php:432
+msgid "Enable the Admin email notification"
+msgstr "abilita notifiche email Admin"
+
+#: admin/class-simple-job-board-admin-setup.php:436
+msgid "Enable the Applicant email notification"
+msgstr "abilita notifiche email Candidati"
+
+#: admin/class-simple-job-board-admin-setup.php:520
+msgid "Press and hold down the Ctrl key to select multiple extensions."
+msgstr "tasto Ctrl per più selezioni"
+
+#: admin/class-simple-job-board-admin-setup.php:498
+msgid "pdf"
+msgstr ""
+
+#: admin/class-simple-job-board-admin-setup.php:502
+msgid "doc"
+msgstr ""
+
+#: admin/class-simple-job-board-admin-setup.php:506
+msgid "docx"
+msgstr ""
+
+#: admin/class-simple-job-board-admin-setup.php:510
+msgid "odt"
+msgstr ""
+
+#: admin/class-simple-job-board-admin-setup.php:514
+msgid "rtf"
+msgstr ""
+
+#: admin/class-simple-job-board-admin-setup.php:518
+msgid "txt"
+msgstr ""
+
+#: admin/class-simple-job-board-admin-setup.php:523
+msgid "Enable all extensions"
+msgstr "abilita tutte le estensioni"
+
+#: admin/class-simple-job-board-admin-setup.php:528
+msgid "Enable Uploaded Files Anti-Hotlinking"
+msgstr "abilita l'anti-hotlinking dei file caricati"
+
+#: admin/class-simple-job-board-admin-setup.php:574
+msgid "Settings saved."
+msgstr "salvato"
+
+#: admin/class-simple-job-board-admin-setup.php:117
+#: admin/class-simple-job-board-admin-setup.php:189
+#: admin/class-simple-job-board-admin-setup.php:302
+#: admin/class-simple-job-board-admin-setup.php:371
+#: admin/class-simple-job-board-admin-setup.php:441
+#: admin/class-simple-job-board-admin-setup.php:533
+msgid "Save Changes"
+msgstr "Salva"
+
+#: admin/class-simple-job-board-admin-setup.php:160
+#: admin/class-simple-job-board-admin-setup.php:263
+#: admin/class-simple-job-board-writepanels.php:106
+#: admin/class-simple-job-board-writepanels.php:125
+#: admin/class-simple-job-board-writepanels.php:212
+#: admin/class-simple-job-board-writepanels.php:242
+msgid "Delete"
+msgstr "elimina"
+
+#: admin/class-simple-job-board-admin-setup.php:184
+#: admin/class-simple-job-board-admin-setup.php:297
+#: admin/class-simple-job-board-writepanels.php:146
+#: admin/class-simple-job-board-writepanels.php:273
+msgid "Add Field"
+msgstr "aggiungi nuovo campo"
+
+#: includes/class-simple-job-board-post-types.php:84
+msgid "Job"
+msgstr "offerta di lavoro"
+
+#: includes/class-simple-job-board-post-types.php:85
+msgid "Jobs"
+msgstr "offerte di lavoro"
+
+#: includes/class-simple-job-board-post-types.php:90
+msgid "Job Board"
+msgstr "pannello offerte di lavoro"
+
+#: includes/class-simple-job-board-post-types.php:91
+#: includes/class-simple-job-board-post-types.php:133
+#: includes/class-simple-job-board-post-types.php:165
+#: includes/class-simple-job-board-post-types.php:197
+msgid "All %s"
+msgstr "%s"
+
+#: includes/class-simple-job-board-post-types.php:92
+msgid "Add New"
+msgstr "Aggiungi nuovo"
+
+#: includes/class-simple-job-board-post-types.php:136
+#: includes/class-simple-job-board-post-types.php:168
+#: includes/class-simple-job-board-post-types.php:200
+msgid "Add New %s"
+msgstr "aggiungi nuovo %s"
+
+#: includes/class-simple-job-board-post-types.php:93
+msgid "Add %s"
+msgstr "aggiungi %s"
+
+#: includes/class-simple-job-board-post-types.php:94
+#: includes/class-simple-job-board-post-types.php:134
+#: includes/class-simple-job-board-post-types.php:166
+#: includes/class-simple-job-board-post-types.php:198
+#: includes/class-simple-job-board-post-types.php:225
+#: includes/class-simple-job-board-post-types.php:229
+msgid "Edit %s"
+msgstr "modifica %s"
+
+#: includes/class-simple-job-board-post-types.php:95
+msgid "New %s"
+msgstr "nuovo %s"
+
+#: includes/class-simple-job-board-post-types.php:135
+#: includes/class-simple-job-board-post-types.php:167
+#: includes/class-simple-job-board-post-types.php:199
+msgid "Update %s"
+msgstr "aggiorna %s"
+
+#: includes/class-simple-job-board-post-types.php:96
+msgid "View %s"
+msgstr "mostra %s"
+
+#: includes/class-simple-job-board-post-types.php:97
+#: includes/class-simple-job-board-post-types.php:140
+#: includes/class-simple-job-board-post-types.php:172
+#: includes/class-simple-job-board-post-types.php:204
+msgid "Search %s"
+msgstr "cerca %s"
+
+#: includes/class-simple-job-board-post-types.php:98
+msgid "No %s found"
+msgstr "nessun %s trovato"
+
+#: includes/class-simple-job-board-post-types.php:99
+msgid "No %s found in trash"
+msgstr "nessun %s nel cestino"
+
+#: includes/class-simple-job-board-post-types.php:100
+#: includes/class-simple-job-board-post-types.php:138
+#: includes/class-simple-job-board-post-types.php:170
+#: includes/class-simple-job-board-post-types.php:202
+msgid "Parent %s"
+msgstr "genitore %s"
+
+#: includes/class-simple-job-board-post-types.php:139
+#: includes/class-simple-job-board-post-types.php:171
+#: includes/class-simple-job-board-post-types.php:203
+msgid "Parent %s:"
+msgstr "genitore %s:"
+
+#: includes/class-simple-job-board-post-types.php:137
+#: includes/class-simple-job-board-post-types.php:169
+#: includes/class-simple-job-board-post-types.php:201
+msgid "New %s Name"
+msgstr "nuovo nome %s"
+
+#: includes/class-simple-job-board-post-types.php:107
+msgid "This is where you can create and manage %s."
+msgstr "qui si possono creare e modificare %s."
+
+#: includes/class-simple-job-board-post-types.php:126
+#: templates/job-features.php:18
+msgid "Job Category"
+msgstr "Categoria offerta"
+
+#: includes/class-simple-job-board-post-types.php:127
+msgid "Job Categories"
+msgstr "Categorie offerte"
+
+#: includes/class-simple-job-board-post-types.php:158
+msgid "Job Type"
+msgstr "tipo offerta"
+
+#: includes/class-simple-job-board-post-types.php:159
+msgid "Job Types"
+msgstr "tipi offerte"
+
+#: includes/class-simple-job-board-post-types.php:190
+msgid "Job Location"
+msgstr "località offerta"
+
+#: includes/class-simple-job-board-post-types.php:191
+msgid "Job Locations"
+msgstr "località offerte"
+
+#: includes/class-simple-job-board-post-types.php:222
+msgid "Applicants"
+msgstr "candidati"
+
+#: includes/class-simple-job-board-post-types.php:398
+msgid "Job Applied for"
+msgstr "candidature all'offerta"
+
+#: includes/class-simple-job-board-post-types.php:399
+msgid "Applicant"
+msgstr "candidato"
+
+#: includes/class-simple-job-board-post-types.php:400
+msgid "Categories"
+msgstr "categorie"
+
+#: includes/class-simple-job-board-post-types.php:401
+msgid "Date"
+msgstr "data"
+
+#: includes/class-simple-job-board-post-types.php:435
+msgid "No Categories"
+msgstr "Nessuna categoria"
+
+#: includes/class-simple-job-board-post-types.php:287
+#: includes/class-simple-job-board-post-types.php:319
+#: includes/class-simple-job-board-post-types.php:350
+msgid "Shortcode"
+msgstr "shortcode"
+
+#: includes/class-simple-job-board-applicants.php:63
+msgid "Resume"
+msgstr "Curriculum"
+
+#: includes/class-simple-job-board-applicants.php:77
+msgid "Application Notes"
+msgstr "note candidatura"
+
+#: admin/class-simple-job-board-writepanels.php:49
+msgid "%s Features"
+msgstr "caratteristiche %s"
+
+#: admin/class-simple-job-board-metaboxes.php:89
+msgid "Company Name"
+msgstr "nome azienda"
+
+#: admin/class-simple-job-board-metaboxes.php:90
+msgid "Company Website"
+msgstr "sito web azienda"
+
+#: admin/class-simple-job-board-metaboxes.php:91
+msgid "Company Tagline"
+msgstr "tagline azienda"
+
+#: admin/class-simple-job-board-metaboxes.php:92
+msgid "Company Logo"
+msgstr "logo azienda"
+
+#: admin/class-simple-job-board-metaboxes.php:66
+msgid "Job Data"
+msgstr "dati offerta"
+
+#: admin/class-simple-job-board-metaboxes.php:116
+msgid "Upload"
+msgstr "carica il CV"
+
+#: templates/job-filters.php:27
+msgid "Category"
+msgstr "categoria"
+
+#: templates/job-filters.php:81
+msgid "Location"
+msgstr "località"
+
+#: templates/job-filters.php:93
+msgid "Search"
+msgstr "cerca"
+
+#: templates/job-filters.php:13
+msgid "Keywords"
+msgstr "parole chiave"
+
+#: templates/job-application.php:4
+msgid "Apply Online"
+msgstr "candidatura online"
+
+#: templates/job-application.php:66
+msgid "Attach Resume"
+msgstr "aggiungi Curriculum"
+
+#: templates/job-application.php:85
+msgid "Please Attach Resume"
+msgstr "Allegare curriculum"
+
+#: templates/job-application.php:31
+msgid "A valid email address is required."
+msgstr "È necessaria una email valida"
+
+#: templates/job-application.php:35
+msgid "A valid phone number is required."
+msgstr "È richiesto un numero di telefono valido"
+
+#: public/class-simple-job-board-public.php:132
+#: includes/class-simple-job-board-ajax.php:138
+msgid "This is not an allowed file extension."
+msgstr "Questo non è un estensione del file consentito"
+
+#: public/class-simple-job-board-public.php:133
+msgid "Your application has been received. We will get back to you soon."
+msgstr "La vostra candidatura è stata ricevuta. Ti contatteremo al più presto."
+
+#: public/class-simple-job-board-public.php:134
+msgid "Your application could not be processed."
+msgstr "La tua domanda di lavoro non è stato elaborato."
+
+#: admin/class-simple-job-board-admin.php:128
+msgid "Please fill out feature name."
+msgstr "Si prega di compilare nome della funzione"
+
+#: admin/class-simple-job-board-writepanels.php:356
+msgid "Please fill out job feature."
+msgstr "Si prega di compilare caratteristica lavoro"
+
+#: admin/class-simple-job-board-admin.php:129
+#: admin/class-simple-job-board-writepanels.php:356
+msgid "Please fill out application form field name."
+msgstr "Si prega di compilare il nome del campo di modulo di domanda di lavoro"
+
+#: admin/class-simple-job-board-writepanels.php:225
+#: admin/class-simple-job-board-writepanels.php:229
+#: admin/class-simple-job-board-writepanels.php:304
+#: admin/class-simple-job-board-writepanels.php:265
+#: admin/class-simple-job-board-writepanels.php:269
+#: admin/class-simple-job-board-admin-setup.php:274
+#: admin/class-simple-job-board-admin-setup.php:278
+#: admin/class-simple-job-board-admin-setup.php:316
+msgid "Required"
+msgstr "Richiesto"
+
+#: public/partials/simple-job-board-template.php:264
+msgid "Posted %s ago"
+msgstr "Pubblicato %s fa"
+
+#: templates/content-no-jobs-found.php:15
+msgid "No jobs found."
+msgstr "Nessun processo trovato"
+
+#. Plugin Name of the plugin/theme
+msgid "Simple Job Board"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/simple-job-board/simple-job-board-uri"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Powerful & Robust plugin to create a Job Board on your website in simple & "
+"elegant way."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "PressTigers"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://pressTigers.com"
+msgstr ""

@@ -1,0 +1,554 @@
+<article class="post-type-{{ post.post_type }} {{ post.class }}" id="post-{{ post.ID }}">
+
+    {% block content %}
+        {# TODO: intenté un switch, no lo reconoció cuando lo codifiqué #}
+        {% if post.category == 'Que se cuece' %}
+            {% set cat = 33 %}
+        {% endif %}  
+        {% if post.category == 'Recetas' %}
+            {% set cat = 36 %}
+        {% endif %}  
+
+        {# Variables limite de contenido #}
+        {% set title_limit = 7 %}
+        {% set content_limit = 15 %}
+        
+        {# Begin Entry Header #}
+        <section class="entry-header">
+
+            {# Begin Entry Title #}
+{#            {% if gantry.config.get('content.' ~ scope ~ '.title.enabled', '1') %}
+                <h2 class="entry-title">
+                    {% if gantry.config.get('content.' ~ scope ~ '.title.link', '0') %}
+                        <a href="{{ post.link }}" title="{{ post.title }}">{{ post.title }}</a>
+                    {% else %}
+                        {{ post.title }}
+                    {% endif %}
+                </h2>
+            {% endif %}#}
+            {# End Entry Title #}
+
+            {# Begin Entry Meta #}
+            {#{% if gantry.config.get('content.' ~ scope ~ '.meta-date.enabled', '1') or gantry.config.get('content.' ~ scope ~ '.meta-author.enabled', '1') or gantry.config.get('content.' ~ scope ~ '.meta-comments.enabled', '1') or gantry.config.get('content.' ~ scope ~ '.meta-categories.enabled', '1') or gantry.config.get('content.' ~ scope ~ '.meta-tags.enabled', '0') %}
+                {% include ['partials/meta-' ~ scope ~ '.html.twig', 'partials/meta.html.twig'] %}
+            {% endif %}#}
+            {# End Entry Meta #}
+
+        </section>
+        {# End Entry Header #}
+
+        {# Check if post is password protected #}
+        {% if not function( 'post_password_required', post.ID ) %}
+            {% if cat==33 %}
+                {# Begin Entry Content #}
+                <section class="entry-content page-content-chef">
+
+                    {# Begin Featured Image #}
+                    {% if gantry.config.get('content.' ~ scope ~ '.featured-image.enabled', '1') and post.thumbnail.src %}
+                        {% set position = (gantry.config.get('content.' ~ scope ~ '.featured-image.position', 'none') == 'none') ? '' : 'float-' ~ gantry.config.get('content.' ~ scope ~ '.featured-image.position', 'none') %}
+                        <a href="{{ post.link }}" class="post-thumbnail" aria-hidden="true">
+                            <img src="{{ post.thumbnail.src|resize(gantry.config.get('content.' ~ scope ~ '.featured-image.width', '1200'), gantry.config.get('content.' ~ scope ~ '.featured-image.height', '350')) }}" class="featured-image tease-featured-image {{ position }}" alt="{{ post.title }}" />
+                        </a>
+                    {% endif %}
+                    {# End Featured Image #}
+
+                    {# Begin Page Content #}
+                    <div class="post-content-chef">
+
+                        {# Begin Entry Title #}
+                        {% if gantry.config.get('content.' ~ scope ~ '.title.enabled', '1') %}
+                            <h2 class="entry-title">
+                                {% if gantry.config.get('content.' ~ scope ~ '.title.link', '0') %}
+                                    <a href="{{ post.link }}" title="{{ post.title }}">{{ post.title }}</a>
+                                {% else %}
+                                    {{ post.title }}
+                                {% endif %}
+                            </h2>
+                        {% endif %}
+                        {# End Entry Title #}
+                        <div class="deco-ball-bk"></div>
+
+                        {{ post.paged_content|raw }}
+
+                        {{ function('wp_link_pages', {'before': '<div class="page-links" itemprop="pagination">', 'after': '</div>', 'link_before': '<span class="page-number page-numbers">', 'link_after': '</span>', 'echo': 0}) }}
+                    </div>
+                    {# End Page Content #}
+
+                    {# Begin Edit Link #}
+                    {{ function('edit_post_link', __('Edit', 'g5_chefSociety'), '<span class="edit-link">', '</span>') }}
+                    {# End Edit Link #}
+                    <div class="bottom-box">
+                        <p><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> {{ post.comment_count }}</p>
+                    </div>
+                </section>
+
+                {# End Entry Content #}
+
+                {# Comienzo noticias relacionadas #}    
+
+                <section class="related-news-container">
+                    <h3><i class="fa fa-exclamation" aria-hidden="true"></i> Noticias relacionadas</h3>
+                    <div class="gap-20"></div>
+
+
+                {# Query Posts #}   
+
+                    {% set query_parameters = {
+                        'cat': cat,
+                        'posts_per_page': 3,
+                        'post__not_in': [post.ID]
+
+                    } %}
+
+                    {% set posts = wordpress.call('Timber::get_posts', query_parameters) %}
+
+                    {% for column in posts|batch(3) %}
+                        <div class="g-grid related-news-post">
+                            {% for post in column %}
+                                
+                                {% set author_data = function ('get_user_meta',post.post_author) %}
+                                {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
+								
+								{% set author_fullname = post.author.first_name ~ post.author.last_name %}
+				{% if author_fullname != '' %} {% set author_fullname = [post.author.first_name, post.author.last_name]|join(' ') %} {% else %} {% set author_fullname = post.author.name %} {% endif %}
+				{% if post.author._chef_busi_name != '' %} {% set business_name = post.author._chef_busi_name %} {% else %} {% set business_name = '&nbsp;' %} {% endif %}
+                                
+                                <div class="g-block">
+                                    <div class="">
+                                        <div class="g-array-item std-box">
+										
+                                            <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+
+                                            </div>
+											</a>
+                                            <div>
+                                                <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
+                                            </div>
+                                            <div class="content-box">
+
+                                                <h3><a href="{{ post.link }}">{{ post.title|truncate(title_limit) }}</a></h3>
+
+
+                                                <!--<p class="small"><em>{{ post.post_date|date(display.date.format) }}</em></p>-->
+
+                                                {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}
+												
+
+                                                <p>{{ post_text|truncate(content_limit) }}</p>
+												<p class="small receta-author">Una noticia de:<br><strong>{{ author_fullname }}</strong></p>
+
+                                            </div>
+                                            <div class="text-center">
+                                                <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+                                                <div class="gap-20"></div>
+                                            </div>
+                                            <div class="bottom-box">
+                                                <p><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> {{ post.comment_count }}</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                </section>
+                {# Fin de noticias relacionadas #}                    
+                <div class="clearfix"></div>
+            {% endif %}
+
+            {{ function('the_ratings')}}
+            
+            
+            {# Begin Comments #}
+            {% if (post.comment_status == 'open' or post.comment_count > 0) %} {# and post.post_type != 'product' %}#}
+                {{ function('comments_template')|raw }}
+            {% endif %}
+            {# End Comments #}
+            
+            
+            {# Begin Recetas relacionadas #}
+            {% if cat==36 %}
+            <section class="related-news-container">
+                <h3><i class="fa fa-cutlery" aria-hidden="true"></i> Recetas relacionadas</h3>
+                <div class="gap-20"></div>
+
+
+                {# Query Posts #}   
+
+                {% set query_parameters = {
+                    'cat': cat,
+                    'posts_per_page': 3,
+                    'post__not_in': [post.ID]
+
+                } %}
+
+                {% set posts = wordpress.call('Timber::get_posts', query_parameters) %}
+
+                {% for column in posts|batch(3) %}
+                    <div class="g-grid related-news-post">
+                        {% for post in column %}
+
+                            {% set author_data = function ('get_user_meta',post.post_author) %}
+                            {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
+							
+							{% set author_fullname = post.author.first_name ~ post.author.last_name %}
+				{% if author_fullname != '' %} {% set author_fullname = [post.author.first_name, post.author.last_name]|join(' ') %} {% else %} {% set author_fullname = post.author.name %} {% endif %}
+				{% if post.author._chef_busi_name != '' %} {% set business_name = post.author._chef_busi_name %} {% else %} {% set business_name = '&nbsp;' %} {% endif %}
+							
+ 
+                            
+                            <div class="g-block">
+                                <div class="">
+                                    <div class="g-array-item std-box">
+									<!--Mal hecho seguro, es para ver donde va, va debajo de cada std-box-->
+									 		{% set nuevo_array = ['Nuevo'] %}
+                                                {% for nuevo_id in post.recipe_terms['post_tag'] %}
+                                                    {% if nuevo_id != 0 %}
+                                                        {% set nuevo = function ('get_term',nuevo_id) %}
+                                                        {% if nuevo.name in nuevo_array %}
+                                                           <div class="new">Nuevo</div>             
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+									<!--//Mal hecho seguro, es para ver donde va va debajo de cada std-box-->
+									
+
+									
+                                        <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+
+                                        </div>
+										</a>
+                                        <div>
+                                            <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
+                                        </div>
+										
+                                        <div class="content-box">
+
+                                            <h3><a href="{{ post.link }}">{{ post.title|truncate(title_limit) }}</a></h3>
+											 <p class="small receta-author">Una receta de:<br><strong>{{ author_fullname }}</strong></p>
+												
+												<p class="restaurante-author"><strong>{{ business_name }}</strong></p>
+												<hr class="m-b-0">
+
+
+                                           <!-- <p class="small"><em>{{ post.post_date|date(display.date.format) }}</em></p>-->
+                                            
+                                            {# Platos y alergenos #}
+                                            {% if cat==36 %}
+
+                                            {# Platos #}
+                                            <div>
+                                                {% set platos_array = ['Primer Plato','Segundo Plato','Entrante','Postre','Bebida'] %}
+                                                {% set platos_dir = function('site_url','/wp-content/themes/chefSociety/images/platos/') %}
+                                                
+                                                {% for course in post.recipe_terms['course'] %}
+                                                    {% if course != 0 %}
+                                                        {% set plato = function ('get_term',course) %}
+                                                        {% if plato.name in platos_array|keys %}
+                                                            <img src="{{platos_dir}}{{plato.slug}}.png" title="{{plato.name}}" class="plato" />                 
+                                                        {% endif %}
+
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            {# Alergenos #}
+                                            <!--<div>-->
+                                                
+                                                {% set alergenos_array = ['Celiaco','Cereal','Marisco','Huevo','Pescado','Lupino','Leche','Molusco','Mostaza','Frutos secos','Cacahuete','Sesamo','Soja','Sulfitos'] %}
+                                                {% set alergenos_dir = function('site_url','/wp-content/themes/chefSociety/images/alergenos/') %}
+                                                
+                                                {% for alergeno_id in post.recipe_terms['post_tag'] %}
+                                                    {% if alergeno_id != 0 %}
+                                                        {% set alergeno = function ('get_term',alergeno_id) %}
+                                                        {% if alergeno.name in alergenos_array|keys %}
+                                                           <!-- <img src="{{alergenos_dir}}{{alergeno.slug}}.png" title="{{alergeno.name}}" class="alergenos" />  -->               
+                                                        {% endif %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            <!--</div>-->
+                                            
+                                            <div class="precio">
+                                                <span class="precio-receta precio-plato"></span> {{post.recipe_precio_racion}}€  
+                                                <!--<span class="precio-receta precio-total"></span> {{post.recipe_precio_total}}€ -->
+                                            </div>
+                                            <div class="gap-10"></div>
+                                            
+                                            {% endif %}
+
+{#                                            {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}#}
+
+{#                                            <p>{{ post_text|truncate_text(content_limit) }}</p>#}
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+                                            <div class="gap-20"></div>
+                                        </div>    
+                                        <div class="bottom-box">
+                                            <p class="">
+                                                {# Numero de visitas #}
+                                                {% set short_wppostviews_recipe = "[views id='"~post.ID~"']" %}
+                                                <i class="fa fa-eye" aria-hidden="true"></i> {{short_wppostviews_recipe|shortcodes}} &nbsp; 
+
+                                                {# Valoracion media  - no aplica a recetas #}                                                
+                                                <!--<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 96% (100) &nbsp; -->
+                                                
+                                                {# Seguidores para el pie de contenido #}
+                                                {% set users = function('get_users')%}
+                                                {% set cont_followers = 0 %}
+                                                {% for user in users %}
+                                                    {% set user_data = function('get_user_meta',user.data.ID) %}
+                                                    {% set following = user_data._chef_follow[0]|json_decode %}
+
+                                                    {% if post.post_author in following%}
+                                                        {% set cont_followers = cont_followers + 1 %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <i class="fa fa-heart" aria-hidden="true"></i> {{cont_followers}} &nbsp; 
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+            </section>
+            {% endif %}
+
+            {# Begin promos relacionadas #}
+            {% if (post.post_type=='product' and post._sale_price_dates_to is defined and post._sale_price_dates_to != '') %}
+            <section class="related-news-container">
+                <h3><i class="fa fa-certificate" aria-hidden="true"></i> Promociones relacionadas</h3>
+                <div class="gap-20"></div>
+
+
+                {# Query Posts #}   
+
+                {% set query_parameters = {
+                    'post_type' : 'product',
+                    'posts_per_page': 3,
+                    'tax_query' : [{"taxonomy": "product_cat", 'terms' : 62}],
+                    'post__not_in': [post.ID]
+                } %}
+                
+                {% set posts = wordpress.call('Timber::get_posts', query_parameters) %}
+
+                {% for column in posts|batch(3) %}
+                    <div class="g-grid related-news-post">
+                        {% for post in column %}
+                           
+                            {% set author_data = function ('get_user_meta',post.post_author) %}
+                            {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
+							{% if post.author._chef_busi_name != '' %} {% set business_name = post.author._chef_busi_name %} {% else %} {% set business_name = '&nbsp;' %} {% endif %}
+ 
+                            <div class="g-block">
+                                <div class="">
+                                    <div class="g-array-item std-box">
+									
+												
+                                            <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+
+                                            </div>
+											</a>
+                                        <div>
+                                            <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
+                                        </div>
+
+                                        <div class="content-box-products">
+
+                                            <h3><a href="{{ post.link }}">{{ post.title|truncate(title_limit) }}</a></h3>
+
+
+                                            <!--<p class="small"><em>{{ post._sale_price_dates_from|date(display.date.format) }} - {{ post._sale_price_dates_to|date(display.date.format) }}</em></p>-->
+
+                                            <!--<p>{{ post.post_excerpt|truncate(content_limit) }}</p>-->
+											<p class="small">Un taller de:<br><b>{{ business_name }}</b></p>
+                                            <p class="small patrocinado-msg">Patrocinado por: <b>{{post._patrocinador_promo_nombre}}</b></p>
+                                            <!--<img src="{{post._patrocinador_promo}}">-->
+                                            <div class="clearfix"></div>
+                                            <div class="price">
+                                                <hr class="m-b-0">
+                                                <!--Calculo del descuento-->
+                                                {% set promo_sale_price = post._sale_price %}
+                                                {% set promo_regular_price = post._regular_price %}
+                                                {% set discount = 100-((promo_sale_price*100)/promo_regular_price)|round %}
+                                                <div class="socios">
+                                                    <span class="partner">{{ post._descuento_socios_promo }}% descuento a socios</span>
+                                                </div>
+                                            </div>
+                                            <!--<p class="small patrocinado">Código descuento:<br>
+                                                <span class="codigo">{{ post._codigo_descuento_promo }}</span>
+                                            </p>-->
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+                                            <div class="gap-20"></div>                                            
+                                        </div>
+                                        <div class="bottom-box">
+                                            <p class="">
+                                                {# Numero de visitas #}
+                                                {% set short_wppostviews_promos = "[views id='"~post.ID~"']" %}
+                                                <i class="fa fa-eye" aria-hidden="true"></i> {{short_wppostviews_promos|shortcodes}} &nbsp; 
+
+                                                {# Valoracion media#}                                                
+                                                {% set product_promo=function('get_product',post.ID) %}
+                                                {% set rating_promo = product_promo.get_average_rating() %}
+                                                {% set rating_promo_100 = (rating_promo / 5 ) * 100 %}
+                                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{rating_promo_100}}% ({{post.comment_count}}) &nbsp; 
+                                                
+                                                {# Seguidores para el pie de contenido #}
+                                                {% set users = function('get_users')%}
+                                                {% set cont_followers = 0 %}
+                                                {% for user in users %}
+                                                    {% set user_data = function('get_user_meta',user.data.ID) %}
+                                                    {% set following = user_data._chef_follow[0]|json_decode %}
+
+                                                    {% if post.post_author in following%}
+                                                        {% set cont_followers = cont_followers + 1 %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <i class="fa fa-heart" aria-hidden="true"></i> {{cont_followers}} &nbsp; 
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+            </section>
+            {% endif %}
+            
+
+            {# Begin talleres relacionados #}
+            {% if (post.post_type=='product' and post._contenido is defined and post._contenido != '' ) %}
+            <section class="related-news-container">
+                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Talleres relacionados</h3>
+                <div class="gap-20"></div>
+
+
+                {# Query Posts #}   
+
+                {% set query_parameters = {
+                    'post_type' : 'product',
+                    'posts_per_page': 3,
+                    'tax_query' : [{"taxonomy": "product_cat", 'terms' : 61}],
+                    'post__not_in': [post.ID]
+                } %}
+                
+                {% set posts = wordpress.call('Timber::get_posts', query_parameters) %}
+
+                {% for column in posts|batch(3) %}
+                    <div class="g-grid related-news-post">
+                        {% for post in column %}
+                            
+                            {% set author_data = function ('get_user_meta',post.post_author) %}
+                            {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
+							{% if post.author._chef_busi_name != '' %} {% set business_name = post.author._chef_busi_name %} {% else %} {% set business_name = '&nbsp;' %} {% endif %}
+ 
+                            <div class="g-block">
+                                <div class="">
+                                    <div class="g-array-item std-box">
+									
+												
+                                            <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+
+                                            </div>
+											</a>
+                                        <div>
+                                            <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
+                                        </div>
+
+                                        <div class="content-box-products">
+
+                                            <h3><a href="{{ post.link }}">{{ post.title|truncate(title_limit) }}</a></h3>
+                                            {% set partners_price = (post._regular_price -((post._descuento_socios/100)*post._regular_price))|round %}
+
+                                            <!--<p class="small"><em>{{ post._fecha_inicio }} - {{ post._fecha_fin }} {{ post._dias_semana }}</em></p>-->
+
+                                            <!--<p>{{ post.post_excerpt|truncate(content_limit) }}</p>-->
+											<p class="small">Un taller de:<br><b>{{ business_name }}</b></p>
+
+                                            <p class="small patrocinado-msg">Patrocinado por: <b>{{post._patrocinador_nombre}}</b></p>
+                                            <!--<img src="{{post._patrocinador}}">-->
+                                            <div class="clearfix"></div>
+                                            <div class="price">
+                                                <hr class="m-b-0">
+                                                <button class="btn btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Comprar {{post._regular_price}}€ </button>
+                                                
+                                                <div class="socios">
+                                                    <span class="partner">{{partners_price}}€ socios ({{post._descuento_socios}}% desc)</span>
+                                                </div>
+                                            </div>
+                                            <!--<p class="small patrocinado">Código descuento:<br>
+                                                <span class="codigo">{{ post._codigo_descuento }}</span>
+                                            </p>-->
+                                        </div>
+                                        <div class="text-center">
+                                            <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+                                            <div class="gap-20"></div>
+                                        </div>
+                                        <div class="bottom-box">
+                                            <p class="">
+                                                {# Numero de visitas #}
+                                                {% set short_wppostviews_taller = "[views id='"~post.ID~"']" %}
+                                                <i class="fa fa-eye" aria-hidden="true"></i> {{short_wppostviews_taller|shortcodes}} &nbsp; 
+
+                                                {# Valoracion media#}                                                
+                                                <!--<i class="fa fa-thumbs-o-up" aria-hidden="true"></i> 96% (100) &nbsp; -->
+                                                {% set product_taller=function('get_product',post.ID) %}
+                                                {% set rating_taller = product_taller.get_average_rating() %}
+                                                {% set rating_taller_100 = (rating_taller / 5 ) * 100 %}
+                                                <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> {{rating_taller_100}}% ({{post.comment_count}}) &nbsp; 
+                                                
+                                                {# Seguidores para el pie de contenido #}
+                                                {% set users = function('get_users')%}
+                                                {% set cont_followers = 0 %}
+                                                {% for user in users %}
+                                                    {% set user_data = function('get_user_meta',user.data.ID) %}
+                                                    {% set following = user_data._chef_follow[0]|json_decode %}
+
+                                                    {% if post.post_author in following%}
+                                                        {% set cont_followers = cont_followers + 1 %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                                <i class="fa fa-heart" aria-hidden="true"></i> {{cont_followers}} &nbsp; 
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+
+            </section>
+            {% endif %}
+            
+        {% else %}
+
+            {# Begin Password Protected Form #}
+            <div class="password-form">
+
+                {# Include the password form #}
+                {% include 'partials/password-form.html.twig' %}
+
+            </div>
+            {# End Password Protected Form #}
+
+        {% endif %}
+
+    {% endblock %}
+
+</article>

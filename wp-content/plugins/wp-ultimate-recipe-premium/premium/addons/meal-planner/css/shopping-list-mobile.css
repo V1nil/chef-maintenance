@@ -1,0 +1,24 @@
+body {
+  font-family: "Open Sans", arial, sans-serif;
+  font-size: 1em;
+  max-width: 500px; }
+
+#wpurp-meal-plan-shopping-list-mobile-tip {
+  font-size: 0.8em;
+  color: #999;
+  margin-bottom: 10px;
+  display: none; }
+  #wpurp-meal-plan-shopping-list-mobile-tip input {
+    width: 100%; }
+  #wpurp-meal-plan-shopping-list-mobile-tip input#submit {
+    max-width: 200px; }
+
+table {
+  width: 100%; }
+  table tr.ingredient-checked td {
+    text-decoration: line-through;
+    color: #999; }
+  table th, table .wpurp-shopping-list-group td {
+    font-weight: bold; }
+  table .wpurp-shopping-list-group td {
+    padding-top: 10px; }

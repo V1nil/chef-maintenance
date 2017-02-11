@@ -1,0 +1,87 @@
+ordering:
+  que-se-cuece: ''
+  talleres: ''
+  recetas: ''
+  promociones: ''
+  chefs: ''
+  mas:
+    empleo: ''
+    contacto: ''
+    foros: ''
+    ayuda: ''
+items:
+  que-se-cuece:
+    id: 87
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  talleres:
+    id: 85
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  recetas:
+    id: 86
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  promociones:
+    id: 88
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  chefs:
+    id: 92
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  mas:
+    id: 124
+    type: separator
+    enabled: '1'
+    hash: ''
+    dropdown_dir: right
+    dropdown_hide: ''
+    width: auto
+    icon: 'fa fa-navicon'
+    icon_only: '1'
+    link_title: ''
+    anchor_class: ''
+  mas/empleo:
+    id: 90
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  mas/contacto:
+    id: 91
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  mas/foros:
+    id: 89
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''
+  mas/ayuda:
+    id: 93
+    type: post_type
+    hash: ''
+    enabled: true
+    link_title: ''
+    anchor_class: ''

@@ -1,0 +1,13 @@
+context: {  }
+menu: {  }
+post:
+  page:
+    33: true
+    39: true
+    43: true
+    45: true
+    47: true
+    50: true
+taxonomy: {  }
+archive: {  }
+woocommerce: {  }

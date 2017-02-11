@@ -1,0 +1,59 @@
+.arve-wrapper {
+	display: block !important;
+	margin-bottom: 1.5em;
+	width: 100% !important;
+}
+
+.arve-wrapper::after {
+	content: "" !important;
+	display: table !important;
+	clear: both !important;
+}
+
+.arve-wrapper.alignright {
+	margin-left: 1.5em;
+}
+
+.arve-wrapper.alignleft {
+	margin-right: 1.5em;
+}
+
+.arve-embed-container {
+	position: relative !important;
+	display: block !important;
+	padding: 0 !important;
+	padding-bottom: 56.25% !important;
+	margin: 0 !important;
+	height: 0 !important;
+	overflow: hidden !important;
+}
+
+.arve-thumbnail,
+.arve-play-btn,
+.arve-iframe {
+	position: absolute !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	top: 0 !important;
+	left: 0 !important;
+	bottom: 0 !important;
+	height: 100% !important;
+	width: 100% !important;
+	border: 0 !important;
+}
+
+.arve-video {
+	padding: 0 !important;
+	margin: 0 !important;
+	width: 100% !important;
+}
+
+.arve-promote-link {
+	float: right;
+	font-family: "Open Sans", "Sagoe UI", "Arvo", "Lato", Arial, sans-serif;
+	font-size: .8em;
+}
+
+.arve-hidden {
+	display: none !important;
+}

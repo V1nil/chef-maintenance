@@ -1,0 +1,243 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+layout:
+  /header/: {  }
+  /navigation/:
+    -
+      - 'logo-6922 22'
+      - 'menu-8101 40'
+      - 'chef_search-3140 13'
+      - 'custom-3320 5'
+      - 'modal-login-4598 20'
+    -
+      - 'logo-4062 25'
+      - 'menu-7976 55'
+      - 'custom-6133 10'
+      - 'modal-login-2830 10'
+    -
+      - 'chef_search-6337 50'
+      - 'modal-login-8521 50'
+  /postnavigation/:
+    -
+      - custom-3022
+  /showcase/: {  }
+  /feature/:
+    -
+      - system-content-6416
+  /main/: {  }
+  /subfeature/:
+    -
+      - slideshow-3373
+  prefooter: {  }
+  /footer/:
+    -
+      - 'logo-6178 90'
+      - 'social-4968 10'
+  offcanvas:
+    -
+      - mobile-menu-5891
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    attributes:
+      boxed: '0'
+      class: ''
+      extra:
+        -
+          style: 'padding-top:0.5em!important;padding-bottom:0.5em!important;'
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  showcase:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+  feature:
+    type: section
+    attributes:
+      boxed: ''
+  main:
+    attributes:
+      boxed: ''
+  subfeature:
+    type: section
+    attributes:
+      class: flush
+      boxed: ''
+  prefooter:
+    type: section
+    inherit:
+      outline: home
+      include:
+        - attributes
+        - children
+  footer:
+    attributes:
+      boxed: ''
+content:
+  logo-6922:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety1.png'
+      class: ''
+    block:
+      class: hidden-phone
+      fixed: '1'
+  menu-8101:
+    attributes:
+      menu: menu-main
+    block:
+      class: 'hidden-phone hidden-tablet menu-full-block'
+      extra:
+        -
+          style: 'padding-top:1em'
+  chef_search-3140:
+    title: 'Chef Search'
+    attributes:
+      textplaceholder: Buscar
+      idsearch: '1'
+    block:
+      class: 'hidden-phone hidden-tablet search-block'
+  custom-3320:
+    title: 'Custom HTML'
+    attributes:
+      html: '<ul class="carrito"><a href="carro/"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></ul>'
+    block:
+      class: cart-block
+      fixed: '1'
+  modal-login-4598:
+    title: 'Modal Login'
+    attributes:
+      textlogin: Entrar
+      textcreate: 'Crear Cuenta'
+      width: '660'
+    block:
+      class: modal-login-block
+      extra:
+        -
+          style: ''
+  logo-4062:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+      class: ''
+    block:
+      class: 'hidden-desktop hidden-tablet logo-mobile'
+  menu-7976:
+    attributes:
+      menu: menu-main-long
+    block:
+      class: visible-tablet
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-6133:
+    title: 'Custom HTML'
+    attributes:
+      enabled: 0
+      html: '<ul class="carrito"><a href="carro/"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a></ul>'
+    block:
+      class: hidden-desktop
+  modal-login-2830:
+    title: 'Modal Login'
+    attributes:
+      enabled: 0
+      textlogin: Entrar
+      textcreate: 'Crear cuenta'
+      width: '660'
+    block:
+      class: hidden-desktop
+  chef_search-6337:
+    title: 'Chef Search'
+    attributes:
+      enabled: 0
+      textplaceholder: Buscar
+      idsearch: '2'
+    block:
+      class: 'hidden-desktop hidden-phone hidden-tablet'
+  modal-login-8521:
+    title: 'Modal Login'
+    attributes:
+      enabled: 0
+      textlogin: Entrar
+      textcreate: 'Crear Cuenta'
+      width: '660'
+      idmodal: '2'
+    block:
+      class: 'hidden-desktop hidden-phone hidden-tablet'
+      extra:
+        -
+          style: 'margin-top:2em;'
+  custom-3022:
+    attributes:
+      html: '[breadcrumb]'
+      filter: '1'
+    block:
+      class: no-margin-particle
+  slideshow-3373:
+    attributes:
+      height: '70'
+      autoplay: 'true'
+      autoplayInterval: '5000'
+      navigation: none
+      animation: swipe
+      items:
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+  logo-6178:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: disable-div-spaces
+  social-4968:
+    attributes:
+      css:
+        class: social-items
+      items: {  }
+    block:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px;'
+  mobile-menu-5891:
+    title: 'Mobile Menu'

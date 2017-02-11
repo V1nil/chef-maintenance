@@ -1,0 +1,75 @@
+name: pages_-_edit_perfil
+timestamp: 1486769049
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  premain: Premain
+  prefooter: Prefooter
+  main: Main
+  main-mobile: Mobile
+  sidebar: Sidebar
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  custom:
+    custom-3993: 'Custom HTML'
+    custom-2590: Custom
+    custom-1188: Custom
+    custom-1430: Custom
+    custom-3397: Custom
+    custom-3282: 'Custom HTML'
+    custom-8282: 'Custom HTML'
+  chef_profile:
+    chef_profile-8269: 'Chef Profile'
+  chef_sidebar_perfil:
+    chef_sidebar_perfil-9283: 'Chef Sidebar Perfil'
+  logo:
+    logo-6828: Logo
+    logo-7207: 'Logo / Image'
+    logo-7058: 'Logo / Image'
+  social:
+    social-8989: Social
+  mobile-menu:
+    mobile-menu-8085: Mobile-menu
+  menu:
+    menu-8644: Menu
+    menu-4430: Menu
+  chef_search:
+    chef_search-8839: 'Chef Search'
+    chef_search-6271: 'Chef Search'
+  modal-login:
+    modal-login-9548: 'Modal Login'
+    modal-login-7694: 'Modal Login'
+    modal-login-9195: 'Modal Login'
+inherit:
+  post_-_recetas:
+    header: header
+    custom-3993: custom-3022
+    custom-2590: custom-8930
+    custom-1188: custom-2913
+    custom-1430: custom-2737
+    custom-3397: custom-8499
+    logo-6828: logo-6178
+    social-8989: social-4968
+    offcanvas: offcanvas
+    mobile-menu-8085: mobile-menu-5916
+  pages:
+    navigation: navigation
+    logo-7207: logo-6922
+    menu-8644: menu-8101
+    chef_search-8839: chef_search-3140
+    custom-3282: custom-3320
+    modal-login-9548: modal-login-4598
+    logo-7058: logo-4062
+    menu-4430: menu-7976
+    custom-8282: custom-6133
+    modal-login-7694: modal-login-2830
+    chef_search-6271: chef_search-6337
+    modal-login-9195: modal-login-8521

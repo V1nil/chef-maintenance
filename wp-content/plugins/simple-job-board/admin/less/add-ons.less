@@ -1,0 +1,55 @@
+/* Add-ons Styles */
+.add-ons {
+    
+    #primary {
+        &.content-area {
+            padding: 60px 0;
+        }
+    }
+
+    .products {
+        letter-spacing: -4px;
+        
+        .product {
+            display: inline-block;
+            float: none;
+            letter-spacing: 0;
+            vertical-align: top;
+            
+            article {
+                border: 1px solid #eee;
+                padding-bottom: 15px;
+                min-height: 280px;
+                margin-bottom: 30px;
+
+                a {
+                    h3 {
+                        padding: 0 15px;
+                        font-size: 16px;
+                        color: #337ab7;
+                    }
+                    
+                    &.button {
+                        float: right;
+                        margin-right: 15px;
+                    }
+                    
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+
+                p {
+                    font-weight: normal;
+                    padding: 0 15px;
+                }
+
+                .price {
+                    display: inline-block;
+                    font-weight: bold;
+                    padding: 0 15px;
+                }
+            }
+        }
+    }
+}

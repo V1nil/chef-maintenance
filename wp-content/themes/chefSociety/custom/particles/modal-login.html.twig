@@ -1,0 +1,560 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+	{# Load assets needed for this particle #}
+	{% assets in 'head' with { priority: 10 } %}
+		<style type="text/css">
+			.modal-login .uk-modal-dialog {
+				width: {{ particle.width|default(300)|e }}px;
+                                color:black;
+                                text-align:left;
+                                padding:0px;
+			}
+                        
+                        .modal-login .uk-modal-dialog>.uk-close:first-child {
+                            margin:0px;
+                            float: right;
+                        }
+                        .modal-login .uk-modal-header {
+                            margin:0px;
+                        }
+                        .modal-login .uk-modal-footer {
+                            margin:0px;
+                        }
+			.login-text-present {
+				margin-right: 10px;
+			}
+
+			.modal-login #form-login-remember {
+				color: #818181;
+			}
+
+			.modal-login #form-login-remember .control-label {
+				position: absolute;
+			}
+
+			.modal-login .userdata > ul li{
+				line-height: 1.5;
+			}
+
+			.modal-login .hide-links .userdata > ul {
+				display: none;
+			}
+
+			.modal-login .login-greeting {
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			.modal-login .logout-button {
+				text-align: center;
+			}
+			.modal-login .uk-modal-title {
+                            margin: 0;
+                            line-height: 1.42857143;
+                            color:black!important;
+			}
+			.modal-login .content-modal-body {
+                            padding:20px;
+			}
+			.modal-login .btn-block {
+                            display: block;
+                            width: 100%;	
+                        }
+
+			.modal-login .content-modal-body a {
+                            color:white!important;
+			}
+                        .modal-login .uk-modal-body {
+                            padding:0px;
+                        }
+                        .modal-login .row {
+                            display:flex;
+                        }
+                        .modal-login .elemento-izq {
+                            width:20%;
+                        }
+                        .modal-login .elemento-der {
+                            width:100%;
+                            text-align:right;
+                        }
+                        .modal-login .elemento-der a {
+                            color:#9d9d9d!important;
+                        }
+                        .modal-login .elemento-der a:hover, a:focus, a:active {
+                            text-decoration: none;
+                            color: #3C3C3B!important;
+                        }
+                        .modal-login .uk-modal-footer p {
+                            text-align:center;
+                        }
+                        .modal-login .uk-modal-footer a {
+                            color:#be1622!important;
+                        }
+                        .modal-login .uk-modal-footer a:hover, a:focus, a:active {
+                            text-decoration: none;
+                            color: #3C3C3B!important;
+                        }
+                        #modal-login-color{
+                            color:white!important;
+                        }
+                        
+		</style>
+                <script type="text/javascript">
+                    $ = jQuery;
+                    $(function () {
+                        $(document).ready(function ($) {
+                            //Crear cuenta
+                            $("#create_form").on('submit',(function(e) {
+                                $('#create_response').hide();
+                                e.preventDefault();
+                                
+                                var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                                var user_create_login = document.getElementById('user_create_login').value;
+                                var user_create_email = document.getElementById('user_email').value;
+                                var user_create_pass = document.getElementById('user_create_pass').value;
+                                var custom_user_create = document.getElementById('custom_user_create').value;
+                                var day_birth = document.getElementById('day_birth').value;
+                                var month_birth = document.getElementById('month_birth').value;
+                                var year_birth = document.getElementById('year_birth').value;
+                                
+                                //Mantenemos una valdiacion por JS para temas de compatibilidad con navegadores
+                                if (validateEmail(user_create_email)){       
+                                    var fd = new FormData(this);
+                                    fd.append('user_login', user_create_login);
+                                    fd.append('user_pass',user_create_pass);
+                                    fd.append('user_email',user_create_email);
+                                    fd.append('custom_user_create',custom_user_create);
+                                    fd.append('day_birth',day_birth);
+                                    fd.append('month_birth',month_birth);
+                                    fd.append('year_birth',year_birth);
+
+                                    $.ajax({
+                                        url: url,
+                                        type: "POST",
+                                        data: fd,
+                                        contentType: false,
+                                        cache: false,
+                                        processData:false,
+                                        success: function(data)
+                                        {
+                                            var response = jQuery.parseJSON(data);
+                                            if(response.redirect === false){
+                                                $('#create_response').fadeIn('slow')
+                                                $('#create_response').html(response.error);
+                                            }else{
+                                                window.location.replace(response.redirect);
+                                            }
+                                        }
+                                    });
+                                                                        
+                                }else{
+                                    $('#create_response').fadeIn('slow')
+                                    $('#create_response').html('Introduzca un email valido');
+                                }
+                                
+                            }));
+                 
+                            //Login
+                            $("#login_form").on('submit',(function(e) {
+                                
+                                $('#login_response').hide();
+                                e.preventDefault();
+
+                                var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                                var user_login = document.getElementById('user_login').value;
+                                var user_pass = document.getElementById('user_pass').value;
+                                var custom_user_login = document.getElementById('custom_user_login').value;
+
+                                var fd = new FormData(this);
+                                fd.append('user_login', user_login);
+                                fd.append('user_pass',user_pass);
+                                fd.append('custom_user_login',custom_user_login);
+
+                                $.ajax({
+                                    url: url,
+                                    type: "POST",
+                                    data: fd,
+                                    contentType: false,
+                                    cache: false,
+                                    processData:false,
+                                    success: function(data)
+                                    {
+                                        var response = jQuery.parseJSON(data);
+                                        if(response.redirect === false){
+                                            $('#login_response').fadeIn('slow')
+                                            $('#login_response').html(response.error);
+                                        }else{
+                                            window.location.replace(response.redirect);
+                                        }
+                                    }
+                                });
+                            }));
+                            
+                            //Reset pass
+                            $(document).on('click', "#reset_pass", function () {
+                                $('#reset_response').hide();
+                                var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                                var user_login = document.getElementById('mail_reset').value;
+                                
+                                xhr = new XMLHttpRequest();
+                                xhr.open("POST", url, true);
+                                var params ="user_login="+user_login+"&action=reset";
+
+                                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                                xhr.onprogress = function(e){
+                                    var data = jQuery.parseJSON(e.currentTarget.responseText);
+                                    if(data.redirect === false){                                        
+                                        $('#reset_response').css('color', 'red');
+                                        $('#reset_response').fadeIn('slow');
+                                        $('#reset_response').html(data.error);
+                                    }else{
+                                        $('#reset_response').css('color', 'green');
+                                        $('#reset_response').fadeIn('slow');                                        
+                                        $('#reset_response').html(data.success);
+                                    }
+                                };
+                                xhr.send(params);
+                            });
+                        });
+                    });
+                    
+                    function validateEmail(email) {
+                        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                        return re.test(email);
+                    }
+                    
+                </script>
+	{% endassets -%}
+	{# End loading assets #}
+        
+        {# Si el usuario esta logueado #}
+        {%  if is_user_logged_in %}
+            {% set wp_user = function ('wp_get_current_user') %}
+            <div class="uk-button-dropdown pointer" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
+                <div class="uk-dropdown">
+                    <ul class="dropdown-menu">
+                        <li><a href="{{function ('site_url','anadir-receta')}}">Publicar receta</a></li>
+                        <li><a href="{{function ('site_url','alta-taller')}}">Publicar taller</a></li>
+                        <!--<li><a href="/subir-empleo.php">Publicar oferta de empleo</a></li>
+                        <li><a href="/subir-foro.php">Publicar foro</a></li>
+                        <li><a href="/hacerse-socio.php">Hacerme socio</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <div class="uk-button-dropdown pointer" data-uk-dropdown="{mode:'click'}" >
+                {% set user_data = function ('get_user_meta',wp_user.ID) %}
+                <img src="{% if user_data._chef_personal_photo[0] != '' %} {{ function('site_url',user_data._chef_personal_photo[0]) }} {% else %} {{ function ('site_url','/wp-content/uploads/users/user.jpg') }} {% endif %}" class="autor-img-box-header">
+                <div class="uk-dropdown">
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu3">
+                        <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Ver perfil</a></li>
+                        <li><a href="/editar-perfil">Editar perfil</a></li>
+                        <!--<li><a href="/hacerse-socio.php">Hacerme socio</a></li>-->
+                        <li class="divider"></li>
+                        <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mi actividad</a></li>
+                        <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mis talleres</a></li>
+                        <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mis recetas</a></li>
+                        <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mis promociones</a></li>
+                        <!--<li><a href="/empleo-chef.php">Mis ofertas de empleo</a></li>-->
+                        <!--<li><a href="/foros-chef.php">Mis foros</a></li>-->
+                        <!--<li class="divider"></li>-->
+                        <!--<li><a href="/amigos.php">Amigos</a></li>-->
+                        <li class="divider"></li>
+                        <li><a href="{{ function('wp_logout_url',function('home_url'))|raw }}">Salir</a></li>
+                    </ul>
+                </div>
+            </div>
+        {# Si no lo está mostramos los modales #}
+        {% else %}
+            <a href="#modal-login-{{ particle.idmodal|e }}" data-uk-modal="{center:true}" id="modal-login-color">{% if particle.textlogin %}<span class="modal-login-text">{{ particle.textlogin|e }}</span>{% endif %}</a>
+            <a href="#modal-create-{{ particle.idmodal|e }}" data-uk-modal="{center:true}" class="btn btn-primary btn-top pointer">{% if particle.textcreate %}<span class="modal-login-text">{{ particle.textcreate|e }}</span>{% endif %}</a>            
+        {%  endif %}
+        
+	<div id="modal-login-{{ particle.idmodal|e }}" class="uk-modal modal-login">
+            <div class="uk-modal-dialog{% if particle.links|default("show") == "hide" %} hide-links{% endif %}">
+                <a class="uk-modal-close uk-close"></a>
+                <div class="uk-modal-content">
+                    <div class="uk-modal-header">
+                      <h4 class="uk-modal-title" id="myModalLabel">Entrar</h4>
+                    </div>
+                    <div class="uk-modal-body">
+                        <div class="content-modal-body">
+                            <div class="facebook-login">
+                                    <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>
+                            </div>
+                        </div>
+                        <div class="content-modal-body bk-lg">
+                            <p>o entra con tu usuario</p>
+                            <form id="login_form" action="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" id="custom_user_login" value="true">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" name="log" id="user_login" placeholder="Nombre de usuario" aria-describedby="basic-addon1" required="">
+                                </div>
+                                <div class="gap-20"></div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                    <input type="password" class="form-control" name="pwd" id="user_pass" placeholder="Contraseña" aria-describedby="basic-addon1" required="">
+                                </div>
+                                <div class="gap-20"></div>
+                                <span id="login_response" class="response-login" ></span>
+                                <div class="gap-20"></div>
+                                <div class="row">
+                                    <div class="boton-entrar-izq">
+                                        <input class="btn btn-primary" type="submit" value="Entrar" id="login_user">
+                                    </div>
+                                    <div class="elemento-der">
+                                        <a href="#modal-reset" data-uk-modal="{center:true}">¿Olvidaste tu contraseña?</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="uk-modal-footer">
+                      <p>¿No tienes cuenta? <a id="reg" data-toggle="modal" href="#modal-create-{{ particle.idmodal|e }}" data-uk-modal="{center:true}">Crear cuenta</a></p>
+                    </div>
+                </div>
+            </div>
+	</div>
+                    
+        <div id="modal-reset" class="uk-modal modal-login">
+            <div class="uk-modal-dialog{% if particle.links|default("show") == "hide" %} hide-links{% endif %}">
+                <a class="uk-modal-close uk-close"></a>
+                <div class="uk-modal-content">
+                    <div class="uk-modal-header">
+                        <h4 class="uk-modal-title" id="myModalLabel">Restablecer contraseña</h4>
+                    </div>
+                    <div class="uk-modal-body">
+                        <div class="content-modal-body">
+                            <form>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <input type="text" class="form-control" id="mail_reset" placeholder="Cuenta de email" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="gap-20"></div>
+                                <span id="reset_response" class="response-login" ></span>
+                                <div class="gap-20"></div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input class="btn btn-primary" value="Restablecer contraseña" id="reset_pass">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="uk-modal-footer">
+                        <p class="text-center">Si tienes cualquier duda escríbenos un email a <a href="info@chefsociety.com">info@chefsociety.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    
+        <div id="modal-create-{{ particle.idmodal|e }}" class="uk-modal modal-login">
+            <div class="uk-modal-dialog{% if particle.links|default("show") == "hide" %} hide-links{% endif %}">
+                <a class="uk-modal-close uk-close"></a>
+                <div class="uk-modal-content">
+                    <div class="uk-modal-header">
+                      <h4 class="uk-modal-title" id="myModalLabel">Entrar</h4>
+                    </div>
+                    <div class="uk-modal-body">
+                        <div class="content-modal-body">
+                            <div class="facebook-login">
+                                <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>
+                            </div>
+                        </div>
+                        <div class="content-modal-body bk-lg">
+                            <p>o regístrate con tu email</p>
+                            <form id="create_form" action="" method="post" enctype="multipart/form-data">
+                                <input type="hidden" id="custom_user_create" value="true">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                    <input type="text" id="user_create_login" class="form-control" placeholder="Nombre de usuario" aria-describedby="basic-addon1" required="">
+                                </div>
+                                <div class="gap-20"></div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                    <input type="text" id="user_email" class="form-control" placeholder="Cuenta de email" aria-describedby="basic-addon1" required="">
+                                </div>
+                                <div class="gap-20"></div>
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="basic-addon1"><i class="fa fa-asterisk" aria-hidden="true"></i></span>
+                                    <input type="password" id="user_create_pass" class="form-control" placeholder="Contraseña" aria-describedby="basic-addon1" required="">
+                                </div>
+                                <div class="gap-20"></div>
+                                <span id="create_response" class="response-login" ></span>
+                                <div class="gap-20"></div>
+                                <p>¿Cuándo es tu cumpleaños?</p>
+                                <div class="clearfix">
+                                    <div class="form-group">
+                                        <div class="form-inline">
+                                            <select class="form-control" name="day_birth" id="day_birth" required="">
+                                                <option value="">Día</option>
+                                                <option value="01">1</option>
+                                                <option value="02">2</option>
+                                                <option value="03">3</option>
+                                                <option value="04">4</option>
+                                                <option value="05">5</option>
+                                                <option value="06">6</option>
+                                                <option value="07">7</option>
+                                                <option value="08">8</option>
+                                                <option value="09">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                                <option value="13">13</option>
+                                                <option value="14">14</option>
+                                                <option value="15">15</option>
+                                                <option value="16">16</option>
+                                                <option value="17">17</option>
+                                                <option value="18">18</option>
+                                                <option value="19">19</option>
+                                                <option value="20">20</option>
+                                                <option value="21">21</option>
+                                                <option value="22">22</option>
+                                                <option value="23">23</option>
+                                                <option value="24">24</option>
+                                                <option value="25">25</option>
+                                                <option value="26">26</option>
+                                                <option value="27">27</option>
+                                                <option value="28">28</option>
+                                                <option value="29">29</option>
+                                                <option value="30">30</option>
+                                                <option value="31">31</option>
+                                            </select>
+                                            <select class="form-control" name="month_birth" id="month_birth" required="">
+                                                <option value="">Mes</option>
+                                                <option value="01">1</option>
+                                                <option value="02">2</option>
+                                                <option value="03">3</option>
+                                                <option value="04">4</option>
+                                                <option value="05">5</option>
+                                                <option value="06">6</option>
+                                                <option value="07">7</option>
+                                                <option value="08">8</option>
+                                                <option value="09">9</option>
+                                                <option value="10">10</option>
+                                                <option value="11">11</option>
+                                                <option value="12">12</option>
+                                            </select>
+                                            <select class="form-control" name="year_birth" id="year_birth" required="">
+                                                <option value="">Año</option>
+                                                <option value="2003">2003</option>
+                                                <option value="2002">2002</option>
+                                                <option value="2001">2001</option>
+                                                <option value="2000">2000</option>
+                                                <option value="1999">1999</option>
+                                                <option value="1998">1998</option>
+                                                <option value="1997">1997</option>
+                                                <option value="1996">1996</option>
+                                                <option value="1995">1995</option>
+                                                <option value="1994">1994</option>
+                                                <option value="1993">1993</option>
+                                                <option value="1992">1992</option>
+                                                <option value="1991">1991</option>
+                                                <option value="1990">1990</option>
+                                                <option value="1989">1989</option>
+                                                <option value="1988">1988</option>
+                                                <option value="1987">1987</option>
+                                                <option value="1986">1986</option>
+                                                <option value="1985">1985</option>
+                                                <option value="1984">1984</option>
+                                                <option value="1983">1983</option>
+                                                <option value="1982">1982</option>
+                                                <option value="1981">1981</option>
+                                                <option value="1980">1980</option>
+                                                <option value="1979">1979</option>
+                                                <option value="1978">1978</option>
+                                                <option value="1977">1977</option>
+                                                <option value="1976">1976</option>
+                                                <option value="1975">1975</option>
+                                                <option value="1974">1974</option>
+                                                <option value="1973">1973</option>
+                                                <option value="1972">1972</option>
+                                                <option value="1971">1971</option>
+                                                <option value="1970">1970</option>
+                                                <option value="1969">1969</option>
+                                                <option value="1968">1968</option>
+                                                <option value="1967">1967</option>
+                                                <option value="1966">1966</option>
+                                                <option value="1965">1965</option>
+                                                <option value="1964">1964</option>
+                                                <option value="1963">1963</option>
+                                                <option value="1962">1962</option>
+                                                <option value="1961">1961</option>
+                                                <option value="1960">1960</option>
+                                                <option value="1959">1959</option>
+                                                <option value="1958">1958</option>
+                                                <option value="1957">1957</option>
+                                                <option value="1956">1956</option>
+                                                <option value="1955">1955</option>
+                                                <option value="1954">1954</option>
+                                                <option value="1953">1953</option>
+                                                <option value="1952">1952</option>
+                                                <option value="1951">1951</option>
+                                                <option value="1950">1950</option>
+                                                <option value="1949">1949</option>
+                                                <option value="1948">1948</option>
+                                                <option value="1947">1947</option>
+                                                <option value="1946">1946</option>
+                                                <option value="1945">1945</option>
+                                                <option value="1944">1944</option>
+                                                <option value="1943">1943</option>
+                                                <option value="1942">1942</option>
+                                                <option value="1941">1941</option>
+                                                <option value="1940">1940</option>
+                                                <option value="1939">1939</option>
+                                                <option value="1938">1938</option>
+                                                <option value="1937">1937</option>
+                                                <option value="1936">1936</option>
+                                                <option value="1935">1935</option>
+                                                <option value="1934">1934</option>
+                                                <option value="1933">1933</option>
+                                                <option value="1932">1932</option>
+                                                <option value="1931">1931</option>
+                                                <option value="1930">1930</option>
+                                                <option value="1929">1929</option>
+                                                <option value="1928">1928</option>
+                                                <option value="1927">1927</option>
+                                                <option value="1926">1926</option>
+                                                <option value="1925">1925</option>
+                                                <option value="1924">1924</option>
+                                                <option value="1923">1923</option>
+                                                <option value="1922">1922</option>
+                                                <option value="1921">1921</option>
+                                                <option value="1920">1920</option>
+                                                <option value="1919">1919</option>
+                                                <option value="1918">1918</option>
+                                                <option value="1917">1917</option>
+                                                <option value="1916">1916</option>
+                                                <option value="1915">1915</option>
+                                                <option value="1914">1914</option>
+                                                <option value="1913">1913</option>
+                                                <option value="1912">1912</option>
+                                                <option value="1911">1911</option>
+                                                <option value="1910">1910</option>
+                                                <option value="1909">1909</option>
+                                                <option value="1908">1908</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="boton-entrar-izq">
+                                        <input class="btn btn-primary" type="submit" value="Crear Cuenta">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="uk-modal-footer">
+                      <p>¿Ya tienes cuenta? <a id="reg" data-toggle="modal" href="#modal-login-{{ particle.idmodal|e }}" data-uk-modal="{center:true}">Inicia sesión</a></p>
+                    </div>
+                </div>
+            </div>
+	</div>            
+            
+{% endblock %}

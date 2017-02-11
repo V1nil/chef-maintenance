@@ -1,0 +1,49 @@
+ordering:
+  Qué-se-cuece: ''
+  talleres: ''
+  recetas: ''
+  promociones: ''
+  Más:
+    foros: ''
+    empleo: ''
+    contacto: ''
+    chefs: ''
+    ayuda: ''
+items:
+  Qué-se-cuece:
+    id: 52
+    type: post_type
+  talleres:
+    id: 53
+    type: post_type
+  recetas:
+    id: 54
+    type: post_type
+  promociones:
+    id: 55
+    type: post_type
+  Más:
+    enabled: '1'
+    id: '126'
+    type: separator
+    hash: ''
+    dropdown_dir: right
+    dropdown_hide: ''
+    width: auto
+    icon: 'fa fa-navicon'
+    icon_only: '1'
+  Más/foros:
+    id: 57
+    type: post_type
+  Más/empleo:
+    id: 58
+    type: post_type
+  Más/contacto:
+    id: 59
+    type: post_type
+  Más/chefs:
+    id: 60
+    type: post_type
+  Más/ayuda:
+    id: 61
+    type: post_type

@@ -1,0 +1,57 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+
+{% block particle %}
+    
+    {# Cargamos los assets necesarios #}
+    {% assets in 'head' with { priority: 10 } %}
+    
+        <script type="text/javascript">
+            $ = jQuery;
+            $(function () {
+                $(document).ready(function ($) {
+                    //Evento de búsqueda
+                    $(document).on('click', ".chef_search", function () {
+                        
+                        var id_markup =$(this).attr('id').substr(12,$(this).attr('id').length);
+                        
+                        $('#search_response_'+id_markup).hide();
+                        
+                        var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                        var search_input = document.getElementById('search_input_'+id_markup).value;
+
+                        xhr = new XMLHttpRequest();
+                        xhr.open("POST", url, true);
+                        var params ="action=search&search_input="+search_input;
+
+                        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+                        xhr.onprogress = function(e){
+                            var data = jQuery.parseJSON(e.currentTarget.responseText);
+
+                            if(data.results === true){
+                                $('#search_response_'+id_markup).fadeIn('slow');
+                                $('#search_response_'+id_markup).html(data.message);
+                            }else{
+                                $('#search_response_'+id_markup).fadeIn('slow');
+                                $('#search_response_'+id_markup).html(data.message);
+                            }
+                        };
+                        xhr.send(params);
+
+                    });
+                });
+            });
+
+        </script> 
+        
+    {% endassets -%}
+
+    <form>
+        <input type="text" class="search-input-top" id="search_input_{{particle.idsearch}}" placeholder="{{particle.textplaceholder}}"/>
+        <button type="button" id="chef_search_{{particle.idsearch}}" class="search-btn-top chef_search" ><i class="fa fa-search fa-lg" aria-hidden="true"></i></button>
+        <div class="search-response arrow-box-search" id="search_response_{{particle.idsearch}}"></div>
+    </form>
+
+    
+{% endblock %}

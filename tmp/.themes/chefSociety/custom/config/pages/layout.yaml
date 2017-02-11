@@ -1,0 +1,210 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+layout:
+  /header/: {  }
+  /navigation/:
+    -
+      - 'logo-6922 25'
+      - 'menu-8101 40'
+      - 'custom-7538 22'
+      - 'custom-7859 13'
+    -
+      - 'logo-4062 25'
+      - 'menu-7976 75'
+    -
+      - 'custom-7311 50'
+      - 'custom-9625 50'
+  /showcase/: {  }
+  /feature/:
+    -
+      - system-content-6416
+  /main/: {  }
+  /subfeature/: {  }
+  /prefooter/:
+    -
+      - 'custom-8930 15'
+      - 'custom-2913 15'
+      - 'custom-2737 25'
+      - 'custom-8499 45'
+  /footer/:
+    -
+      - 'spacer-4800 45'
+      - 'totop-6892 10'
+      - 'spacer-1691 45'
+    -
+      - 'copyright-5564 40'
+      - 'logo-6178 35'
+      - 'social-4968 25'
+    -
+      - branding-2704
+  offcanvas:
+    -
+      - mobile-menu-5891
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+      extra:
+        -
+          style: 'padding-top:0.5em!important;padding-bottom:0.5em!important;'
+  showcase:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+  feature:
+    type: section
+    attributes:
+      boxed: ''
+  main:
+    attributes:
+      boxed: ''
+  subfeature:
+    type: section
+    attributes:
+      class: flush
+      boxed: ''
+  prefooter:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#D0D0D0'
+  footer:
+    attributes:
+      boxed: ''
+content:
+  logo-6922:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety1.png'
+      class: ''
+    block:
+      class: 'hidden-phone hidden-tablet'
+      fixed: '1'
+  menu-8101:
+    attributes:
+      menu: menu-main
+    block:
+      class: 'hidden-phone hidden-tablet'
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-7538:
+    title: 'Custom HTML'
+    attributes:
+      html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+    block:
+      class: 'hidden-tablet hidden-phone'
+  custom-7859:
+    title: 'Custom HTML'
+    attributes:
+      html: "<a class=\"t-t-n pointer\">Entrar</a>\n<a class=\"btn btn-primary btn-top pointer\">Crear cuenta</a>"
+    block:
+      class: 'hidden-phone hidden-tablet'
+  logo-4062:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: hidden-desktop
+  menu-7976:
+    attributes:
+      menu: menu-main-long
+    block:
+      class: visible-tablet
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-7311:
+    title: 'Custom HTML'
+    attributes:
+      html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+    block:
+      class: hidden-desktop
+      extra:
+        -
+          style: 'margin-top:1em;'
+  custom-9625:
+    title: 'Custom HTML'
+    attributes:
+      html: "<a class=\"t-t-n pointer\"  style=\"color:white\">Entrar</a>\n<a class=\"btn btn-primary btn-top pointer\" style=\"color:white\">Crear cuenta</a>"
+    block:
+      class: hidden-desktop
+      extra:
+        -
+          style: 'margin-top:2em;'
+  custom-8930:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Secciones</h4>\n<ul>\n<li><a href=\"#\">Qué se cuece</a></li>\n<li><a href=\"#\">Talleres culinarios</a></li>\n<li><a href=\"#\">Recetas</a></li>\n</ul>\n                    \n"
+    block:
+      class: prefooter
+  custom-2913:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>OPORTUNIDADES</h4>\n<ul>\n<li><a href=\"#\">Promociones</a></li>\n<li><a href=\"#\">Eventos</a></li>\n<li><a href=\"#\">Empleo</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-2737:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Información</h4>\n<ul>\n<li><a href=\"#\">Aviso legal</a></li>\n<li><a href=\"#\">Contacto</a></li>\n<li><a href=\"#\">Condiciones de uso</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-8499:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Suscríbete a nuestra newsletter</h4>\n<p>Recibe promociones, noticias, ..</p>\n<form enctype=\"application/x-www-form-urlencoded\" action=\"http://chefsociety.ip-zone.com/ccm/subscribe/index/form/ixdcgqi7u7\" method=\"post\">\n\n\t\t\t\t\t\t\t<input class=\"form-control\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Email\" type=\"text\" required=\"\">\n\n                                     \n \t\t\t\t\t\t\t\t\t\t\n \t\t\t\t\t\t\t\t\t\t\n \t\t\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" name=\"submit\" id=\"submit\" value=\"Suscribirme\" type=\"submit\">\n\n\n</form>\n                    \n"
+    block:
+      class: prefooter
+  totop-6892:
+    title: 'To Top'
+    attributes:
+      icon: 'fa fa-angle-double-up fa-5x'
+  logo-6178:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+  social-4968:
+    attributes:
+      css:
+        class: social-items
+      items:
+        -
+          icon: 'fa fa-twitter'
+          text: ''
+          link: 'http://twitter.com/rockettheme'
+          name: Twitter
+        -
+          icon: 'fa fa-facebook'
+          text: ''
+          link: 'http://facebook.com/rockettheme'
+          name: Facebook
+        -
+          icon: 'fa fa-google'
+          text: ''
+          link: 'http://plus.google.com/+rockettheme'
+          name: Google
+        -
+          icon: 'fa fa-rss'
+          text: ''
+          link: 'http://www.rockettheme.com/product-updates?rss'
+          name: RSS
+    block:
+      variations: center
+  branding-2704:
+    block:
+      variations: align-right
+  mobile-menu-5891:
+    title: 'Mobile Menu'

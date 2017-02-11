@@ -1,0 +1,89 @@
+name: pages_-_ayuda
+timestamp: 1486769047
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  content:
+    system-content-9688: 'Page Content'
+  logo:
+    logo-2615: 'Logo / Image'
+    logo-8225: 'Logo / Image'
+    logo-6134: 'Logo / Image'
+  menu:
+    menu-6950: Menu
+    menu-1033: Menu
+  chef_search:
+    chef_search-5566: 'Chef Search'
+    chef_search-2583: 'Chef Search'
+  custom:
+    custom-3639: 'Custom HTML'
+    custom-2369: 'Custom HTML'
+    custom-4022: Custom
+    custom-5133: 'Custom HTML'
+    custom-3174: 'Custom HTML'
+    custom-9265: 'Custom HTML'
+    custom-7038: 'Custom HTML'
+  modal-login:
+    modal-login-1321: 'Modal Login'
+    modal-login-5378: 'Modal Login'
+    modal-login-5698: 'Modal Login'
+  slideshow:
+    slideshow-7259: Slideshow
+  spacer:
+    spacer-8868: Spacer
+    spacer-2264: Spacer
+  totop:
+    totop-1567: 'To Top'
+  social:
+    social-5699: Social
+  mobile-menu:
+    mobile-menu-7263: 'Mobile Menu'
+inherit:
+  pages:
+    header: header
+    navigation: navigation
+    postnavigation: postnavigation
+    showcase: showcase
+    main: main
+    subfeature: subfeature
+    prefooter: prefooter
+    footer: footer
+    offcanvas: offcanvas
+    logo-2615: logo-6922
+    menu-6950: menu-8101
+    chef_search-5566: chef_search-3140
+    custom-3639: custom-3320
+    modal-login-1321: modal-login-4598
+    logo-8225: logo-4062
+    menu-1033: menu-7976
+    custom-2369: custom-6133
+    modal-login-5378: modal-login-2830
+    chef_search-2583: chef_search-6337
+    modal-login-5698: modal-login-8521
+    custom-4022: custom-3022
+    slideshow-7259: slideshow-3373
+    custom-5133: custom-7879
+    custom-3174: custom-6953
+    custom-9265: custom-3087
+    custom-7038: custom-6438
+    spacer-8868: spacer-3699
+    totop-1567: totop-3617
+    spacer-2264: spacer-8205
+    logo-6134: logo-6178
+    social-5699: social-4968
+    mobile-menu-7263: mobile-menu-5891

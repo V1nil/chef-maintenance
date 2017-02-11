@@ -1,0 +1,103 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+layout:
+  /header/: {  }
+  navigation: {  }
+  /postnavigation/:
+    -
+      - custom-4549
+  showcase: {  }
+  /feature/:
+    -
+      - 'system-content-5498 75'
+      - 'chef_sidebar_perfil-2701 25'
+  main: {  }
+  subfeature: {  }
+  prefooter: {  }
+  footer: {  }
+  offcanvas: {  }
+structure:
+  header:
+    attributes:
+      boxed: ''
+      class: ''
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  showcase:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  feature:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+  main:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  subfeature:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  prefooter:
+    type: section
+    inherit:
+      outline: home
+      include:
+        - attributes
+        - children
+  footer:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  offcanvas:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+content:
+  custom-4549:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+      particle: custom-3022
+  system-content-5498:
+    block:
+      class: forms-content
+  chef_sidebar_perfil-2701:
+    title: 'Chef Sidebar Perfil'

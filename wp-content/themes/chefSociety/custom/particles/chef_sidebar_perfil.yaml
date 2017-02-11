@@ -1,0 +1,13 @@
+name: Chef Sidebar Perfil
+description: Muestra el sidebar del usuario en el perfil
+type: particle
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable WordPress Posts particles.
+      default: true
+
+    

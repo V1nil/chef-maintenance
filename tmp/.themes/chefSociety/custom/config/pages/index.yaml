@@ -1,0 +1,7 @@
+name: pages
+timestamp: 1465922052
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }

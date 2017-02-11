@@ -1,0 +1,206 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+layout:
+  header: {  }
+  navigation: {  }
+  /postnavigation/:
+    -
+      - custom-7785
+  /premain/:
+    -
+      - custom-4948
+  /container-main/:
+    -
+      -
+        '/main/ 75':
+          -
+            - tabschef-9941
+          -
+            - system-content-7221
+      -
+        'sidebar 25': {  }
+  main-mobile: {  }
+  /prefooter/:
+    -
+      - 'custom-6421 15'
+      - 'custom-9014 15'
+      - 'custom-7634 25'
+      - 'custom-7644 45'
+  /footer/:
+    -
+      - 'logo-4281 90'
+      - 'social-5912 10'
+  offcanvas:
+    -
+      - mobile-menu-2133
+structure:
+  header:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  premain:
+    type: section
+    attributes:
+      boxed: '0'
+      class: ''
+      extra:
+        -
+          style: 'background-color:#EDEDED'
+  main:
+    attributes:
+      boxed: '0'
+      class: ''
+  sidebar:
+    type: section
+    subtype: aside
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+        - children
+    block:
+      fixed: 1
+  container-main:
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  main-mobile:
+    title: Mobile
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - children
+  prefooter:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#e9e9e9'
+  footer:
+    attributes:
+      boxed: ''
+      class: ''
+  offcanvas:
+    attributes:
+      position: g-offcanvas-left
+      class: ''
+      extra: {  }
+      swipe: '1'
+      css3animation: '1'
+content:
+  custom-7785:
+    title: 'Custom HTML'
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: custom-3022
+  custom-4948:
+    title: 'Custom HTML'
+    attributes:
+      html: "{% set post_promo = function('get_post') %}\n{% set current_user_fav_promo = function ('wp_get_current_user') %}\n{% set current_user_fav_promo_data = function ('get_user_meta',current_user_fav_promo.data.ID) %}\n\n<script type=\"text/javascript\">\n\n    $ = jQuery;\n    $(function () {\n        $(document).ready(function ($) {\n            var user_id = '{{ current_user_fav_promo.data.ID }}';\n            var post_id_fav_promo = '{{ post_promo.ID }}';\n            var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';\n        \n            //Añadir receta a favoritos\n            $(\"#add_favorite_promo\").on('click',(function() {\n                var params =\"action=add-favorite-promo&user=\"+user_id+\"&post_id=\"+post_id_fav_promo;\n\n                triggerXHRFavs(url,params);\n                \n            }));\n            //Quitar receta de favoritos\n            $(\"#remove_favorite_promo\").on('click',(function() {\n                var params =\"action=remove-favorite-promo&user=\"+user_id+\"&post_id=\"+post_id_fav_promo;\n\n                triggerXHRFavs(url,params);\n            }));\n            \n        });\n        \n        function triggerXHRFavs(url,params){\n            \n            xhr = new XMLHttpRequest();\n            xhr.open(\"POST\", url, true);\n\n            xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n\n            xhr.onreadystatechange = function() {\n                if (xhr.readyState === 4) {\n                       location.reload();                        \n                }\n            };\n            xhr.send(params);\n            \n        }\n        \n    });\n\n\n</script>\n\n<div class=\"promos-header\">\n    <h1>{{ post_promo.post_title }}</h1>\n    <div class=\"deco-ball-bk\"></div>\n    <div class=\"gap-20\"></div>\n    <p class=\"recetas-header\">{{ post_promo.post_excerpt }}</p>\n    <div class=\"gap-10\"></div>\n<div class=\"recetas-header-author\">\n\n    {% set user_recipe_data = function ('get_user_meta',post_promo.post_author) %}\n\n    {% if user_promo_data._chef_personal_photo[0] != '' %} {% set user_promo_photo = function('site_url',user_promo_data._chef_personal_photo[0]) %} {% else %} {% set user_promo_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}\n    <div>\n        <a href=\"{{function ('site_url','mi-perfil/?perfil='~post_promo.post_author)}}\"><img class=\"autor-img-box-header\" src=\"{{user_promo_photo}}\"></a>\n    </div>\n\n     <div class=\"recetas-header-name\">  \n       <h5>{{function('get_the_author_meta','first_name',post_promo.post_author)  | raw}} {{function('get_the_author_meta','last_name',post_promo.post_author)  | raw}} </h5><p class=\"small\">{{ post_promo.post_date|date(\"m/d/Y\") }}</p></div></div><div class=\"gap-20\"></div>    {% if post_promo._patrocinador_promo != '' %}<p> Patrocinado por: </p>\n    <img src=\"{{post_promo._patrocinador_promo}}\" alt=\"patrocinador del producto\">\n<div class=\"gap-20\"></div> {% endif %}    {% if post_promo._codigo_descuento_promo != '' %}<p>Código de descuento: <strong>{{post_promo._codigo_descuento_promo}}</strong></p>{% endif %}\n    \n    <p>\n    {# Si no está conectado no mostramos los botones #}\n    {% if(current_user_fav_promo.data.ID is defined)%}\n        {% set user_fav_promos = current_user_fav_promo_data._chef_favorite_promos[0]|json_decode %}\n\n        {% if post_promo.ID in user_fav_promos %}\n        <a class=\"btn btn-default btn-black\" id=\"remove_favorite_promo\">\n            <i class=\"fa fa-heart c-w\" aria-hidden=\"true\"></i>\n            Quitar de favoritos\n        </a>\n        {% else %}\n        <a class=\"btn btn-default btn-black\" id=\"add_favorite_promo\">\n            <i class=\"fa fa-heart c-w\" aria-hidden=\"true\"></i>\n            Añadir a favoritos\n        </a>\n        {% endif %}\n    {% endif %}\n    </p>\n    \n    \n    \n    \n    <div class=\"gap-20\"></div>\n</div>\n<div class=\"promos-prices\">\n    <div class=\"gap-20\"></div>\n    <div class=\"price price-taller-detail\">\n        <div class=\"std\">\n            <span class=\"standard\">{{post_promo._sale_price}}€</span><br>\n            <span class=\"standard-text\">No socios</span>\n        </div>\n        {% set partners_price = post_promo._sale_price - (post_promo._sale_price*(post_promo._descuento_socios_promo/100)) %}\n        <div class=\"part\">\n            <span class=\"partner\">{{partners_price|round}}€</span><br>\n            <span class=\"partner-text\">Socios ({{post_promo._descuento_socios_promo}}% desc.)</span>\n        </div>\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"gap-10\"></div>\n</div>"
+      twig: '1'
+      filter: '1'
+  tabschef-9941:
+    title: 'Tabs Chef'
+    attributes:
+      items:
+        -
+          icon: ''
+          title: Presentacion
+          description: "{% set post_promo = function('get_post') %}\n{% set image = function('wp_get_attachment_image_src', function ('get_post_thumbnail_id',post_promo.ID),'single-post-thumbnail') %}\n\n\n<div class=\"banner-detalle\">\n    <img src=\"{{image[0]}}\">\n</div>\n\n<div class=\"bk-w row m-l-r-0\">\n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle\">\n        \n        {{post_promo.post_content|raw}}\n        \n    </div>\n    <div class=\"bottom-box\">\n        <div class=\"row\">\n            <div class=\"col-xs-6\"></div>\n            <div class=\"col-xs-6 text-right\">\n                <p class=\"content-detalle-social\">\n                    {# Numero de visitas #}\n                    {% set short_wppostviews_taller = \"[views id='\"~post_promo.ID~\"']\" %}\n                    <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_taller|shortcodes}} &nbsp; \n\n                    {# Valoracion media#}                                                \n                    <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n                    {% set product_taller=function('get_product',post_promo.ID) %}\n                    {% set rating_taller = product_taller.get_average_rating() %}\n                    {% set rating_taller_100 = (rating_taller / 5 ) * 100 %}\n                    <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> {{rating_taller_100}}% ({{post_promo.comment_count}}) &nbsp; \n\n                    {# Seguidores para el pie de contenido #}\n                    {% set users = function('get_users')%}\n                    {% set cont_followers = 0 %}\n                    {% for user in users %}\n                        {% set user_data = function('get_user_meta',user.data.ID) %}\n                        {% set following = user_data._chef_follow[0]|json_decode %}\n\n                        {% if post_promo.post_author in following%}\n                            {% set cont_followers = cont_followers + 1 %}\n                        {% endif %}\n                    {% endfor %}\n                    <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n                </p>\n            </div>\n        </div>\n<!-- /.row -->\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Presentacion
+        -
+          icon: ''
+          title: Condiciones
+          description: "{% set post_promo = function('get_post') %}\n<div class=\"bk-w row m-l-r-0\">\n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle\">\n        <h2 class=\"del-uppercase\">Condiciones</h2>\n        {{post_promo._condiciones_promo}}\n    </div>\n    <div class=\"bottom-box\">\n        <div class=\"row\">\n            <div class=\"col-xs-6\"></div>\n            <div class=\"col-xs-6 text-right\">\n                <p class=\"content-detalle-social\">\n                    {# Numero de visitas #}\n                    {% set short_wppostviews_taller = \"[views id='\"~post_promo.ID~\"']\" %}\n                    <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_taller|shortcodes}} &nbsp; \n\n                    {# Valoracion media#}                                                \n                    <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n                    {% set product_taller=function('get_product',post_promo.ID) %}\n                    {% set rating_taller = product_taller.get_average_rating() %}\n                    {% set rating_taller_100 = (rating_taller / 5 ) * 100 %}\n                    <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> {{rating_taller_100}}% ({{post_promo.comment_count}}) &nbsp; \n\n                    {# Seguidores para el pie de contenido #}\n                    {% set users = function('get_users')%}\n                    {% set cont_followers = 0 %}\n                    {% for user in users %}\n                        {% set user_data = function('get_user_meta',user.data.ID) %}\n                        {% set following = user_data._chef_follow[0]|json_decode %}\n\n                        {% if post_promo.post_author in following%}\n                            {% set cont_followers = cont_followers + 1 %}\n                        {% endif %}\n                    {% endfor %}\n                    <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n                </p>\n            </div>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Condiciones
+  system-content-7221:
+    inherit:
+      outline: post_-_talleres
+      include:
+        - attributes
+        - block
+      particle: system-content-1395
+  custom-6421:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: custom-8930
+  custom-9014:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: custom-2913
+  custom-7634:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: custom-2737
+  custom-7644:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: custom-8499
+  logo-4281:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: logo-6178
+  social-5912:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: social-4968
+  mobile-menu-2133:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: mobile-menu-5916

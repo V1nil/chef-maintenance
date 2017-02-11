@@ -1,0 +1,242 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+
+
+{% block particle %}
+
+    {% set get = gantry.request.get %}
+
+    {% if get.perfil is empty %}
+        {# Estan editando su propio perfil #}
+        {% set current_user = function ('wp_get_current_user') %}
+        {% set perfil_id = current_user.data.ID %}        
+    {%else%}
+        {# Estan viendo el perfil de otro y quieren ver sus datos otra vez #}
+        {% set perfil_id = get.perfil %}
+    {%endif%}
+    
+    {% set current_user_data = function ('get_user_meta',perfil_id) %}
+    {% set current_user_wp = function ('get_userdata',perfil_id) %}
+
+    
+    {# Datos personales #}
+    {% if current_user_data.first_name[0] != '' %} {% set nombre = current_user_data.first_name[0] %} {% else %} {% set nombre = 'Nombre' %} {% endif %}
+    {% if current_user_data._chef_city[0] != '' %} {% set ciudad = current_user_data._chef_city[0] %} {% else %} {% set ciudad = 'Ciudad' %} {% endif %}
+    {% if current_user_data._chef_country[0] != '' %} {% set pais = current_user_data._chef_country[0] %} {% else %} {% set pais = 'País' %} {% endif %}
+    {% if current_user_data._chef_personal_photo[0] != '' %} {% set personal_photo = function('site_url',current_user_data._chef_personal_photo[0]) %} {% else %} {% set personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
+    {% if current_user_data._chef_job[0] != '' %} {% set job = current_user_data._chef_job[0] %} {% else %} {% set job = 'Profesión' %} {% endif %}
+    {% if current_user_wp.data.user_registered != '' %} {% set since = current_user_wp.data.user_registered %} {% else %} {% set since = '10/05/16' %} {% endif %}
+    {% if current_user_data._gastronomy[0] != '' %} {% set gastronomia = current_user_data._gastronomy[0] %} {% else %} {% set gastronomia = 'Para mi la gastronía es...' %} {% endif %}
+
+    {# Areas de interes #}
+    {% set areas_name = [] %}
+    {% if current_user_data._areas_interes[0] != '' and current_user_data._areas_interes[0] != 'null' %}        
+        {% set areas_ids = current_user_data._areas_interes[0]|split(',') %}
+        {% for area_id in areas_ids %}
+            {% set term = function('get_term',area_id) %}
+            {% set areas_name = areas_name|merge([term.name]) %}
+        {% endfor %}
+    {% else %} 
+        {% set areas_name = ['Fusión', 'Local', 'Japonesa'] %}
+    {% endif %}
+
+    {% if current_user_data._chef_busi_name[0] != '' %} {% set business = current_user_data._chef_busi_name[0] %} {% else %} {% set business = 'Nombre' %} {% endif %}
+    {% if current_user_data._chef_busi_address[0] != '' %} {% set direccion = current_user_data._chef_busi_address[0] %} {% else %} {% set direccion = 'Dirección' %} {% endif %}
+    {% if current_user_data._chef_business_photo[0] != '' %} {% set business_photo = function('site_url',current_user_data._chef_business_photo[0]) %} {% else %} {% set business_photo = function ('site_url','/wp-content/uploads/users/logosombrero.png') %} {% endif %}
+    
+    {# Tipos de cocina #}
+    {% set tipos_name = [] %}
+    {% if current_user_data._tipos_cocina[0] != '' and current_user_data._tipos_cocina[0] != 'null' %}
+        {% set tipos_ids = current_user_data._tipos_cocina[0]|split(',') %}
+        {% for tipo_id in tipos_ids %}
+            {% set term = function('get_term',tipo_id) %}
+            {% set tipos_name = tipos_name|merge([term.name]) %}
+        {% endfor %}
+    {% else %} 
+        {% set tipos_name = ['Fusión', 'Local', 'Japonesa'] %}
+    {% endif %}
+
+    {% if current_user_data._chef_food_price[0] != '' %} {% set food_price = current_user_data._chef_food_price[0] %} {% else %} {% set food_price = '10' %} {% endif %}
+    {% if current_user_data._chef_menu_price[0] != '' %} {% set menu_price = current_user_data._chef_menu_price[0] %} {% else %} {% set menu_price = '10' %} {% endif %}
+
+    
+    
+    <!--sidebar user-->
+    <div class="block-sidebar">
+{#        <h4>Publicado por</h4>
+        <div class="gap-10"></div>#}
+        <div class="autor-img-box-sidebar">
+            <a href="{{function ('site_url','mi-perfil/?perfil='~perfil_id)}}"><img src="{{personal_photo}}"></a>
+        </div>
+        <div class="text-center-sidebar">
+            <h3>{{nombre}}</h3>
+            <p class="small ciudad">{{ciudad}}, {{pais}}</p>
+            <p class="prof">{{job}}</p>
+            <p class="war">{{gastronomia}}</p>
+            <p class="chs-old">En CHS desde {{since|date("d/m/y")}}</p>
+            <div class="gap-20"></div>
+            <p>Áreas profesionales de interés:</p>
+            <div class="">
+                {% for area_name in areas_name %}
+                <a href="#" class="tag">{{area_name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="gap-30"></div>        
+    </div>
+    <!--/sidebar user-->
+
+    <!--sidebar negocio user-->
+    <div class="block-sidebar">
+        <h4>Negocio</h4>
+        <div class="gap-10"></div>
+        <div class="autor-img-box-sidebar">
+            <a href="chef.php"><img src="{{business_photo}}"></a>
+        </div>
+        <div class="text-center-sidebar">
+            <h3>{{business}}</h3>
+            <p class="small ciudad">{{direccion}}</p>
+            <div class="gap-20"></div>
+            <p class="p-sidebar">Tipo de cocina:</p>
+            <div class="">
+                {% for tipo_name in tipos_name %}
+                <a href="#" class="tag">{{tipo_name}}</a> 
+                {% endfor %}
+            </div>
+            <div class="gap-20"></div>
+            <p class="p-sidebar">Precio medio carta:</p>
+            <p class="price-sidebar">{{food_price}}€</p>
+
+            <p class="p-sidebar">Precio medio carta:</p>
+            <p class="price-sidebar">{{menu_price}}€</p>
+        </div>
+        <div class="gap-30"></div>        
+    </div>
+    <!--/sidebar negocio user-->
+
+    {# Recuento de Actividad #}
+
+    
+    {# Posts de recetas #}
+    {% set query_parameters = {
+        'posts_per_page': limit.total|default('-1'),
+        'offset': limit.start|default('0'),
+        'post_type': 'recipe',
+        'author' : perfil_id,
+        'order': sort.ordering
+    } %}
+
+    {% set posts_recetas = wordpress.call('Timber::get_posts', query_parameters) %}
+
+    {# Posts de talleres #}
+    {% set query_parameters = {
+        'posts_per_page': limit.total|default('-1'),
+        'offset': limit.start|default('0'),
+        'post_type': 'product',
+        'author' : perfil_id,
+        'order': sort.ordering
+    } %}
+
+    {% set posts_talleres = wordpress.call('Timber::get_posts', query_parameters) %}
+  
+    {# Seguidores, favoritos y seguidos  #}
+    {% set users = function ('get_users')%}
+    {% set cont_seguidores = 0 %}
+    {% for user_checking in users %}
+        {% set user_checking_meta = function ('get_user_meta',user_checking.data.ID) %}
+        {% set user_checking_following = user_checking_meta._chef_follow[0]|json_decode %}
+
+        {% if perfil_id in user_checking_following %}
+            {% set cont_seguidores = cont_seguidores + 1 %}
+        {% endif %}
+    {% endfor %}
+    
+    {% set cont_following = current_user_data._chef_follow[0]|json_decode|length %}
+    {% set cont_favorite = current_user_data._chef_favorite[0]|json_decode|length %}
+    
+    <!--sidebar actividad user-->
+    <div class="block-sidebar">
+        <h4>Actividad</h4>
+        <div class="gap-10"></div>
+        <div class="">
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-cutlery" aria-hidden="true"></i> {{posts_recetas|length}} Recetas publicadas</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{posts_talleres|length}} Talleres publicados</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-briefcase" aria-hidden="true"></i> 111 Empleos publicados</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-bullhorn" aria-hidden="true"></i> 111 Foros iniciados</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-users" aria-hidden="true"></i> {{cont_seguidores}} Seguidores</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-user" aria-hidden="true"></i> {{cont_following}} Siguiendo</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-heart" aria-hidden="true"></i> {{cont_favorite}} Favoritos</a></p>
+        </div>
+        <div class="gap-30"></div>
+    </div>
+    <!--/sidebar actividad user-->
+
+    <!--sidebar tags-->
+    <div class="block-sidebar">
+        <h4>Tags</h4>
+        <div class="gap-10"></div>
+        <div class="text-center-sidebar">
+            <div class="">
+                <a href="#" class="tag">Fusión</a> 
+                <a href="#" class="tag">Local</a> 
+                <a href="#" class="tag">Japonesa</a>
+                <a href="#" class="tag">Japonesa</a>
+                <a href="#" class="tag">Fusión</a> 
+                <a href="#" class="tag">Local</a> 
+            </div>
+        </div>
+        <div class="gap-30"></div>
+    </div>
+    <!--/sidebar tags-->
+
+    <!--sidebar faq-->
+    <div class="block-sidebar">
+        <h4>Preguntas frecuentes</h4>
+        <div class="gap-10"></div>
+        <div class="list-faq">
+            <ul>
+                <li id="faq-1">
+                    <h5 data-uk-toggle="{target:'#faq-row-1', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
+                        ¿Morbi blandit sodales odio?
+                        <i class="fa fa-angle-down"></i>
+                    </h5>
+                    <div id="faq-row-1" class="uk-hidden" style="height: 260px;">
+                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    </div>
+                </li>
+                <li id="faq-2">
+                    <h5 data-uk-toggle="{target:'#faq-row-2', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
+                        ¿Morbi blandit sodales odio?
+                        <i class="fa fa-angle-down"></i>
+                    </h5>
+                    <div id="faq-row-2" class="uk-hidden" style="height: 260px;">
+                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    </div>
+                </li>
+                <li id="faq-3">
+                    <h5 data-uk-toggle="{target:'#faq-row-3', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
+                        ¿Morbi blandit sodales odio?
+                        <i class="fa fa-angle-down"></i>
+                    </h5>
+                    <div id="faq-row-3" class="uk-hidden" style="height: 260px;">
+                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    </div>
+                </li>
+                <li id="faq-4">
+                    <h5 data-uk-toggle="{target:'#faq-row-4', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
+                        ¿Morbi blandit sodales odio?
+                        <i class="fa fa-angle-down"></i>
+                    </h5>
+                    <div id="faq-row-4" class="uk-hidden" style="height: 260px;">
+                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    </div>
+                </li>
+            </ul>
+            <a class="read-more" href="ayuda.php">
+                <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+            </a>
+        </div>
+    </div>
+    <div class="gap-30"></div>
+
+{% endblock %}

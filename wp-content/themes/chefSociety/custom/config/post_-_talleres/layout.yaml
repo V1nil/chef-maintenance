@@ -1,0 +1,218 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+layout:
+  header: {  }
+  navigation: {  }
+  /postnavigation/:
+    -
+      - custom-2775
+  /premain/:
+    -
+      - custom-4869
+  /container-main/:
+    -
+      -
+        '/main/ 75':
+          -
+            - tabschef-2508
+          -
+            - system-content-1395
+      -
+        'sidebar 25': {  }
+  main-mobile: {  }
+  /prefooter/:
+    -
+      - 'custom-8930 15'
+      - 'custom-2913 15'
+      - 'custom-2737 25'
+      - 'custom-8499 45'
+    -
+      - 'spacer-4674 45'
+      - 'totop-2079 22'
+      - 'spacer-5099 33'
+  /footer/:
+    -
+      0: 'logo-8148 50'
+      block-9248: {  }
+  offcanvas:
+    -
+      - mobile-menu-6188
+structure:
+  header:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  premain:
+    type: section
+    attributes:
+      boxed: '0'
+      class: ''
+      extra:
+        -
+          style: 'background-color:#EDEDED'
+  main:
+    attributes:
+      boxed: '0'
+      class: ''
+  sidebar:
+    type: section
+    subtype: aside
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+        - children
+    block:
+      fixed: 1
+  container-main:
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  main-mobile:
+    title: Mobile
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - children
+  prefooter:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#D0D0D0'
+  block-9248:
+    attributes:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px;'
+  footer:
+    attributes:
+      boxed: ''
+      class: ''
+  offcanvas:
+    attributes:
+      position: g-offcanvas-left
+      class: ''
+      extra: {  }
+      swipe: '1'
+      css3animation: '1'
+content:
+  custom-2775:
+    title: 'Custom HTML'
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: custom-3022
+  custom-4869:
+    title: 'Custom HTML'
+    attributes:
+      html: "{%set post_taller = function('get_post') %}\n<div class=\"promos-header\">\n    <h1>{{ post_taller.post_title }}</h1>\n    <div class=\"deco-ball-bk\"></div>\n    <div class=\"gap-20\"></div>\n    <p class=\"recetas-header\">{{ post_taller.post_excerpt }}</p>\n    <div class=\"gap-10\"></div>\n  {% if post_taller._fecha_inicio != '' %}<p class=\"small\"><i class=\"fa fa-calendar\" aria-hidden=\"true\"></i> <em>{{ post_taller._fecha_inicio|date(display.date.format) }} - {{ post_taller._fecha_fin|date(display.date.format) }}</em></p>{% endif %} {% if post_taller._patrocinador_nombre != '' %}<p> Patrocinado por <strong class=\"sup-s\">{{post_taller._patrocinador_nombre}}</strong> </p>\n    <!--<img src=\"{{post_taller._patrocinador}}\" alt=\"patrocinador del producto\">-->\n{% endif %}   {% if post_taller._codigo_descuento != '' %}<p class=\"small patrocinado\">Codigo de descuento: <strong>{{post_taller._codigo_descuento}}</strong></p>\n    <div class=\"gap-20\"></div>{% endif %}\n</div>\n<div class=\"promos-prices\">\n    <div class=\"gap-20\"></div>\n    <div class=\"price price-taller-detail\">\n        <div class=\"std\">\n            <span class=\"standard\">\n{{post_taller._regular_price}}€</span><br>\n            <span class=\"standard-text\">No socios</span>\n        </div>\n        {% set partners_price = post_taller._regular_price - (post_taller._regular_price*(post_taller._descuento_socios/100)) %}\n        <div class=\"part\">\n            <span class=\"partner\">{{partners_price|round}}€</span><br>\n            <span class=\"partner-text\">Socios ({{post_taller._descuento_socios}}% desc.)</span>\n        </div>\n    </div>\n    <div class=\"clear\"></div>\n    <div class=\"gap-10\"></div>\n [add_to_cart id=\"{{post_taller.ID}}\"]\n    \n</div>"
+      twig: '1'
+      filter: '1'
+  tabschef-2508:
+    title: 'Tabs Chef'
+    attributes:
+      items:
+        -
+          icon: ''
+          title: Presentacion
+          description: "{% set post_taller = function('get_post') %}\n{% set image = function('wp_get_attachment_image_src', function ('get_post_thumbnail_id',post_taller.ID),'single-post-thumbnail') %}\n\n\n<div class=\"banner-detalle\">\n    <img src=\"{{image[0]}}\">\n</div>\n\n<div class=\"bk-w row m-l-r-0\">\n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle\">\n        \n        {{post_taller.post_content|raw}}\n        \n    </div>\n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n        <!--<a href=\"\" class=\"btn btn-primary\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Comprar {{post_taller._regular_price}}€</a>-->[add_to_cart id=\"{{post_taller.ID}}\"]\n                    \n         {% set precio_socios = post_taller._regular_price - ((post_taller._descuento_socios/100)*post_taller._regular_price) %}\n        <div><span class=\"c-b\">{{post_taller._regular_price}}€</span> <span class=\"partner\">{{precio_socios|round}}€ socios ({{post_taller._descuento_socios}}% desc.)</span></div>\n    </div>\n    <div class=\"gap-40\"></div>\n    <div class=\"bottom-box\">\n        <div class=\"row\">\n            <div class=\"col-xs-6\"></div>\n            <div class=\"col-xs-6 text-right\">\n                <p class=\"content-detalle-social\">\n                    {# Numero de visitas #}\n                    {% set short_wppostviews_taller = \"[views id='\"~post_taller.ID~\"']\" %}\n                    <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_taller|shortcodes}} &nbsp; \n\n                    {# Valoracion media#}                                                \n                    <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n                    {% set product_taller=function('get_product',post_taller.ID) %}\n                    {% set rating_taller = product_taller.get_average_rating() %}\n                    {% set rating_taller_100 = (rating_taller / 5 ) * 100 %}\n                    <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> {{rating_taller_100}}% ({{post_taller.comment_count}}) &nbsp; \n\n                    {# Seguidores para el pie de contenido #}\n                    {% set users = function('get_users')%}\n                    {% set cont_followers = 0 %}\n                    {% for user in users %}\n                        {% set user_data = function('get_user_meta',user.data.ID) %}\n                        {% set following = user_data._chef_follow[0]|json_decode %}\n\n                        {% if post_taller.post_author in following%}\n                            {% set cont_followers = cont_followers + 1 %}\n                        {% endif %}\n                    {% endfor %}\n                    <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n                </p>\n            </div>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Presentacion
+        -
+          icon: ''
+          title: Contenido
+          description: "{% set post_taller = function('get_post') %}\n{% set current_user = function('wp_get_current_user') %}\n{% set lock = true %}\n{% set candado = 'fa-lock' %}\n{% if  current_user.ID  != 0 %}\n      {% set resultadoCompra =  function('wc_customer_bought_product',current_user.user_email, current_user.ID, post_taller.ID) %}   \n      {% if resultadoCompra !='' %}\n{%    \tset lock = false %}\n{%    \tset candado = 'fa-unlock' %}\n{%     endif %}\n{% endif %}\n{% set bloq_titulos = post_taller._bloques_taller_titulos|split('|') %}\n{% set bloq_descripciones = post_taller._bloques_taller_descripciones|split('|') %}\n{% set bloq_videos = post_taller._bloques_taller_videos|split('|') %}\n{% set bloq_archivos = post_taller._bloques_taller_archivos|split('|') %}\n{% set videos_array = [] %}\n{% set cont_videos = 0 %}\n{% for videos in bloq_videos %}\n    {% set videos_splited = videos|split(',') %}    \n    {% set cont_videos = cont_videos + videos_splited|length %}\n    {% set videos_array = videos_array|merge([videos_splited]) %}\n{% endfor %}\n{% set archivos_array = [] %}\n{% set cont_archivos = 0 %}\n{% for archivos in bloq_archivos %}\n    {% set archivos_splited = archivos|split(',') %}    \n    {% set cont_archivos = cont_archivos + archivos_splited|length %}\n    {% set archivos_array = archivos_array|merge([archivos_splited]) %}\n{% endfor %}\n\n{% set platos_dir = function('site_url','/wp-content/themes/chefSociety/images/platos/') %}\n<div class=\"content-detalle\">\n    <h2 class=\"del-uppercase\">Contenido</h2>\n    <div class=\"gap-20\"></div>\n    <p class=\"\">{{post_taller._contenido}}</p>\n    <div class=\"gap-20\"></div>\n    <div>\n        <div class=\"videos-docs text-center\">\n            <img src=\"{{function('site_url','/wp-content/themes/chefSociety/images/')}}video-icono.png\">\n            <p>{{cont_videos/2}} videos ({{post_taller._duracion_videos}}h)</p>\n        </div>\n        <div class=\"videos-docs text-center\">\n            <img src=\"{{function('site_url','/wp-content/themes/chefSociety/images/')}}doc-icono.png\">\n            <p>{{cont_archivos/2}} documentos</p>\n        </div>\n    </div>\n    <div class=\"gap-20\"></div>\n    <div class=\"clearfix\"></div>\n</div>\n{% set cont_bloques = bloq_titulos|length %}\n{% for i in 0..cont_bloques if i < cont_bloques %}\n<div class=\"content-detalle contenido-taller\">\n    <h3>{{i+1}}. {{bloq_titulos[i]}}</h3>\n    <p>{{bloq_descripciones[i]}}</p>\n    <ul>\n        {% if videos_array[i]|length >= archivos_array[i]|length %}\n            {% set limit = videos_array[i]|length %}\n        {% else %}\n            {% set limit = archivos_array[i]|length %}\n        {% endif %}\n        {% set cont = 0 %}\n        {% for j in 0..limit %}\n            \n            {# La variable j no puede modificarse como en otros lenguajes y por tanto el indice no puede variarse. #}\n            {# Utilizaremos divisible by, que es el equivalente al operador modulo, para iterara correctamente #}\n\n            \n            {% if loop.index0 is divisible by(2) %}\n                {% if videos_array[i][j] is defined and videos_array[i][j] != '' %}\n                     {% set cadena_video = videos_array[i][j+1]|trim %}  \n                    {% if lock == false %}  \n                                  \n                         <li><i class=\"fa fa-play\" aria-hidden=\"true\"></i> {{videos_array[i][j]}} <iframe src={{ cadena_video }}?autoplay=0&loop=1&autopause=0\" width=\"500\" height=\"281\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>\n                    {% else %}\n                        <li><i class=\"fa fa-play\" aria-hidden=\"true\">VIDEO</i><i class=\"fa fa-lock\" aria-hidden=\"true\"></i>                \n                    {% endif %}\n                {% endif %}\n\n\n                {% if archivos_array[i][j] is defined and archivos_array[i][j] != '' %}\n                \n                    {% if lock == false %}  \n                         <li><i class=\"fa fa-file\" aria-hidden=\"true\"></i><a href=\"{{archivos_array[i][j+1]|trim}}\" target=\"_blank\">{{archivos_array[i][j]}}</a>\n                    {% else %}\n                        <li><i class=\"fa fa-file\" aria-hidden=\"true\">{{archivos_array[i][j]}}</i><i class=\"fa fa-lock\" aria-hidden=\"true\"></i>                \n                    {% endif %}\n\n                {% endif %}\n                \n            {% endif %}\n\n        {% endfor %}\n    </ul>\n</div>\n{% endfor %}\n<div class=\"gap-20\"></div>\n<div class=\"text-center\">\n    <!--<button class=\"btn btn-primary\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Comprar {{post_taller._regular_price}}€</button>-->[add_to_cart id=\"{{post_taller.ID}}\"]\n                     \n    {% set precio_socios = post_taller._regular_price - ((post_taller._descuento_socios/100)*post_taller._regular_price) %}\n    <div><span class=\"c-b\">{{post_taller._regular_price}}€</span> <span class=\"partner\">{{precio_socios|round}}€ socios ({{post_taller._descuento_socios}}% desc.)</span></div>\n</div>\n<div class=\"gap-40\"></div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n            <p class=\"content-detalle-social\">\n                {# Numero de visitas #}\n                {% set short_wppostviews_taller = \"[views id='\"~post_taller.ID~\"']\" %}\n                <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_taller|shortcodes}} &nbsp; \n\n                {# Valoracion media#}                                                \n                <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n                {% set product_taller=function('get_product',post_taller.ID) %}\n                {% set rating_taller = product_taller.get_average_rating() %}\n                {% set rating_taller_100 = (rating_taller / 5 ) * 100 %}\n                <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> {{rating_taller_100}}% ({{post_taller.comment_count}}) &nbsp; \n\n                {# Seguidores para el pie de contenido #}\n                {% set users = function('get_users')%}\n                {% set cont_followers = 0 %}\n                {% for user in users %}\n                    {% set user_data = function('get_user_meta',user.data.ID) %}\n                    {% set following = user_data._chef_follow[0]|json_decode %}\n\n                    {% if post_taller.post_author in following%}\n                        {% set cont_followers = cont_followers + 1 %}\n                    {% endif %}\n                {% endfor %}\n                <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n            </p>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Contenido
+        -
+          icon: ''
+          title: Condiciones
+          description: "{% set post_taller = function('get_post') %}\n<div class=\"bk-w row m-l-r-0\">\n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle\">\n        <h2 class=\"del-uppercase\">Condiciones</h2>\n        {{post_taller._condiciones}}\n    </div>\n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n        <!--<button class=\"btn btn-primary\"><i class=\"fa fa-shopping-cart\" aria-hidden=\"true\"></i> Comprar {{post_taller._regular_price}}€</button>-->[add_to_cart id=\"{{post_taller.ID}}\"]                   \n        {% set precio_socios = post_taller._regular_price - ((post_taller._descuento_socios/100)*post_taller._regular_price) %}\n        <div><span class=\"c-b\">{{post_taller._regular_price}}€</span> <span class=\"partner\">{{precio_socios|round}}€ socios ({{post_taller._descuento_socios}}% desc.)</span></div>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n            <p class=\"content-detalle-social\">\n                {# Numero de visitas #}\n                {% set short_wppostviews_taller = \"[views id='\"~post_taller.ID~\"']\" %}\n                <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_taller|shortcodes}} &nbsp; \n\n                {# Valoracion media#}                                                \n                <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n                {% set product_taller=function('get_product',post_taller.ID) %}\n                {% set rating_taller = product_taller.get_average_rating() %}\n                {% set rating_taller_100 = (rating_taller / 5 ) * 100 %}\n                <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> {{rating_taller_100}}% ({{post_taller.comment_count}}) &nbsp; \n\n                {# Seguidores para el pie de contenido #}\n                {% set users = function('get_users')%}\n                {% set cont_followers = 0 %}\n                {% for user in users %}\n                    {% set user_data = function('get_user_meta',user.data.ID) %}\n                    {% set following = user_data._chef_follow[0]|json_decode %}\n\n                    {% if post_taller.post_author in following%}\n                        {% set cont_followers = cont_followers + 1 %}\n                    {% endif %}\n                {% endfor %}\n                <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n            </p>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Condiciones
+  system-content-1395:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: system-content-7284
+  custom-8930:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Secciones</h4>\n<ul>\n<li><a href=\"/que-se-cuece/\">Qué se cuece</a></li>\n<li><a href=\"/talleres/\">Talleres culinarios</a></li>\n<li><a href=\"/recetas/\">Recetas</a></li>\n</ul>\n                    \n"
+    block:
+      class: prefooter
+  custom-2913:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>OPORTUNIDADES</h4>\n<ul>\n<li><a href=\"/promociones/\">Promociones</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-2737:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Información</h4>\n<ul>\n<li><a href=\"/aviso-legal/\">Aviso legal</a></li>\n<li><a href=\"/contacto/\">Contacto</a></li>\n<li><a href=\"/condiciones-de-uso/\">Condiciones de uso</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-8499:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h4>Suscríbete a nuestra newsletter</h4>\n<p>Recibe promociones, noticias, ..</p>\n<form enctype=\"application/x-www-form-urlencoded\" action=\"http://chefsociety.ip-zone.com/ccm/subscribe/index/form/ixdcgqi7u7\" method=\"post\">\n<div style=\"display:flex\">\n\n<input class=\"button-subscribe\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Email\" type=\"text\" required=\"\">\n\n\t\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" name=\"submit\" id=\"submit\" value=\"Suscribirme\" type=\"submit\">\n</div>\n\n</form>\n                    \n"
+    block:
+      class: prefooter
+  totop-2079:
+    title: 'To Top'
+    attributes:
+      icon: 'fa fa-angle-double-up fa-3x'
+      content: ''
+  logo-8148:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: logo-6178
+  mobile-menu-6188:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+      particle: mobile-menu-5916

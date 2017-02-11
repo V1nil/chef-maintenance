@@ -1,0 +1,195 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1465467829
+layout:
+  /header/: {  }
+  /navigation/:
+    -
+      - 'logo-1530 25'
+      - 'menu-1074 40'
+      - 'custom-9656 22'
+      - 'custom-3295 13'
+    -
+      - 'logo-9337 25'
+      - 'menu-1307 75'
+    -
+      - 'custom-3293 50'
+      - 'custom-8447 50'
+  /container-main/:
+    -
+      -
+        'main 80':
+          -
+            - system-content-3620
+          -
+            - custom-4666
+          -
+            - chef_contentarray-9086
+      -
+        'sidebar 20':
+          -
+            - logo-9386
+  /footer/:
+    -
+      - 'spacer-6554 45'
+      - 'totop-1019 10'
+      - 'spacer-1230 45'
+    -
+      - 'copyright-8503 40'
+      - 'logo-8905 35'
+      - 'social-7078 25'
+    -
+      - branding-4049
+  offcanvas:
+    -
+      - mobile-menu-2004
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+      extra:
+        -
+          style: 'padding-top:0.5em!important;padding-bottom:0.5em!important;'
+  sidebar:
+    type: section
+    subtype: aside
+    block:
+      fixed: 1
+  container-main:
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  footer:
+    attributes:
+      boxed: ''
+content:
+  logo-1530:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety1.png'
+      class: ''
+    block:
+      class: 'hidden-phone hidden-tablet'
+      fixed: '1'
+  menu-1074:
+    attributes:
+      menu: menu-main
+    block:
+      class: 'hidden-phone hidden-tablet'
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-9656:
+    title: 'Custom HTML'
+    attributes:
+      html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+    block:
+      class: 'hidden-phone hidden-tablet'
+  custom-3295:
+    title: 'Custom HTML'
+    attributes:
+      html: "<a class=\"t-t-n pointer\">Entrar</a>\n<a class=\"btn btn-primary btn-top pointer\">Crear cuenta</a>"
+    block:
+      class: 'hidden-phone hidden-tablet'
+  logo-9337:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety1.png'
+    block:
+      class: hidden-desktop
+  menu-1307:
+    attributes:
+      menu: menu-main-long
+    block:
+      class: visible-tablet
+      extra:
+        -
+          style: 'padding-top:1em'
+  custom-3293:
+    title: 'Custom HTML'
+    attributes:
+      html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+    block:
+      class: hidden-desktop
+      extra:
+        -
+          style: 'margin-top:1em;'
+  custom-8447:
+    title: 'Custom HTML'
+    attributes:
+      html: "<a class=\"t-t-n pointer\"  style=\"color:white\">Entrar</a>\n<a class=\"btn btn-primary btn-top pointer\" style=\"color:white\">Crear cuenta</a>"
+    block:
+      class: hidden-desktop
+      extra:
+        -
+          style: 'margin-top:2em;'
+  system-content-3620:
+    block:
+      extra:
+        -
+          style: 'background-color:white'
+  custom-4666:
+    title: 'Custom HTML'
+    attributes:
+      html: "<h3><i class=\"fa fa-exclamation\" aria-hidden=\"true\"></i> Noticias relacionadas</h3>\n\n"
+    block:
+      extra:
+        -
+          style: 'margin:0!important;'
+  chef_contentarray-9086:
+    title: 'WP Posts Chef'
+    attributes:
+      post:
+        filter:
+          categories: '33'
+        limit:
+          total: '3'
+          columns: '3'
+        display:
+          text:
+            limit: '30'
+  logo-9386:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://tomate.jpg'
+  totop-1019:
+    title: 'To Top'
+    attributes:
+      icon: 'fa fa-angle-double-up fa-5x'
+  logo-8905:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+  social-7078:
+    attributes:
+      items:
+        -
+          icon: 'fa fa-twitter'
+          text: ''
+          link: ''
+          name: Twitter
+        -
+          icon: 'fa fa-facebook'
+          text: ''
+          link: ''
+          name: Facebook
+        -
+          icon: 'fa fa-google'
+          text: ''
+          link: ''
+          name: Google
+        -
+          icon: 'fa fa-rss'
+          text: ''
+          link: ''
+          name: RSS

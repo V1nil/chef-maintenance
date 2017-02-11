@@ -1,0 +1,34 @@
+name: Modal Login 
+description: Muestra el login y create modales.
+type: particle
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable modal login.
+      default: true
+      
+    textlogin:
+      type: input.text
+      label: Texto boton login
+      description: Escribe el texto que aparecera en el link para logearse
+    
+    textcreate:
+      type: input.text
+      label: Texto boton crear
+      description: Type in the text for the Modal Login button.
+
+    width:
+      type: input.text
+      label: Width
+      description: Enter the popup window width in pixels (do NOT type in 'px', enter just the digits) The default value is 300.
+
+    idmodal:
+      type: input.text
+      label: Identificador
+      description: Identificador modal (para usar el modal en modo off-canvas con otro modales ya en la plantilla)
+      default: 1
+      
+      

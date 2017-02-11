@@ -1,0 +1,161 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+layout:
+  /header/: {  }
+  navigation: {  }
+  /postnavigation/: {  }
+  /showcase/: {  }
+  /feature/: {  }
+  /main/:
+    -
+      - system-content-9690
+  /subfeature/:
+    -
+      - sample-3
+    -
+      - slideshow-1585
+  prefooter: {  }
+  /footer/:
+    -
+      - 'logo-6178 90'
+      - 'social-4968 10'
+  offcanvas:
+    -
+      - mobile-menu-2705
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  showcase:
+    type: section
+    attributes:
+      boxed: '2'
+      class: ''
+  feature:
+    type: section
+    attributes:
+      boxed: ''
+  main:
+    attributes:
+      boxed: ''
+  subfeature:
+    type: section
+    attributes:
+      boxed: ''
+      class: flush
+      extra:
+        -
+          style: 'background:#3c3c3b'
+  prefooter:
+    type: section
+    inherit:
+      outline: home
+      include:
+        - attributes
+        - children
+  footer:
+    attributes:
+      boxed: ''
+content:
+  sample-3:
+    title: Comunidad
+    attributes:
+      enabled: 0
+      headline: 'Comunidad de Chefs'
+      description: "<p>ChefSociety - A global community of creative chefs and foodie</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare ac sem ut posuere.</p>"
+      samples:
+        -
+          icon: 'fa fa-users'
+          subtitle: ''
+          description: '<p>Una comunidad de chefs donde compartir ideas y mostrar creaciones</p>'
+          id: ''
+          class: ''
+          variations: ''
+          title: 'Chefs como tu'
+        -
+          icon: 'fa fa-newspaper-o'
+          subtitle: ''
+          description: '<p>Las ultimas noticias del mundo de la cocina</p>'
+          id: ''
+          class: ''
+          variations: ''
+          title: Noticias
+        -
+          icon: 'fa fa-cubes'
+          subtitle: ''
+          description: '<p>Crea, publica y date a conocer</p>'
+          id: ''
+          class: ''
+          variations: ''
+          title: Conocimiento
+  slideshow-1585:
+    attributes:
+      height: '70'
+      autoplay: 'true'
+      autoplayInterval: '5000'
+      navigation: none
+      animation: swipe
+      items:
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+        -
+          image: 'gantry-media://slider.jpg'
+          videoiframe: ''
+          alt: ''
+          title: ''
+          link: ''
+          target: _parent
+          description: ''
+          overlaystyle: style1
+          overlayposition: bottom
+          overlayanimation: fade
+          overlaywidth: '2'
+          class: ''
+          name: 'New item'
+  logo-6178:
+    title: 'Logo / Image'
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: disable-div-spaces
+  social-4968:
+    attributes:
+      css:
+        class: social-items
+      items: {  }
+    block:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px;'

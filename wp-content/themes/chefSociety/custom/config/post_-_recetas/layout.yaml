@@ -1,0 +1,234 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+layout:
+  /header/: {  }
+  navigation: {  }
+  /postnavigation/:
+    -
+      - custom-3022
+  /premain/:
+    -
+      - custom-9518
+  /container-main/:
+    -
+      -
+        '/main/ 75':
+          -
+            - tabschef-6481
+          -
+            - system-content-7284
+      -
+        'sidebar 25':
+          -
+            - chef_sidebar-7275
+  /main-mobile/:
+    -
+      - tabschef-5820
+    -
+      - system-content-3611
+    -
+      - chef_sidebar-3012
+  /prefooter/:
+    -
+      - 'custom-8930 15'
+      - 'custom-2913 15'
+      - 'custom-2737 25'
+      - 'custom-8499 45'
+  /footer/:
+    -
+      - 'logo-6178 90'
+      - 'social-4968 10'
+  offcanvas:
+    -
+      - mobile-menu-5916
+structure:
+  header:
+    attributes:
+      boxed: ''
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: '0'
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  premain:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#EDEDED'
+  main:
+    attributes:
+      boxed: ''
+      class: ''
+  sidebar:
+    type: section
+    subtype: aside
+    attributes:
+      class: ''
+    block:
+      class: 'hidden-phone hidden-tablet'
+      fixed: '1'
+  container-main:
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  main-mobile:
+    title: Mobile
+    attributes:
+      boxed: '2'
+      class: 'visible-phone visible-tablet'
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  prefooter:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#e9e9e9'
+  footer:
+    attributes:
+      boxed: ''
+content:
+  custom-3022:
+    title: 'Custom HTML'
+    attributes:
+      html: '[breadcrumb]'
+      filter: '1'
+    block:
+      class: no-margin-particle
+  custom-9518:
+    title: 'Custom HTML'
+    attributes:
+      html: "{% set platos_array = ['Primer Plato','Segundo Plato','Entrante','Postre','Bebida'] %}\n{% set platos_dir = function('site_url','/wp-content/themes/chefSociety/images/platos/') %}\n{% set post_receta = function('get_post') %}\n{% set current_user_fav_recipe = function ('wp_get_current_user') %}\n{% set current_user_fav_recipe_data = function ('get_user_meta',current_user_fav_recipe.data.ID) %}\n\n<script type=\"text/javascript\">\n\n    $ = jQuery;\n    $(function () {\n        $(document).ready(function ($) {\n            var user_id = '{{ current_user_fav_recipe.data.ID }}';\n            var post_id_fav_recipe = '{{ post_receta.ID }}';\n            var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';\n        \n            //Añadir receta a favoritos\n            $(\"#add_favorite_recipe\").on('click',(function() {\n                var params =\"action=add-favorite-recipe&user=\"+user_id+\"&post_id=\"+post_id_fav_recipe;\n\n                triggerXHRFavs(url,params);\n                \n            }));\n            //Quitar receta de favoritos\n            $(\"#remove_favorite_recipe\").on('click',(function() {\n                var params =\"action=remove-favorite-recipe&user=\"+user_id+\"&post_id=\"+post_id_fav_recipe;\n\n                triggerXHRFavs(url,params);\n            }));\n            \n        });\n        \n        function triggerXHRFavs(url,params){\n            \n            xhr = new XMLHttpRequest();\n            xhr.open(\"POST\", url, true);\n\n            xhr.setRequestHeader(\"Content-type\", \"application/x-www-form-urlencoded\");\n\n            xhr.onreadystatechange = function() {\n                if (xhr.readyState === 4) {\n                       location.reload();                        \n                }\n            };\n            xhr.send(params);\n            \n        }\n        \n    });\n\n\n</script>\n\n\n<h1>{{ post_receta.post_title }}</h1>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n<div class=\"recetas-header-author\">\n\n    {% set user_recipe_data = function ('get_user_meta',post_receta.post_author) %}\n\n    {% if user_recipe_data._chef_personal_photo[0] != '' %} {% set user_recipe_photo = function('site_url',user_recipe_data._chef_personal_photo[0]) %} {% else %} {% set user_recipe_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}\n    <div>\n        <a href=\"{{function ('site_url','mi-perfil/?perfil='~post_receta.post_author)}}\"><img class=\"autor-img-box-header\" src=\"{{user_recipe_photo}}\"></a>\n    </div>\n\n     <div class=\"recetas-header-name\">  \n       <h5>{{function('get_the_author_meta','first_name',post_receta.post_author)  | raw}} {{function('get_the_author_meta','last_name',post_receta.post_author)  | raw}} </h5><p class=\"small\">{{ post_receta.post_date|date(\"m/d/Y\") }}</p></div></div>\n     \n       <p class=\"recetas-header\">{{ post_receta.post_content }}</p>\n\n{% for course in post_receta.recipe_terms['course'] %}\n    \n    {% if course != 0 %}<p>Tipo de plato: </p>\n        {% set plato = function ('get_term',course) %}\n        {% if plato.name in platos_array|keys %}\n            <img src=\"{{platos_dir}}{{plato.slug}}.png\" title=\"{{plato.name}}\" class=\"plato\" />                 \n        {% endif %}\n        \n    {% endif %}\n{% endfor %}\n<div class=\"gap-20\"></div>{% if post_receta.recipe_precio_racion != '' %}<p>Coste por ración:\n </p><div class=\"precio\"><span class=\"precio-receta precio-plato\"></span> {{post_receta.recipe_precio_racion}}€</div><div class=\"gap-20\"></div>{% endif %}\n\n{# Si no está conectado no mostramos los botones #}\n{% if(current_user_fav_recipe.data.ID is defined)%}\n\n    {% set user_fav_recipe = current_user_fav_recipe_data._chef_favorite_recipes[0]|json_decode %}\n\n    {% if post_receta.ID in user_fav_recipe %}\n    <div class=\"gap-20\"></div><a class=\"btn btn-default btn-black\" id=\"remove_favorite_recipe\">\n        <i class=\"fa fa-heart c-w\" aria-hidden=\"true\"></i>\n        Quitar de favoritos\n    </a>\n    {% else %}\n    <div class=\"gap-20\"></div><a class=\"btn btn-default btn-black\" id=\"add_favorite_recipe\">\n        <i class=\"fa fa-heart c-w\" aria-hidden=\"true\"></i>\n        Añadir a favoritos\n    </a>\n    {% endif %}\n\n<!--<a class=\"btn btn-default btn-primary\">\n    <i class=\"fa fa-pencil c-w\" aria-hidden=\"true\"></i>\n    Editar receta\n</a>-->\n{% endif %}\n<div class=\"gap-20\"></div>"
+      twig: '1'
+      filter: '1'
+  tabschef-6481:
+    title: 'Tabs Chef'
+    attributes:
+      items:
+        -
+          icon: ''
+          title: Elaboración
+          description: "{% set post_receta = function('get_post') %}\n\n<div class=\"pasos-receta\">\n{% for instruction in post_receta.recipe_instructions %} \n    {% set instruction_image_array = function('wp_get_attachment_image_src',instruction.image,'thumbnail') %}\n    {% set instruction_image = instruction_image_array[0] %}\n    \n    <div class=\"col-md-4 pad-l-0 pad-r-0 box-receta\" style=\"background-image:url('{{instruction_image}}');\">\n        <div class=\"content-paso\">\n            <p class=\"number-receta\">{{loop.index}}</p>\n            <p class=\"text-receta\">Paso {{loop.index}} {{instruction.description}}</p>\n        </div>\n    </div>\n    \n{% endfor %}\n</div>\n<div class=\"clearfix\"></div>\n<div class=\"gap-20\"></div>\n<div class=\"content-detalle\">                                  \n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle-buttons\">\n \t<a href=\"/recetas/\" class=\"btn btn-black\"> Volver a recetas</a> \n        <a href=\"/anadir-receta/\" class=\"btn btn-primary\"> Publicar receta</a>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n        <p class=\"content-detalle-social\">\n            {# Numero de visitas #}\n            {% set short_wppostviews_recipe = \"[views id='\"~post_receta.ID~\"']\" %}\n            <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_recipe|shortcodes}} &nbsp; \n\n            {# Valoracion media  - no aplica a recetas #}                                                \n            <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n\n            {# Seguidores para el pie de contenido #}\n            {% set users = function('get_users')%}\n            {% set cont_followers = 0 %}\n            {% for user in users %}\n                {% set user_data = function('get_user_meta',user.data.ID) %}\n                {% set following = user_data._chef_follow[0]|json_decode %}\n\n                {% if post_receta.post_author in following%}\n                    {% set cont_followers = cont_followers + 1 %}\n                {% endif %}\n            {% endfor %}\n            <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n        </p>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Elaboración
+        -
+          icon: ''
+          title: Ingredientes
+          description: "{% set post_receta = function('get_post') %}\n\n<div class=\"content-detalle\">\n    <div class=\"lista-ingredientes\">\n        <p>{{post_receta.recipe_prep_time}} <strong>Minutos</strong> &nbsp;&nbsp;    {{post_receta.recipe_servings}} <strong>Personas</strong></p>\n\n        {% for ingrediente in post_receta.recipe_ingredients %}\n            <p>{{ingrediente['amount']}} {{ingrediente['unit']}} {{ingrediente['ingredient']}} </p>        \n        {% endfor %}\n\n    </div>\n</div>\n<div class=\"gap-20\"></div>\n<div class=\"content-detalle\">\n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n \t<a href=\"/recetas/\" class=\"btn btn-black\"> Volver a recetas</a> \n        <a href=\"/anadir-receta/\" class=\"btn btn-primary\"> Publicar receta</a>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n            <p class=\"content-detalle-social\">\n                {# Numero de visitas #}\n                {% set short_wppostviews_recipe = \"[views id='\"~post_receta.ID~\"']\" %}\n                <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_recipe|shortcodes}} &nbsp; \n\n                {# Valoracion media  - no aplica a recetas #}                                                \n                <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n\n                {# Seguidores para el pie de contenido #}\n                {% set users = function('get_users')%}\n                {% set cont_followers = 0 %}\n                {% for user in users %}\n                    {% set user_data = function('get_user_meta',user.data.ID) %}\n                    {% set following = user_data._chef_follow[0]|json_decode %}\n\n                    {% if post_receta.post_author in following%}\n                        {% set cont_followers = cont_followers + 1 %}\n                    {% endif %}\n                {% endfor %}\n                <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n            </p>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Ingredientes
+        -
+          icon: ''
+          title: Características
+          description: "{% set platos_array = ['Primer Plato','Segundo Plato','Entrante','Postre','Bebida'] %}\n{% set alergenos_array = ['Celiaco','Cereal','Marisco','Huevo','Pescado','Lupino','Leche','Molusco','Mostaza','Frutos secos','Cacahuete','Sesamo','Soja','Sulfitos'] %}\n\n{% set platos_dir = function('site_url','/wp-content/themes/chefSociety/images/platos/') %}\n{% set alergenos_dir = function('site_url','/wp-content/themes/chefSociety/images/alergenos/') %}\n\n{% set post_receta = function('get_post') %}\n\n<div class=\"content-detalle\">\n   \n    {% for course in post_receta.recipe_terms['course'] %}\n        {% if course != 0 %}<p>Tipo de plato:</p>\n            {% set plato = function ('get_term',course) %}\n            {% if plato.name in platos_array|keys %}\n                <img src=\"{{platos_dir}}{{plato.slug}}.png\" title=\"{{plato.name}}\" class=\"plato\" />                 \n            {% endif %}\n\n        {% endif %}\n    {% endfor %}\n    <div class=\"gap-20\"></div>\n {% if post_receta.recipe_precio_racion != '' %}<p>Coste por ración:</p><div class=\"gap-10\"></div>\n    <div class=\"precio\"><span class=\"precio-receta precio-plato\"></span> {{post_receta.recipe_precio_racion}}€</div>{% endif %}\n <div class=\"gap-20\"></div>   <p>Alérgenos:</p><div class=\"gap-20\"></div>    \n    {% for alergeno_id in post_receta.recipe_terms['post_tag'] %}\n        {% if alergeno_id != 0 %}\n            {% set alergeno = function ('get_term',alergeno_id) %}\n            {% if alergeno.name in alergenos_array|keys %}\n                <img src=\"{{alergenos_dir}}{{alergeno.slug}}.png\" title=\"{{alergeno.name}}\" class=\"alergenos {{alergeno.name}}\" />                 \n            {% endif %}\n        {% endif %}\n    {% endfor %}\n    \n    <div class=\"gap-20\"></div>\n\n <div class=\"gap-20\"></div><p>Leyenda alérgenos:</p><div class=\"leyenda-alergenos row\"><div class=\"col-md-4\"><img src=\"{{alergenos_dir}}celiaco.png\" class=\"alergenos\" /> Celíaco<br><img src=\"{{alergenos_dir}}cereal.png\" class=\"alergenos\" /> Cereal<br><img src=\"{{alergenos_dir}}marisco.png\" class=\"alergenos\" /> Marisco<br><img src=\"{{alergenos_dir}}huevo.png\" class=\"alergenos\" /> Huevo<br><img src=\"{{alergenos_dir}}pescado.png\" class=\"alergenos\" /> Pescado<br></div><div class=\"col-md-4\"><img src=\"{{alergenos_dir}}lupino.png\" class=\"alergenos\" /> Lupino<br><img src=\"{{alergenos_dir}}leche.png\" class=\"alergenos\" /> Leche<br><img src=\"{{alergenos_dir}}molusco.png\" class=\"alergenos\" /> Molusco<br><img src=\"{{alergenos_dir}}mostaza.png\" class=\"alergenos\" /> Mostaza<br><img src=\"{{alergenos_dir}}frutos-secos.png\" class=\"alergenos\" /> Frutos secos<br></div><div class=\"col-md-4\"><img src=\"{{alergenos_dir}}cacahuete.png\" class=\"alergenos\" /> Cacachuete<br><img src=\"{{alergenos_dir}}sesamo.png\" class=\"alergenos\" /> sésamo<br><img src=\"{{alergenos_dir}}soja.png\" class=\"alergenos\" /> Soja<br><img src=\"{{alergenos_dir}}sulfitos.png\" class=\"alergenos\" /> Sulfitos<br></div> </div>        <div class=\"gap-20\"></div>\n\n    <!--<p>Importe:</p>-->\n    <!--<div class=\"precio\"><span class=\"precio-receta precio-total\"></span> {{post_receta.recipe_precio_total}}€</div>-->\n\n</div>\n<div class=\"gap-20\"></div>\n<div class=\"content-detalle\">                                      \n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n        <a href=\"/recetas/\" class=\"btn btn-black\"> Volver a recetas</a> \n        <a href=\"/anadir-receta/\" class=\"btn btn-primary\"> Publicar receta</a>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n            <p class=\"content-detalle-social\">\n                {# Numero de visitas #}\n                {% set short_wppostviews_recipe = \"[views id='\"~post_receta.ID~\"']\" %}\n                <i class=\"fa fa-eye\" aria-hidden=\"true\"></i> {{short_wppostviews_recipe|shortcodes}} &nbsp; \n\n                {# Valoracion media  - no aplica a recetas #}                                                \n                <!--<i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100) &nbsp; -->\n\n                {# Seguidores para el pie de contenido #}\n                {% set users = function('get_users')%}\n                {% set cont_followers = 0 %}\n                {% for user in users %}\n                    {% set user_data = function('get_user_meta',user.data.ID) %}\n                    {% set following = user_data._chef_follow[0]|json_decode %}\n\n                    {% if post_receta.post_author in following%}\n                        {% set cont_followers = cont_followers + 1 %}\n                    {% endif %}\n                {% endfor %}\n                <i class=\"fa fa-heart\" aria-hidden=\"true\"></i> {{cont_followers}} &nbsp; \n            </p>\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Características
+  chef_sidebar-7275:
+    title: 'Chef Sidebar'
+  tabschef-5820:
+    title: 'Tabs Chef'
+    attributes:
+      enabled: 0
+      items:
+        -
+          icon: ''
+          title: Elaboración
+          description: "{% set post_receta = function('get_post') %}\n\n<div class=\"pasos-receta\">\n{% for instruction in post_receta.recipe_instructions %} \n    {% set instruction_image_array = function('wp_get_attachment_image_src',instruction.image,'thumbnail') %}\n    {% set instruction_image = instruction_image_array[0] %}\n    \n    <div class=\"col-md-4 pad-l-0 pad-r-0 box-receta\" style=\"background-image:url('{{instruction_image}}');\">\n        <div class=\"content-paso\">\n            <p class=\"number-receta\">{{loop.index}}</p>\n            <p class=\"text-receta\">Paso {{loop.index}} {{instruction.description}}</p>\n        </div>\n    </div>\n    \n{% endfor %}\n</div>\n<div class=\"clearfix\"></div>\n<div class=\"gap-20\"></div>\n<div class=\"content-detalle\">                                  \n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle-buttons\">\n \t<a href=\"/recetas/\" class=\"btn btn-black\"> Volver a recetas</a> \n        <a href=\"/anadir-receta/\" class=\"btn btn-primary\"> Publicar receta</a>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n        <!--<p class=\"content-detalle-social\">\n            <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100)  \n            <i class=\"fa fa-users\" aria-hidden=\"true\"></i> 1200  \n        </p>-->\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Elaboración
+        -
+          icon: ''
+          title: Ingredientes
+          description: "{% set post_receta = function('get_post') %}\n\n<div class=\"content-detalle\">\n    <div class=\"lista-ingredientes\">\n        <p>{{post_receta.recipe_prep_time}} <strong>Minutos</strong> &nbsp;&nbsp;    {{post_receta.recipe_servings}} <strong>Personas</strong></p>\n\n        {% for ingrediente in post_receta.recipe_ingredients %}\n            <p>{{ingrediente['amount']}} {{ingrediente['unit']}} {{ingrediente['ingredient']}}</p>        \n        {% endfor %}\n\n    </div>\n</div>\n<div class=\"gap-20\"></div>\n<div class=\"content-detalle\">\n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n \t<a href=\"/recetas/\" class=\"btn btn-black\"> Volver a recetas</a> \n        <a href=\"/anadir-receta/\" class=\"btn btn-primary\"> Publicar receta</a>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <div class=\"col-xs-6 text-right\">\n            <!--<p class=\"content-detalle-social\">\n                <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100)  \n                <i class=\"fa fa-users\" aria-hidden=\"true\"></i> 1200  \n            </p>-->\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Ingredientes
+        -
+          icon: ''
+          title: Características
+          description: "{% set platos_array = ['Primer Plato','Segundo Plato','Entrante','Postre','Bebida'] %}\n{% set alergenos_array = ['Celiaco','Cereal','Marisco','Huevo','Pescado','Lupino','Leche','Molusco','Mostaza','Frutos secos','Cacahuete','Sesamo','Soja','Sulfitos'] %}\n\n{% set platos_dir = function('site_url','/wp-content/themes/chefSociety/images/platos/') %}\n{% set alergenos_dir = function('site_url','/wp-content/themes/chefSociety/images/alergenos/') %}\n\n{% set post_receta = function('get_post') %}\n\n<div class=\"content-detalle\">\n    \n    {% for course in post_receta.recipe_terms['course'] %}\n        {% if course != 0 %}<p>Tipo de plato:</p>\n            {% set plato = function ('get_term',course) %}\n            {% if plato.name in platos_array|keys %}\n                <img src=\"{{platos_dir}}{{plato.slug}}.png\" title=\"{{plato.name}}\" class=\"plato\" />                 \n            {% endif %}\n\n        {% endif %}\n    {% endfor %}\n    <div class=\"gap-20\"></div>\n <p>Coste por ración:</p>\n<div class=\"gap-10\"></div>    <div class=\"precio\"><span class=\"precio-receta precio-plato\"></span> {{post_receta.recipe_precio_racion}}€</div>\n   <p>Alérgenos:</p><div class=\"gap-10\"></div>    \n    {% for alergeno_id in post_receta.recipe_terms['post_tag'] %}\n        {% if alergeno_id != 0 %}\n            {% set alergeno = function ('get_term',alergeno_id) %}\n            {% if alergeno.name in alergenos_array|keys %}\n                <img src=\"{{alergenos_dir}}{{alergeno.slug}}.png\" title=\"{{alergeno.name}}\" class=\"alergenos\" />                 \n            {% endif %}\n        {% endif %}\n    {% endfor %}\n    \n    <div class=\"gap-20\"></div>\n\n alertest        <div class=\"gap-20\"></div>\n\n    <!--<p>Importe:</p>-->\n    <!--<div class=\"precio\"><span class=\"precio-receta precio-total\"></span> {{post_receta.recipe_precio_total}}€</div>-->\n\n</div>\n<div class=\"gap-20\"></div>\n<div class=\"content-detalle\">                                      \n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n        <a href=\"/recetas/\" class=\"btn btn-black\"> Volver a recetas</a> \n        <a href=\"/anadir-receta/\" class=\"btn btn-primary\"> Publicar receta</a>\n    </div>\n    <div class=\"gap-40\"></div>\n</div>\n<div class=\"bottom-box\">\n    <div class=\"row\">\n        <div class=\"col-xs-6\"></div>\n        <!--<div class=\"col-xs-6 text-right\">\n            <!--<p class=\"content-detalle-social\">\n                <i class=\"fa fa-thumbs-o-up\" aria-hidden=\"true\"></i> 96% (100)  \n                <i class=\"fa fa-users\" aria-hidden=\"true\"></i> 1200  \n            </p>-->\n        </div>\n    </div>\n</div>"
+          class: ''
+          twig: '1'
+          name: Características
+  system-content-3611:
+    attributes:
+      enabled: 0
+  chef_sidebar-3012:
+    title: 'Chef Sidebar'
+  custom-8930:
+    attributes:
+      html: "<h4>Secciones</h4>\n<ul>\n<li><a href=\"#\">Qué se cuece</a></li>\n<li><a href=\"#\">Talleres culinarios</a></li>\n<li><a href=\"#\">Recetas</a></li>\n</ul>\n                    \n"
+    block:
+      class: prefooter
+  custom-2913:
+    attributes:
+      html: "<h4>OPORTUNIDADES</h4>\n<ul>\n<li><a href=\"#\">Promociones</a></li>\n<li><a href=\"#\">Eventos</a></li>\n<li><a href=\"#\">Empleo</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-2737:
+    attributes:
+      html: "<h4>Información</h4>\n<ul>\n<li><a href=\"#\">Aviso legal</a></li>\n<li><a href=\"#\">Contacto</a></li>\n<li><a href=\"#\">Condiciones de uso</a></li>\n</ul>"
+    block:
+      class: prefooter
+  custom-8499:
+    attributes:
+      html: "<h4>Suscríbete a nuestra newsletter</h4>\n<p>Recibe promociones, noticias, ..</p>\n<form enctype=\"application/x-www-form-urlencoded\" action=\"http://chefsociety.ip-zone.com/ccm/subscribe/index/form/ixdcgqi7u7\" method=\"post\">\n<div style=\"display:flex\">\n\n<input class=\"button-subscribe\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Email\" type=\"text\" required=\"\">\n\n\t\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" name=\"submit\" id=\"submit\" value=\"Suscribirme\" type=\"submit\">\n</div>\n\n</form>\n                    \n"
+    block:
+      class: prefooter
+  logo-6178:
+    attributes:
+      image: 'gantry-media://chefsociety.png'
+    block:
+      class: disable-div-spaces
+  social-4968:
+    attributes:
+      css:
+        class: social-items
+      items:
+        -
+          icon: 'fa fa-facebook'
+          text: ''
+          link: ''
+          name: Facebook
+        -
+          icon: 'fa fa-twitter'
+          text: ''
+          link: ''
+          name: Twitter
+        -
+          icon: 'fa fa-google-plus'
+          text: ''
+          link: ''
+          name: Google
+    block:
+      class: disable-div-spaces
+      variations: center
+      extra:
+        -
+          style: 'padding-top:5px;'

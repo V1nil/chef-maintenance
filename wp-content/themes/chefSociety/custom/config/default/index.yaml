@@ -1,0 +1,38 @@
+name: default
+timestamp: 1486769030
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/default.png'
+  name: default
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  logo:
+    logo-4772: 'Logo / Image'
+    logo-3297: 'Logo / Image'
+    logo-8503: 'Logo / Image'
+  menu:
+    menu-2475: Menu
+    menu-8882: Menu
+  custom:
+    custom-9242: 'Custom HTML'
+    custom-1799: 'Custom HTML'
+    custom-6479: 'Custom HTML'
+    custom-3421: 'Custom HTML'
+  modal-login:
+    modal-login-1860: 'Modal Login'
+    modal-login-3489: 'Modal Login'
+    modal-login-9838: 'Modal Login'
+  content:
+    system-content-1600: 'Page Content'
+  social:
+    social-8889: Social
+  mobile-menu:
+    mobile-menu-4746: Mobile-menu
+inherit: {  }

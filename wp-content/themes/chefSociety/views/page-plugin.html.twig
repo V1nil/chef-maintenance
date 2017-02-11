@@ -1,0 +1,23 @@
+{% extends "partials/page.html.twig" %}
+{% set twigTemplate = 'page-plugin.html.twig' %}
+
+{% block content %}
+
+    <div class="platform-content">
+            {% if post.post_type=='product' %}
+                <div class="content-wrapper">
+                    <section class="entry">
+
+                        {% include ['partials/content-single.html.twig', 'partials/content.html.twig'] %}
+
+                    </section>
+                </div> <!-- /content-wrapper -->
+            {% else %}
+                <div class="plugin-content">
+                {{ content|raw }}                
+                </div> <!-- /content-wrapper -->
+            {% endif %}
+            
+    </div>
+
+{% endblock %}

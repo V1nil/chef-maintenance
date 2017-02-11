@@ -1,0 +1,23 @@
+name: Chef Search
+description: Buscador de posts
+type: particle
+icon: fa-search
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable WordPress Posts particles.
+      default: true
+
+    textplaceholder:
+      type: input.text
+      label: Texto del placeholder
+      description: Será el texto que aparezca en el placeholder del input.
+
+    idsearch:
+      type: input.text
+      label: Identificador
+      description: Es necesario si hay mas de un buscador en el layout.
+      default: 1

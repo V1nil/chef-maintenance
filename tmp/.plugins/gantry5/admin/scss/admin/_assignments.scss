@@ -1,0 +1,76 @@
+#g5-container {
+    #assignments {
+        .enabler {
+            float: right;
+        }
+
+        .settings-param-wrapper {
+            min-width: 100%;
+            // Overflow disabled until Chrome issue fixed (see #851)
+            /*max-height: 455px;
+            overflow-y: auto;
+            overflow-x: hidden;*/
+            margin: 0 -10px -10px;
+        }
+
+        .settings-param {
+            display: block;
+            border-bottom: 0;
+            border-top: 1px solid #f4f4f4;
+            margin: 0;
+            padding: 10px 15px;
+            @include backface-visibility(hidden);
+
+            .settings-param-title {
+                line-height: 1em;
+                vertical-align: middle;
+
+                .changes-indicator {
+                    margin-left: -1em;
+                }
+            }
+        }
+
+        .g-panel-filters {
+
+            .search.settings-block {
+                margin-right: 25px;
+            }
+
+            [data-g-assignments-check], [data-g-assignments-uncheck] {
+                background-color: transparent;
+                padding: 0;
+                font-size: 0.85rem;
+                cursor: pointer;
+                position: absolute;
+                line-height: 1;
+                right: 0;
+            }
+
+            [data-g-assignments-check] {
+                top: 4px;
+            }
+
+            [data-g-assignments-uncheck] {
+                bottom: 0;
+            }
+
+            .g-tooltip:hover:before {
+                left: 2px;
+            }
+        }
+
+        .card .g-panel-filters .search {
+            width: 65%;
+
+            i {
+                margin-top: -15px;
+            }
+        }
+
+        h4 {
+            padding: 0 6px;
+            line-height: 2;
+        }
+    }
+}

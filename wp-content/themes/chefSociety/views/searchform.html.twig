@@ -1,0 +1,14 @@
+{% set twigTemplate = 'searchform.html.twig' %}
+{% set scope = 'searchform' %}
+
+{% block searchform %}
+
+    <form role="search" method="get" class="search-form form" action="{{ site.url }}/">
+        <label>
+            <span class="screen-reader-text">{{ __('Search for:', 'g5_chefSociety') }}</span>
+            <input type="search" class="search-field" placeholder="{{ __( 'Search …', 'g5_chefSociety' ) }}" value="" name="s" title="{{ __('Search for:', 'g5_chefSociety') }}" />
+        </label>
+        <input type="submit" class="search-submit button" value="Search" />
+    </form>
+
+{% endblock %}

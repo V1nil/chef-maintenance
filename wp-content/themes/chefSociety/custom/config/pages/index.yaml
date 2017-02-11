@@ -1,0 +1,65 @@
+name: pages
+timestamp: 1486769045
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  logo:
+    logo-6922: 'Logo / Image'
+    logo-4062: 'Logo / Image'
+    logo-6178: 'Logo / Image'
+  menu:
+    menu-8101: Menu
+    menu-7976: Menu
+  chef_search:
+    chef_search-3140: 'Chef Search'
+    chef_search-6337: 'Chef Search'
+  custom:
+    custom-3320: 'Custom HTML'
+    custom-6133: 'Custom HTML'
+    custom-3022: Custom
+    custom-7879: 'Custom HTML'
+    custom-6953: 'Custom HTML'
+    custom-3087: 'Custom HTML'
+    custom-6438: 'Custom HTML'
+  modal-login:
+    modal-login-4598: 'Modal Login'
+    modal-login-2830: 'Modal Login'
+    modal-login-8521: 'Modal Login'
+  content:
+    system-content-6416: 'Page Content'
+  slideshow:
+    slideshow-3373: Slideshow
+  social:
+    social-4968: Social
+  mobile-menu:
+    mobile-menu-5891: 'Mobile Menu'
+  spacer:
+    spacer-3699: Spacer
+    spacer-8205: Spacer
+  totop:
+    totop-3617: 'To Top'
+inherit:
+  home:
+    prefooter: prefooter
+    custom-7879: custom-8930
+    custom-6953: custom-2913
+    custom-3087: custom-2737
+    custom-6438: custom-8499
+    spacer-3699: spacer-4674
+    totop-3617: totop-2079
+    spacer-8205: spacer-5099

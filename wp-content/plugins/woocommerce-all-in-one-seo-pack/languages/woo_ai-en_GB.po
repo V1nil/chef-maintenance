@@ -1,0 +1,52 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: woocommerce-all-in-one-seo-pack\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-29 18:31+1000\n"
+"PO-Revision-Date: 2012-01-29 18:31+1000\n"
+"Last-Translator: \n"
+"Language-Team: Visser Labs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../all-in-one-seo-pack.php:26
+msgid "All in One SEO Pack for WooCommerce"
+msgstr ""
+
+#: ../all-in-one-seo-pack.php:27
+#: ../includes/functions.php:15
+msgid "All in One SEO Pack"
+msgstr ""
+
+#: ../includes/common-dashboard_widgets.php:8
+msgid "Plugin News - by Visser Labs"
+msgstr ""
+
+#: ../includes/common-dashboard_widgets.php:32
+msgid "Connection failed. Please check your network settings."
+msgstr ""
+
+#: ../templates/admin/woo-admin_ai_aioseop.php:5
+msgid "Title"
+msgstr ""
+
+#: ../templates/admin/woo-admin_ai_aioseop.php:14
+msgid "Description"
+msgstr ""
+
+#: ../templates/admin/woo-admin_ai_aioseop.php:23
+msgid "Keywords (comma separated)"
+msgstr ""
+
+#: ../templates/admin/woo-admin_ai_aioseop.php:32
+msgid "Title atrributes"
+msgstr ""
+
+#: ../templates/admin/woo-admin_ai_aioseop.php:41
+msgid "Menu label"
+msgstr ""
+

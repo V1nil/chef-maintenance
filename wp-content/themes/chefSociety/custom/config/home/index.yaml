@@ -1,0 +1,75 @@
+name: home
+timestamp: 1486769038
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  logo:
+    logo-3673: 'Logo / Image'
+    logo-6178: 'Logo / Image'
+    logo-7104: 'Logo / Image'
+  slideshow:
+    slideshow-4793: Slideshow
+    slideshow-9910: Slideshow
+    slideshow-1585: Slideshow
+  custom:
+    custom-7698: 'Custom HTML'
+    custom-6172: 'Custom HTML'
+    custom-5149: 'Custom HTML'
+    custom-8930: 'Custom HTML'
+    custom-2913: 'Custom HTML'
+    custom-2737: 'Custom HTML'
+    custom-8499: 'Custom HTML'
+    custom-1473: 'Custom HTML'
+    custom-6831: 'Custom HTML'
+  chef_contentarray:
+    chef_contentarray-1184: 'WP Posts Chef'
+    chef_contentarray-4665: 'WP Posts Chef'
+  sample:
+    sample-3: Comunidad
+  spacer:
+    spacer-4674: Spacer
+    spacer-5099: Spacer
+  totop:
+    totop-2079: 'To Top'
+  social:
+    social-4968: Social
+  mobile-menu:
+    mobile-menu-5891: 'Mobile Menu'
+  menu:
+    menu-2921: Menu
+    menu-6496: Menu
+  chef_search:
+    chef_search-3947: 'Chef Search'
+    chef_search-1991: 'Chef Search'
+  modal-login:
+    modal-login-2042: 'Modal Login'
+    modal-login-8954: 'Modal Login'
+    modal-login-3940: 'Modal Login'
+inherit:
+  pages:
+    navigation: navigation
+    logo-3673: logo-6922
+    menu-2921: menu-8101
+    chef_search-3947: chef_search-3140
+    custom-1473: custom-3320
+    modal-login-2042: modal-login-4598
+    logo-7104: logo-4062
+    menu-6496: menu-7976
+    custom-6831: custom-6133
+    modal-login-8954: modal-login-2830
+    chef_search-1991: chef_search-6337
+    modal-login-3940: modal-login-8521

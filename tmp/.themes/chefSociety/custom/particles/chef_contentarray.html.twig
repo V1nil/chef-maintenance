@@ -1,0 +1,73 @@
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% set attr_extra = '' %}
+{% if particle.extra %}
+    {% for attributes in particle.extra %}
+        {% for key, value in attributes %}
+            {% set attr_extra = attr_extra ~ ' ' ~ key|e ~ '="' ~ value|e('html_attr') ~ '"' %}
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+
+{% block particle %}
+    {% set post_settings = particle.post %}
+    {% set filter = post_settings.filter %}
+    {% set sort = post_settings.sort %}
+    {% set limit = post_settings.limit %}
+    {% set display = post_settings.display %}
+
+    {# Query Posts #}
+    {% set query_parameters = {
+        'cat': filter.categories|replace(' ', ','),
+        'posts_per_page': limit.total|default('-1'),
+        'offset': limit.start|default('0'),
+        'orderby': sort.orderby,
+        'order': sort.ordering
+    } %}
+
+    {% set posts = wordpress.call('Timber::get_posts', query_parameters) %}
+
+    {# All Posts #}
+    <div class="g-content-array g-wordpress-posts{% if particle.css.class %} {{ particle.css.class }}{% endif %}" {% if particle.extra %}{{ attr_extra|raw }}{% endif %}>
+
+        {% for column in posts|batch(limit.columns) %}
+            <div class="g-grid">
+                {% for post in column %}
+
+                    <div class="g-block">
+                        <div class="g-content">
+                            <div class="g-array-item std-box">
+                                    <div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+
+                                    </div>
+                                <div class="autor-img-box" style="background-image:url('http://desarrolloesencial.dev/wp-content/themes/chefSociety/images/user.jpg');">
+                                    <a href="chef.php"></a>
+                                </div>
+                                
+                                <div class="content-box">
+
+                                    <h3>{{ display.title.limit ? post.title|truncate_text(display.title.limit) : post.title }}</h3>
+
+                                    
+                                    <p class="small"><em>{{ post.post_date|date(display.date.format) }}</em></p>
+                                    
+                                    {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}
+                                    
+                                    <p>{{ post_text|truncate_text(display.text.limit) }}</p>
+                                    <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+                                    <div class="gap-20"></div>
+                                </div>
+                                <div class="bottom-box">
+                                    <p><i class="fa fa-comment-o fa-lg" aria-hidden="true"></i> {{ post.comment_count }}</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

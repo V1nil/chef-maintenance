@@ -1,0 +1,21 @@
+preset: preset2
+header:
+  background: '#000000'
+showcase:
+  background: '#888e94'
+subfeature:
+  background: '#f5f5f5'
+  text-color: '#000000'
+feature:
+  background: '#f5f5f5'
+  text-color: '#000000'
+footer:
+  background: '#000000'
+  text-color: '#ffffff'
+main:
+  background: '#888e94'
+  text-color: '#ffffff'
+navigation:
+  background: '#000000'
+offcanvas:
+  background: '#000000'

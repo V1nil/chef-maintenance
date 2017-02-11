@@ -1,0 +1,12 @@
+name: Chef Profile
+description: Es el perfil de cada usuario
+type: particle
+icon: fa-user
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable particles.
+      default: true

@@ -1,0 +1,73 @@
+# Copyright (C) 2016 WP User Role Renamer
+# This file is distributed under the same license as the WP User Role Renamer package.
+msgid ""
+msgstr ""
+"Project-Id-Version: WP User Role Renamer 1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-user-role-renamer\n"
+"POT-Creation-Date: 2016-03-28 02:41:13+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: bootstrap.php:51
+msgid "Cloning instances of the class is forbidden."
+msgstr ""
+
+#: bootstrap.php:63
+msgid "Unserializing instances of the class is forbidden."
+msgstr ""
+
+#: includes/admin/class-admin-init.php:37
+#: includes/admin/class-admin-init.php:38
+msgid "WP User Role Renamer"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:82
+msgid "Settings"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:83
+msgid "Contact Author"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:97
+msgid "F.A.Q"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:98
+msgid "View On Github"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:99
+msgid "Report Issue"
+msgstr ""
+
+#: includes/admin/class-admin-init.php:100
+msgid "Donate"
+msgstr ""
+
+#: includes/functions.php:64
+msgid "Visitor / LogedOut User"
+msgstr ""
+#. Plugin Name of the plugin/theme
+msgid "WP User Role Renamer"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://wordpress.org/plugins/wp-user-role-renamer"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Sample Plugin For WooCommerce"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Varun Sridharan"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://varunsridharan.in"
+msgstr ""

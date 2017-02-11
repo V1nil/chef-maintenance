@@ -1,0 +1,92 @@
+name: page_noticias_-_filtros
+timestamp: 1486769040
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  custom:
+    custom-2811: Custom
+    custom-9079: 'Custom HTML'
+    custom-9425: 'Custom HTML'
+    custom-4101: 'Custom HTML'
+    custom-7714: 'Custom HTML'
+    custom-8163: 'Custom HTML'
+    custom-1710: 'Custom HTML'
+  menu:
+    menu-6505: Menu
+    menu-3056: Menu
+    menu-1789: Menu
+  logo:
+    logo-9568: 'Logo / Image'
+    logo-8537: 'Logo / Image'
+    logo-6802: 'Logo / Image'
+  chef_search:
+    chef_search-7911: 'Chef Search'
+    chef_search-4969: 'Chef Search'
+  modal-login:
+    modal-login-5925: 'Modal Login'
+    modal-login-4830: 'Modal Login'
+    modal-login-1363: 'Modal Login'
+  content:
+    system-content-7415: 'Page Content'
+  slideshow:
+    slideshow-8942: Slideshow
+  social:
+    social-3735: Social
+  mobile-menu:
+    mobile-menu-9717: 'Mobile Menu'
+  spacer:
+    spacer-7788: Spacer
+    spacer-5280: Spacer
+  totop:
+    totop-9350: 'To Top'
+inherit:
+  pages:
+    header: header
+    navigation: navigation
+    custom-2811: custom-3022
+    showcase: showcase
+    feature: feature
+    main: main
+    subfeature: subfeature
+    footer: footer
+    offcanvas: offcanvas
+    logo-9568: logo-6922
+    menu-3056: menu-8101
+    chef_search-7911: chef_search-3140
+    custom-9079: custom-3320
+    modal-login-5925: modal-login-4598
+    logo-8537: logo-4062
+    menu-1789: menu-7976
+    custom-9425: custom-6133
+    modal-login-4830: modal-login-2830
+    chef_search-4969: chef_search-6337
+    modal-login-1363: modal-login-8521
+    system-content-7415: system-content-6416
+    slideshow-8942: slideshow-3373
+    logo-6802: logo-6178
+    social-3735: social-4968
+    mobile-menu-9717: mobile-menu-5891
+  home:
+    prefooter: prefooter
+    custom-4101: custom-8930
+    custom-7714: custom-2913
+    custom-8163: custom-2737
+    custom-1710: custom-8499
+    spacer-7788: spacer-4674
+    totop-9350: totop-2079
+    spacer-5280: spacer-5099

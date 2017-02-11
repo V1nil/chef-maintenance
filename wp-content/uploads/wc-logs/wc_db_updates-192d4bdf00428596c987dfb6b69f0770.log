@@ -1,0 +1,38 @@
+09-27-2016 @ 17:54:47 - Queuing 2.6.0 - wc_update_260_options
+09-27-2016 @ 17:54:47 - Queuing 2.6.0 - wc_update_260_termmeta
+09-27-2016 @ 17:54:47 - Queuing 2.6.0 - wc_update_260_zones
+09-27-2016 @ 17:54:47 - Queuing 2.6.0 - wc_update_260_zone_methods
+09-27-2016 @ 17:54:47 - Queuing 2.6.0 - wc_update_260_refunds
+09-27-2016 @ 17:54:47 - Queuing 2.6.0 - wc_update_260_db_version
+09-27-2016 @ 17:54:48 - Running wc_update_260_options callback
+09-27-2016 @ 17:54:48 - Finished wc_update_260_options callback
+09-27-2016 @ 17:54:48 - Running wc_update_260_termmeta callback
+09-27-2016 @ 17:54:48 - Finished wc_update_260_termmeta callback
+09-27-2016 @ 17:54:48 - Running wc_update_260_zones callback
+09-27-2016 @ 17:54:48 - Finished wc_update_260_zones callback
+09-27-2016 @ 17:54:48 - Running wc_update_260_zone_methods callback
+09-27-2016 @ 17:54:48 - Finished wc_update_260_zone_methods callback
+09-27-2016 @ 17:54:48 - Running wc_update_260_refunds callback
+09-27-2016 @ 17:54:48 - Finished wc_update_260_refunds callback
+09-27-2016 @ 17:54:48 - Running wc_update_260_db_version callback
+09-27-2016 @ 17:54:48 - Finished wc_update_260_db_version callback
+09-27-2016 @ 17:54:48 - Data update complete
+10-18-2016 @ 18:10:56 - Queuing 2.6.0 - wc_update_260_options
+10-18-2016 @ 18:10:56 - Queuing 2.6.0 - wc_update_260_termmeta
+10-18-2016 @ 18:10:56 - Queuing 2.6.0 - wc_update_260_zones
+10-18-2016 @ 18:10:56 - Queuing 2.6.0 - wc_update_260_zone_methods
+10-18-2016 @ 18:10:56 - Queuing 2.6.0 - wc_update_260_refunds
+10-18-2016 @ 18:10:56 - Queuing 2.6.0 - wc_update_260_db_version
+10-18-2016 @ 18:10:57 - Running wc_update_260_options callback
+10-18-2016 @ 18:10:57 - Finished wc_update_260_options callback
+10-18-2016 @ 18:10:57 - Running wc_update_260_termmeta callback
+10-18-2016 @ 18:10:57 - Finished wc_update_260_termmeta callback
+10-18-2016 @ 18:10:57 - Running wc_update_260_zones callback
+10-18-2016 @ 18:10:57 - Finished wc_update_260_zones callback
+10-18-2016 @ 18:10:57 - Running wc_update_260_zone_methods callback
+10-18-2016 @ 18:10:57 - Finished wc_update_260_zone_methods callback
+10-18-2016 @ 18:10:57 - Running wc_update_260_refunds callback
+10-18-2016 @ 18:10:57 - Finished wc_update_260_refunds callback
+10-18-2016 @ 18:10:57 - Running wc_update_260_db_version callback
+10-18-2016 @ 18:10:57 - Finished wc_update_260_db_version callback
+10-18-2016 @ 18:10:57 - Data update complete

@@ -1,0 +1,7 @@
+enabled: '1'
+menu: menu-1
+base: /
+startLevel: '1'
+maxLevels: '0'
+renderTitles: '0'
+mobileTarget: '0'

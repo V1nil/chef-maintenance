@@ -1,0 +1,14 @@
+enabled: '1'
+height: auto
+autoplay: 'true'
+autoplayInterval: '7000'
+navigation: arrows
+animation: fade
+animationDuration: '500'
+kenburns: 'false'
+pauseOnHover: 'true'
+fullscreen: '0'
+css:
+  class: ''
+extra: {  }
+items: {  }

@@ -1,0 +1,12 @@
+enabled: '1'
+jquery:
+  enabled: '0'
+  ui_core: '0'
+  ui_sortable: '0'
+bootstrap2:
+  enabled: '0'
+bootstrap3:
+  enabled: '0'
+mootools:
+  enabled: '0'
+  more: '0'
