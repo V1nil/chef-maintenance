@@ -1,3 +1,6 @@
 .htaccess
 wp-config.php
+/wp-content/themes/chefSociety/custom/css-compiled/*
+/wp-content/cache/*
 
+/nbproject/*

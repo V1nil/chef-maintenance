@@ -731,7 +731,7 @@ p.product.woocommerce.add_to_cart_inline {
 /* line 273, wp-content/themes/chefSociety/custom/scss/custom.scss */
 select.form-control {
   -moz-appearance: none;
-  background-image: url('//desarrolloesencial.com/wp-content/themes/chefSociety/custom/img/arrow-d.png');
+  background-image: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/custom/img/arrow-d.png');
   background-position: right 10px center;
   background-repeat: no-repeat;
   line-height: 1.375;
@@ -2242,7 +2242,7 @@ select option {
  */
 /* line 1744, wp-content/themes/chefSociety/custom/scss/custom.scss */
 .precio-receta {
-  background-image: url('//desarrolloesencial.com/wp-content/themes/chefSociety/images/euro.png');
+  background-image: url('//desarrolloesencial.dev/wp-content/themes/chefSociety/images/euro.png');
   background-repeat: no-repeat;
   display: inline-block;
   text-align: center;
