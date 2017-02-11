@@ -1,5 +1,5 @@
 name: pages_-_mi_perfil
-timestamp: 1486769052
+timestamp: 1486835559
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -18,36 +18,36 @@ sections:
   footer: Footer
   offcanvas: Offcanvas
 particles:
-  custom:
-    custom-4019: 'Custom HTML'
-    custom-8621: Custom
-    custom-3462: Custom
-    custom-8321: Custom
-    custom-6773: Custom
-    custom-6906: 'Custom HTML'
-    custom-5798: 'Custom HTML'
-  tabschef:
-    tabschef-2294: 'Tabs Chef'
-  chef_sidebar_perfil:
-    chef_sidebar_perfil-1258: 'Chef Sidebar Perfil'
-  mobile-menu:
-    mobile-menu-3258: Mobile-menu
   logo:
-    logo-8926: Logo
     logo-6695: 'Logo / Image'
     logo-8984: 'Logo / Image'
-  social:
-    social-3413: Social
+    logo-8926: Logo
   menu:
     menu-1880: Menu
     menu-2134: Menu
   chef_search:
     chef_search-7492: 'Chef Search'
     chef_search-1300: 'Chef Search'
+  custom:
+    custom-6906: 'Custom HTML'
+    custom-5798: 'Custom HTML'
+    custom-4019: 'Custom HTML'
+    custom-8621: Custom
+    custom-3462: Custom
+    custom-8321: Custom
+    custom-6773: Custom
   modal-login:
     modal-login-3382: 'Modal Login'
     modal-login-7634: 'Modal Login'
     modal-login-1802: 'Modal Login'
+  tabschef:
+    tabschef-2294: 'Tabs Chef'
+  chef_sidebar_perfil:
+    chef_sidebar_perfil-1258: 'Chef Sidebar Perfil'
+  mobile-menu:
+    mobile-menu-3258: Mobile-menu
+  social:
+    social-3413: Social
 inherit:
   post_-_recetas:
     header: header
