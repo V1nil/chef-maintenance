@@ -2,6 +2,10 @@ context: {  }
 menu: {  }
 post:
   page:
+    722: true
+    729: true
+    724: true
+    727: true
     47: true
     695: true
     692: true
@@ -9,6 +13,7 @@ post:
     559: true
     566: true
     561: true
+    720: true
 taxonomy: {  }
 archive: {  }
 woocommerce: {  }
