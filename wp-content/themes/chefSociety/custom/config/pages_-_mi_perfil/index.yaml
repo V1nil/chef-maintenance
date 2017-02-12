@@ -1,5 +1,5 @@
 name: pages_-_mi_perfil
-timestamp: 1486835559
+timestamp: 1486927999
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -34,7 +34,6 @@ particles:
     custom-4019: 'Custom HTML'
     custom-8621: Custom
     custom-3462: Custom
-    custom-8321: Custom
     custom-6773: Custom
   modal-login:
     modal-login-3382: 'Modal Login'
@@ -72,7 +71,6 @@ inherit:
     main-mobile: main-mobile
     custom-8621: custom-2590
     custom-3462: custom-1188
-    custom-8321: custom-1430
     custom-6773: custom-3397
     logo-8926: logo-6828
     social-3413: social-8989
