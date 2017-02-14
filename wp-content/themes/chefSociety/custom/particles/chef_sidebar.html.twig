@@ -297,7 +297,7 @@
     <!--/sidebar actividad user-->
 
     <!--sidebar tags-->
-    <div class="block-sidebar">
+    <!--<div class="block-sidebar">
         <h4>Tags</h4>
         <div class="gap-10"></div>
         <div class="text-center-sidebar">
@@ -311,7 +311,7 @@
             </div>
         </div>
         <div class="gap-30"></div>
-    </div>
+    </div>-->
     <!--/sidebar tags-->
 
     <!--sidebar faq-->
@@ -368,5 +368,9 @@ Descubre la comunidad que te mereces en <strong>Chefsociety.net</strong> </p>
         </div>
     </div>
     <div class="gap-30"></div>
-
+{%  if is_user_logged_in %}
+<p>loggedo</p>
+{% else %}
+<p>no loggedo</p>
+{% endif %}
 {% endblock %}

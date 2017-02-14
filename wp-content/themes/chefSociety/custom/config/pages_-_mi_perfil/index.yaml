@@ -1,5 +1,5 @@
 name: pages_-_mi_perfil
-timestamp: 1486927999
+timestamp: 1487098548
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -43,15 +43,15 @@ particles:
     tabschef-2294: 'Tabs Chef'
   chef_sidebar_perfil:
     chef_sidebar_perfil-1258: 'Chef Sidebar Perfil'
-  mobile-menu:
-    mobile-menu-3258: Mobile-menu
   social:
     social-3413: Social
+  mobile-menu:
+    mobile-menu-3258: Mobile-menu
 inherit:
   post_-_recetas:
     header: header
-    mobile-menu-3258: mobile-menu-5916
     offcanvas: offcanvas
+    mobile-menu-3258: mobile-menu-5916
   pages:
     navigation: navigation
     logo-6695: logo-6922

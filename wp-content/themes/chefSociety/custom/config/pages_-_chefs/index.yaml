@@ -1,5 +1,5 @@
 name: pages_-_chefs
-timestamp: 1486928605
+timestamp: 1487088816
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/home.png'
@@ -18,6 +18,17 @@ sections:
   footer: Footer
   offcanvas: Offcanvas
 particles:
+  content:
+    system-content-1135: 'Page Content'
+  custom:
+    custom-4891: 'Custom HTML'
+    custom-4445: 'Custom HTML'
+    custom-8802: 'Custom HTML'
+    custom-9524: Custom
+    custom-8880: 'Custom HTML'
+    custom-9856: 'Custom HTML'
+    custom-9063: 'Custom HTML'
+    custom-8287: 'Custom HTML'
   logo:
     logo-1171: 'Logo / Image'
     logo-5560: 'Logo / Image'
@@ -28,21 +39,10 @@ particles:
   chef_search:
     chef_search-1118: 'Chef Search'
     chef_search-4245: 'Chef Search'
-  custom:
-    custom-4445: 'Custom HTML'
-    custom-8802: 'Custom HTML'
-    custom-9524: Custom
-    custom-4891: 'Custom HTML'
-    custom-8880: 'Custom HTML'
-    custom-9856: 'Custom HTML'
-    custom-9063: 'Custom HTML'
-    custom-8287: 'Custom HTML'
   modal-login:
     modal-login-7650: 'Modal Login'
     modal-login-7244: 'Modal Login'
     modal-login-6764: 'Modal Login'
-  content:
-    system-content-1135: 'Page Content'
   slideshow:
     slideshow-9656: Slideshow
   spacer:
@@ -58,6 +58,13 @@ inherit:
   pages:
     header: header
     navigation: navigation
+    postnavigation: postnavigation
+    showcase: showcase
+    main: main
+    subfeature: subfeature
+    prefooter: prefooter
+    footer: footer
+    offcanvas: offcanvas
     logo-1171: logo-6922
     menu-9190: menu-8101
     chef_search-1118: chef_search-3140
@@ -69,13 +76,8 @@ inherit:
     modal-login-7244: modal-login-2830
     chef_search-4245: chef_search-6337
     modal-login-6764: modal-login-8521
-    postnavigation: postnavigation
     custom-9524: custom-3022
-    showcase: showcase
-    main: main
-    subfeature: subfeature
     slideshow-9656: slideshow-3373
-    prefooter: prefooter
     custom-8880: custom-7879
     custom-9856: custom-6953
     custom-9063: custom-3087
@@ -83,8 +85,6 @@ inherit:
     spacer-9501: spacer-3699
     totop-4812: totop-3617
     spacer-2071: spacer-8205
-    footer: footer
     logo-2570: logo-6178
     social-4097: social-4968
-    offcanvas: offcanvas
     mobile-menu-6539: mobile-menu-5891

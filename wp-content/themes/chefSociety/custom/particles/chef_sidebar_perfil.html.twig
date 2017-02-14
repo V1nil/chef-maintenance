@@ -3,7 +3,7 @@
 
 
 {% block particle %}
-
+  {%  if is_user_logged_in %}
     {% set get = gantry.request.get %}
 
     {% if get.perfil is empty %}
@@ -91,7 +91,7 @@
         <h4>Negocio</h4>
         <div class="gap-10"></div>
         <div class="autor-img-box-sidebar">
-            <a href="chef.php"><img src="{{business_photo}}"></a>
+            <a href="{{function ('site_url','mi-perfil/?perfil='~perfil_id)}}"><img src="{{business_photo}}"></a>
         </div>
         <div class="text-center-sidebar">
             <h3>{{business}}</h3>
@@ -107,7 +107,7 @@
             <p class="p-sidebar">Precio medio carta:</p>
             <p class="price-sidebar">{{food_price}}€</p>
 
-            <p class="p-sidebar">Precio medio carta:</p>
+            <p class="p-sidebar">Precio medio menú:</p>
             <p class="price-sidebar">{{menu_price}}€</p>
         </div>
         <div class="gap-30"></div>        
@@ -161,8 +161,8 @@
         <div class="">
             <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-cutlery" aria-hidden="true"></i> {{posts_recetas|length}} Recetas publicadas</a></p>
             <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-graduation-cap" aria-hidden="true"></i> {{posts_talleres|length}} Talleres publicados</a></p>
-            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-briefcase" aria-hidden="true"></i> 111 Empleos publicados</a></p>
-            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-bullhorn" aria-hidden="true"></i> 111 Foros iniciados</a></p>
+            <!--<p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-briefcase" aria-hidden="true"></i> 111 Empleos publicados</a></p>
+            <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-bullhorn" aria-hidden="true"></i> 111 Foros iniciados</a></p>-->
             <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-users" aria-hidden="true"></i> {{cont_seguidores}} Seguidores</a></p>
             <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-user" aria-hidden="true"></i> {{cont_following}} Siguiendo</a></p>
             <p class="actividad"><a class="c-g" href="mi-perfil/?perfil={{perfil_id}}"><i class="fa fa-heart" aria-hidden="true"></i> {{cont_favorite}} Favoritos</a></p>
@@ -172,7 +172,7 @@
     <!--/sidebar actividad user-->
 
     <!--sidebar tags-->
-    <div class="block-sidebar">
+    <!--<div class="block-sidebar">
         <h4>Tags</h4>
         <div class="gap-10"></div>
         <div class="text-center-sidebar">
@@ -186,43 +186,48 @@
             </div>
         </div>
         <div class="gap-30"></div>
-    </div>
+    </div>-->
     <!--/sidebar tags-->
 
     <!--sidebar faq-->
-    <div class="block-sidebar">
+    <div class="block-sidebar faq-sidebar">
         <h4>Preguntas frecuentes</h4>
         <div class="gap-10"></div>
         <div class="list-faq">
             <ul>
                 <li id="faq-1">
                     <h5 data-uk-toggle="{target:'#faq-row-1', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
-                        ¿Morbi blandit sodales odio?
+                        ¿Qué es Chef Society?
                         <i class="fa fa-angle-down"></i>
                     </h5>
-                    <div id="faq-row-1" class="uk-hidden" style="height: 260px;">
-                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    <div id="faq-row-1" class="uk-hidden" style="height:auto;">
+                        <p> Nace en España con proyección internacional Chefsociety, la nueva comunidad de chefs creada para los nuevos chefs. Una nueva iniciativa que reinventa este tipo de asociaciones culinarias profesionales a través de una propuesta renovada más innovadora y moderna en imagen, formato y, especialmente, contenidos. </p>
                     </div>
                 </li>
                 <li id="faq-2">
                     <h5 data-uk-toggle="{target:'#faq-row-2', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
-                        ¿Morbi blandit sodales odio?
+                        ¿Qué puedes encontrar?
                         <i class="fa fa-angle-down"></i>
                     </h5>
-                    <div id="faq-row-2" class="uk-hidden" style="height: 260px;">
-                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    <div id="faq-row-2" class="uk-hidden" style="height: auto;">
+                        <p> Diferentes e interesantes propuestas con ventajas y beneficios tangibles orientadas a impulsar los intereses de sus integrantes en el área del:</p>
+<p>
+<strong>Conocimiento:</strong> Optimizar sus capacidades y talento a través del conocimiento; "ayudarles a ser más relevantes en su actividad profesional".<br>
+<strong>Negocio:</strong> Optimizar el tráfico, la rentabilidad y la diferenciación de su negocio; "ayudarles a vender más y mejor".<br>
+<strong>Personal:</strong> "facilitando el acceso al universo lifestyle".  </p>
                     </div>
                 </li>
                 <li id="faq-3">
                     <h5 data-uk-toggle="{target:'#faq-row-3', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
-                        ¿Morbi blandit sodales odio?
+                        ¿Cómo hacerte socio?
                         <i class="fa fa-angle-down"></i>
                     </h5>
-                    <div id="faq-row-3" class="uk-hidden" style="height: 260px;">
-                        <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
+                    <div id="faq-row-3" class="uk-hidden" style="height: auto;">
+                        <p> En apenas unos segundos, a golpe de clic y ¡absolutamente GRATIS! podrás registrarte para disfrutar de un montón de servicios. Si además quieres beneficiarte de ventajas exclusivas, podrás hacerte socio por una mínima cantidad al año.
+Descubre la comunidad que te mereces en <strong>Chefsociety.net</strong> </p>
                     </div>
                 </li>
-                <li id="faq-4">
+                <!--<li id="faq-4">
                     <h5 data-uk-toggle="{target:'#faq-row-4', animation:'uk-animation-slide-bottom, uk-animation-slide-top'}" >
                         ¿Morbi blandit sodales odio?
                         <i class="fa fa-angle-down"></i>
@@ -230,13 +235,28 @@
                     <div id="faq-row-4" class="uk-hidden" style="height: 260px;">
                         <p> Morbi blandit sodales odio, sed lobortis nunc feugiat vitae. Ut egestas dolor sit amet tortor gravida, nec fringilla risus consequat. Nam suscipit et velit sed hendrerit. Praesent volutpat ex in suscipit scelerisque. Vivamus ut mattis neque. Aenean lacinia vitae erat ac sollicitudin. </p>
                     </div>
-                </li>
+                </li>-->
             </ul>
-            <a class="read-more" href="ayuda.php">
+            <a class="read-more" href="/ayuda/">
                 <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
             </a>
         </div>
     </div>
     <div class="gap-30"></div>
 
+{% else %}
+<div class="banner-nologged">
+<img src="http://desarrolloesencial.com/wp-content/themes/chefSociety/images/chefsociety1.png" alt="">
+<h4>Únete a la comunidad que corta el bacalao</h4>
+<p>Si todavía no tienes cuenta:</p>
+<a class="btn btn-primary btn-top pointer" href="#modal-create-1" data-uk-modal="{center:true}">
+<span class="modal-login-text">Crear Cuenta</span>
+</a>
+<div class="clear gap-40"></div>
+<p>Si ya tienes cuenta:</p>
+<a id="modal-login-color" href="#modal-login-1" data-uk-modal="{center:true}">
+<span class="modal-login-text c-b">Iniciar sesión</span>
+</a>
+</div>
+{% endif %}
 {% endblock %}

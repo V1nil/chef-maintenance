@@ -1,5 +1,5 @@
 name: home
-timestamp: 1486769038
+timestamp: 1487088788
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/home.png'
@@ -17,11 +17,8 @@ sections:
   footer: Footer
   offcanvas: Offcanvas
 particles:
-  logo:
-    logo-3673: 'Logo / Image'
-    logo-6178: 'Logo / Image'
-    logo-7104: 'Logo / Image'
   slideshow:
+    slideshow-4959: Slideshow
     slideshow-4793: Slideshow
     slideshow-9910: Slideshow
     slideshow-1585: Slideshow
@@ -45,6 +42,10 @@ particles:
     spacer-5099: Spacer
   totop:
     totop-2079: 'To Top'
+  logo:
+    logo-6178: 'Logo / Image'
+    logo-3673: 'Logo / Image'
+    logo-7104: 'Logo / Image'
   social:
     social-4968: Social
   mobile-menu:

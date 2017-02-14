@@ -98,47 +98,19 @@ content:
       animationDuration: '500'
       items:
         -
-          image: 'gantry-media://slide.jpg'
+          image: 'gantry-media://ch1.jpg'
           videoiframe: ''
           alt: ''
           title: ''
           link: ''
           target: _parent
-          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          description: "<h1 class=\"c-w\">La comunidad que corta el bacalao</h1>\n<p class=\"lead c-w\">Aprende con los mejores profesionales y forma parte\vde la mayor comunidad de chefs de nuestro país.</p>\n<div class=\"deco-ball-bk deco-ball-bk-w\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg c-w\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p class=\"c-w\">Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a class=\"c-w\" href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a class=\"c-w\" href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
           overlaystyle: style1
           overlayposition: middle-left
           overlayanimation: slide-left
           overlaywidth: '2'
           class: ''
           name: 'Slide 1'
-        -
-          image: 'gantry-media://slide-2.jpg'
-          videoiframe: ''
-          alt: ''
-          title: ''
-          link: ''
-          target: _parent
-          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
-          overlaystyle: style1
-          overlayposition: middle-left
-          overlayanimation: slide-left
-          overlaywidth: '2'
-          class: ''
-          name: 'Slide 2'
-        -
-          image: 'gantry-media://slide-3.jpg'
-          videoiframe: ''
-          alt: ''
-          title: ''
-          link: ''
-          target: _parent
-          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
-          overlaystyle: style1
-          overlayposition: middle-left
-          overlayanimation: slide-left
-          overlaywidth: '2'
-          class: ''
-          name: 'Slide 3'
     block:
       class: 'hidden-phone hidden-tablet'
   slideshow-4793:
@@ -148,47 +120,19 @@ content:
       animationDuration: '500'
       items:
         -
-          image: 'gantry-media://slide.jpg'
+          image: 'gantry-media://ch1.jpg'
           videoiframe: ''
           alt: ''
           title: ''
           link: ''
           target: _parent
-          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
+          description: "<h1 class=\"c-w\">La comunidad que corta el bacalao</h1>\n<p class=\"lead c-w\">Aprende con los mejores profesionales y forma parte\vde la mayor comunidad de chefs de nuestro país.</p>\n<div class=\"deco-ball-bk deco-ball-bk-w\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg c-w\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p class=\"c-w\">Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a class=\"c-w\" href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a class=\"c-w\" href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
           overlaystyle: style1
           overlayposition: left
           overlayanimation: slide-left
           overlaywidth: '2'
           class: ''
           name: 'Slide 1'
-        -
-          image: 'gantry-media://slide-2.jpg'
-          videoiframe: ''
-          alt: ''
-          title: ''
-          link: ''
-          target: _parent
-          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
-          overlaystyle: style1
-          overlayposition: left
-          overlayanimation: slide-left
-          overlaywidth: '2'
-          class: ''
-          name: 'Slide 2'
-        -
-          image: 'gantry-media://slide-3.jpg'
-          videoiframe: ''
-          alt: ''
-          title: 'THE CHEF''S KITCHEN [TEXTO 1]'
-          link: ''
-          target: _parent
-          description: "<h1>THE CHEF'S KITCHEN [TEXTO 1]</h1>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n\n<p><a href=\"#modal-create-1\" data-uk-modal=\"{center:true}\" class=\"btn btn-primary btn-top pointer btn-lg\"><span class=\"modal-login-text\">Crea tu cuenta ¡GRATIS!</span></a></p>\n<div class=\"gap-10\"></div>\n<p>Descubre más:<br>\n<!--<a href=\"/acerca-de/\">Sobre Chefsociety <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>, -->\n<a href=\"/talleres/\">Nuestros TALLERES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>\n …y <a href=\"/promociones/\">PROMOCIONES <i class=\"fa fa-arrow-right\" aria-hidden=\"true\"></i></a>"
-          overlaystyle: style1
-          overlayposition: left
-          overlayanimation: slide-left
-          overlaywidth: '2'
-          class: ''
-          name: 'Slide 3'
     block:
       class: hidden-desktop
   slideshow-9910:
@@ -234,7 +178,7 @@ content:
   custom-7698:
     title: 'Custom HTML'
     attributes:
-      html: "<h2>Qué se cuece</h2>\n<p class=\"lead\">A global community of creative chefs and foodie</p>\n<div class=\"deco-ball-bk\"></div>\n<div class=\"gap-20\"></div>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare ac sem ut posuere.</p>"
+      html: "<h2>Qué se cuece</h2>\n<!--<p class=\"lead\">La comunidad</p>-->\n<div class=\"deco-ball-bk\"></div>\n<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ornare ac sem ut posuere.</p>-->"
   chef_contentarray-1184:
     title: 'WP Posts Chef'
     attributes:

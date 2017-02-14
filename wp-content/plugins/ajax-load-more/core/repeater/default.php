@@ -18,7 +18,6 @@ if($product_type[0]->slug == 'taller'){
 };
 
 $meta = get_post_meta( $post_ID );
-$featured = get_post_meta( $post_ID, '_featured' );
 
 $excerpt = get_the_excerpt();
 
@@ -61,7 +60,7 @@ if($post_type == 'post' && in_array('91',$categories)){ ?>
 	<?php if ( has_tag('Nuevo') ) {
 	echo '<div class="new">Nuevo</div>';
 	}  ?>
-<?php if ( $featured[0] == 'yes' ) {
+<?php if ( $meta['_featured'][0] == 'yes' ) {
 	echo '<div class="new">Nuevo</div>';
 	}  ?>
 

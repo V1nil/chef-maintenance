@@ -22,11 +22,30 @@
 {% set tabsid = random() %}
 
 {% set tabsnav %}
-    {% for item in particle.items %}    
-        {% if item.title %}<li class="g-tab-nav{% if item.class %} {{ item.class|e }}{% endif %}{% if (particle.justify|default('no') == 'yes') and ((particle.layout|default('top') != 'left') and (particle.layout|default('top') != 'right')) %} uk-width-1-{{ particle.justifynumber|e }}{% endif %}">
-            <a href="">{% if item.icon %}<span class="g-title-icon {{ item.icon|e }}"></span>{% endif %}{{ item.title|e }}</a>
-        </li>{% endif %}
-    {% endfor %}
+
+    {# Ocultamos el tab de actividad si el flag está levantado #}
+    {% set get = gantry.request.get %}
+    {% set current_user = function ('wp_get_current_user') %}
+
+    {% if current_user.data.ID != get.perfil %}
+        {% for item in particle.items %}    
+            {% if item.title != 'Actividad' and item.title != 'Datos' %}
+                {% if item.title %}<li class="g-tab-nav{% if item.class %} {{ item.class|e }}{% endif %}{% if (particle.justify|default('no') == 'yes') and ((particle.layout|default('top') != 'left') and (particle.layout|default('top') != 'right')) %} uk-width-1-{{ particle.justifynumber|e }}{% endif %}">
+                    <a href="">{% if item.icon %}<span class="g-title-icon {{ item.icon|e }}"></span>{% endif %}{{ item.title|e }}</a>
+                </li>{% endif %}
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        {% for item in particle.items %}    
+            {% if item.title %}<li class="g-tab-nav{% if item.class %} {{ item.class|e }}{% endif %}{% if (particle.justify|default('no') == 'yes') and ((particle.layout|default('top') != 'left') and (particle.layout|default('top') != 'right')) %} uk-width-1-{{ particle.justifynumber|e }}{% endif %}">
+                <a href="">{% if item.icon %}<span class="g-title-icon {{ item.icon|e }}"></span>{% endif %}{{ item.title|e }}</a>
+            </li>{% endif %}
+        {% endfor %}     
+    {% endif %}
+    
+
+        
+        
 {% endset %}
 
 {% set tabscontent %}
