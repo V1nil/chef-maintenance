@@ -21,11 +21,11 @@
 
 {% set tabsid = random() %}
 
-{% set tabsnav %}
+{# Ocultamos el tab de actividad si el flag está levantado #}
+{% set get = gantry.request.get %}
+{% set current_user = function ('wp_get_current_user') %}
 
-    {# Ocultamos el tab de actividad si el flag está levantado #}
-    {% set get = gantry.request.get %}
-    {% set current_user = function ('wp_get_current_user') %}
+{% set tabsnav %}
 
     {% if current_user.data.ID != get.perfil %}
         {% for item in particle.items %}    
@@ -49,13 +49,27 @@
 {% endset %}
 
 {% set tabscontent %}
-    {% for item in particle.items %} 
-        {% if item.description %}<li class="g-tab-content{% if item.class %} {{ item.class|e }}{% endif %}">
-            {% set html = item.twig ? gantry.theme.compile(item.description) : item.description %}
-{#            {{ (particle.filter ? gantry.platform.filter(html) : html)|html|raw }}#}
-            {{ gantry.platform.filter(html)|html|raw }}
-        </li>{% endif %}
-    {% endfor %}
+
+    {% if current_user.data.ID != get.perfil %}
+        {% for item in particle.items %} 
+            {% if item.title != 'Actividad' and item.title != 'Datos' %}    
+
+                {% if item.description %}<li class="g-tab-content{% if item.class %} {{ item.class|e }}{% endif %}">
+                    {% set html = item.twig ? gantry.theme.compile(item.description) : item.description %}
+        {#            {{ (particle.filter ? gantry.platform.filter(html) : html)|html|raw }}#}
+                    {{ gantry.platform.filter(html)|html|raw }}
+                </li>{% endif %}
+            {% endif %}
+        {% endfor %}                    
+    {% else %}
+        {% for item in particle.items %} 
+            {% if item.description %}<li class="g-tab-content{% if item.class %} {{ item.class|e }}{% endif %}">
+                {% set html = item.twig ? gantry.theme.compile(item.description) : item.description %}
+    {#            {{ (particle.filter ? gantry.platform.filter(html) : html)|html|raw }}#}
+                {{ gantry.platform.filter(html)|html|raw }}
+            </li>{% endif %}
+        {% endfor %}        
+    {% endif %}
 {% endset %}
 
 {% set tabsnavcontainer %}
