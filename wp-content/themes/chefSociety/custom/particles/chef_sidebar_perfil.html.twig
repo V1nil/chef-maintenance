@@ -3,13 +3,130 @@
 
 
 {% block particle %}
-  {%  if is_user_logged_in %}
-    {% set get = gantry.request.get %}
 
-    {% if get.perfil is empty %}
-        {# Estan editando su propio perfil #}
-        {% set current_user = function ('wp_get_current_user') %}
-        {% set perfil_id = current_user.data.ID %}        
+    {% set get = gantry.request.get %}
+    {% set current_user = function ('wp_get_current_user') %}
+
+    {#  Carga de JS  #}
+    {% assets in 'head' with { priority: 10 } %}
+    <script type="text/javascript">
+        
+        $ = jQuery;
+        $(function () {
+            $(document).ready(function ($) {
+                //Seguir a un chef
+                $(document).on('click', "#follow_chef", function () {
+                    var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                    var user_following = {{current_user.data.ID}};
+                    var user_to_follow = {{get.perfil}};
+
+                    xhr = new XMLHttpRequest();
+                    xhr.open("POST", url, true);
+                    var params ="user_following="+user_following+"&user_to_follow="+user_to_follow+"&action=follow";
+
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+{#                    xhr.onprogress = function(e){
+                        var data = jQuery.parseJSON(e.currentTarget.responseText);
+                        $('#follow_response').fadeIn('slow')
+                        $('#follow_response').html(data.message);
+                    };#}
+                    xhr.send(params);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                               location.reload();                        
+                        }
+                    };
+                });
+                //Dejar de seguir a un chef
+                $(document).on('click', "#unfollow_chef", function () {
+                    var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                    var user_following = {{current_user.data.ID}};
+                    var user_to_unfollow = {{get.perfil}};
+
+                    xhr = new XMLHttpRequest();
+                    xhr.open("POST", url, true);
+                    var params ="user_following="+user_following+"&user_to_unfollow="+user_to_unfollow+"&action=unfollow";
+
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+{#                    xhr.onprogress = function(e){
+                        var data = jQuery.parseJSON(e.currentTarget.responseText);
+                        $('#follow_response').fadeIn('slow')
+                        $('#follow_response').html(data.message);
+                    };#}
+                    xhr.send(params);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                               location.reload();                        
+                        }
+                    };
+                });
+                
+                //Añadir a favoritos
+                $(document).on('click', "#favorite_chef", function () {
+                    var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                    var user_adding = {{current_user.data.ID}};
+                    var user_favorite = {{get.perfil}};
+
+                    xhr = new XMLHttpRequest();
+                    xhr.open("POST", url, true);
+                    var params ="user_adding="+user_adding+"&user_favorite="+user_favorite+"&action=favorite";
+
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+{#                    xhr.onprogress = function(e){
+                        var data = jQuery.parseJSON(e.currentTarget.responseText);
+                        $('#favorite_response').fadeIn('slow')
+                        $('#favorite_response').html(data.message);
+                    };#}
+                    xhr.send(params);  
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                               location.reload();                        
+                        }
+                    };
+                });
+                
+                //Eliminar de favoritos
+                $(document).on('click', "#unfavorite_chef", function () {
+                    var url = window.location.origin + '/wp-content/themes/chefSociety/extension.php';
+                    var user_adding = {{current_user.data.ID}};
+                    var user_unfavorite = {{get.perfil}};
+
+                    xhr = new XMLHttpRequest();
+                    xhr.open("POST", url, true);
+                    var params ="user_adding="+user_adding+"&user_unfavorite="+user_unfavorite+"&action=unfavorite";
+                    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+{#                    xhr.onprogress = function(e){
+                        var data = jQuery.parseJSON(e.currentTarget.responseText);
+                        $('#favorite_response').fadeIn('slow')
+                        $('#favorite_response').html(data.message);
+                    };#}
+                    xhr.send(params);
+                    xhr.onreadystatechange = function() {
+                        if (xhr.readyState === 4) {
+                               location.reload();                        
+                        }
+                    };
+                });
+            });
+        });
+                        
+        
+    </script>
+    {% endassets -%}
+    
+    
+    
+  {%  if is_user_logged_in %}
+    {% set current_user_visit_data = function ('get_user_meta',current_user.data.ID) %}
+    
+
+    {% if get.perfil is empty %} {# TODO: borrarlo, ¿ya no tiene sentido? #}
+        {# Están editando su propio perfil #}
+        {% set perfil_id = current_user.data.ID %}
     {%else%}
         {# Estan viendo el perfil de otro y quieren ver sus datos otra vez #}
         {% set perfil_id = get.perfil %}
@@ -58,7 +175,8 @@
 
     {% if current_user_data._chef_food_price[0] != '' %} {% set food_price = current_user_data._chef_food_price[0] %} {% else %} {% set food_price = '10' %} {% endif %}
     {% if current_user_data._chef_menu_price[0] != '' %} {% set menu_price = current_user_data._chef_menu_price[0] %} {% else %} {% set menu_price = '10' %} {% endif %}
-
+    {% if current_user_visit_data._chef_follow[0] != '' %} {% set chef_follow = current_user_visit_data._chef_follow[0]|json_decode %} {%endif%}
+    {% if current_user_visit_data._chef_favorite[0] != '' %} {% set chef_favorite = current_user_visit_data._chef_favorite[0]|json_decode %} {%endif%}
     
     
     <!--sidebar user-->
@@ -74,6 +192,32 @@
             <p class="prof">{{job}}</p>
             <p class="war">{{gastronomia}}</p>
             <p class="chs-old">En CHS desde {{since|date("d/m/y")}}</p>
+
+            {% if current_user.data.ID != get.perfil %}
+                {% if chef_follow is defined %}
+                    {% if get.perfil in chef_follow %}
+                        <a class="btn btn-default btn-primary" id="unfollow_chef"><i class="fa fa-plus c-w" aria-hidden="true"></i> Dejar de seguir </a>
+                    {% else %}
+                        <a class="btn btn-default btn-primary" id="follow_chef"><i class="fa fa-plus c-w" aria-hidden="true"></i> Seguir </a>
+                    {% endif %}
+                {% else %}
+                    <a class="btn btn-default btn-primary" id="follow_chef"><i class="fa fa-plus c-w" aria-hidden="true"></i> Seguir </a>                
+                {% endif %}
+                <p id="follow_response" class="perfil-response"></p>
+                <div class="gap-20"></div>            
+                {% if chef_favorite is defined %}
+                    {% if get.perfil in chef_favorite %}
+                        <a class="btn btn-default btn-black" id="unfavorite_chef"><i class="fa fa-heart c-w" aria-hidden="true"></i> Eliminar de favoritos </a>
+                    {% else %}
+                        <a class="btn btn-default btn-black" id="favorite_chef"><i class="fa fa-heart c-w" aria-hidden="true"></i> Añadir a favoritos </a>
+                    {% endif %}
+                {% else %}
+                    <a class="btn btn-default btn-black" id="favorite_chef"><i class="fa fa-heart c-w" aria-hidden="true"></i> Añadir a favoritos </a>
+                {% endif %}
+                <p id="favorite_response" class="perfil-response"></p>
+            {% endif %}
+
+            
             <div class="gap-20"></div>
             <p>Áreas profesionales de interés:</p>
             <div class="">
