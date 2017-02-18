@@ -710,7 +710,7 @@ footer {
 */
 .btn-top {
 	height: 35px !important;
-    padding: 7px 15px !important;
+    padding: 7px 15px;
 	margin-top:15px;
 }
 
@@ -905,18 +905,18 @@ input[type="text"].search-input-top {
 */
 @media (min-width: 1200px) {
     div .std-box-load-more {
-        width:22%;
+        width:23%;
     }
 }
 
 @media (max-width:1200px) and (min-width:960px) {
     div .std-box-load-more {
-        width:22%;
+        width:23%;
     }
 }
 @media (max-width: 960px) and (min-width:768px) {
     div .std-box-load-more {
-        width:22%;
+        width:23%;
     }
 }
 @media (max-width: 768px) and (min-width:480px){
@@ -1213,7 +1213,7 @@ input[type="text"].search-input-top {
 }
 
 .chef-container{
-    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .content-box-chefs {

@@ -1,5 +1,5 @@
 name: _error
-timestamp: 1486769029
+timestamp: 1487377548
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/home.png'
@@ -20,18 +20,12 @@ sections:
 particles:
   content:
     system-content-9690: 'Page Content'
-  sample:
-    sample-3: Comunidad
-  slideshow:
-    slideshow-1585: Slideshow
-  logo:
-    logo-6178: 'Logo / Image'
-    logo-9856: 'Logo / Image'
-    logo-2686: 'Logo / Image'
-  social:
-    social-4968: Social
   mobile-menu:
     mobile-menu-2705: Mobile-menu
+  logo:
+    logo-9856: 'Logo / Image'
+    logo-2686: 'Logo / Image'
+    logo-7617: 'Logo / Image'
   menu:
     menu-2010: Menu
     menu-3848: Menu
@@ -49,6 +43,10 @@ particles:
     modal-login-4640: 'Modal Login'
     modal-login-2331: 'Modal Login'
     modal-login-1435: 'Modal Login'
+  slideshow:
+    slideshow-5004: Slideshow
+  social:
+    social-5016: Social
   spacer:
     spacer-3699: Spacer
     spacer-8205: Spacer
@@ -57,6 +55,8 @@ particles:
 inherit:
   pages:
     navigation: navigation
+    subfeature: subfeature
+    footer: footer
     logo-9856: logo-6922
     menu-2010: menu-8101
     chef_search-7582: chef_search-3140
@@ -68,6 +68,9 @@ inherit:
     modal-login-2331: modal-login-2830
     chef_search-1718: chef_search-6337
     modal-login-1435: modal-login-8521
+    slideshow-5004: slideshow-3373
+    logo-7617: logo-6178
+    social-5016: social-4968
   home:
     prefooter: prefooter
     custom-7879: custom-8930

@@ -193,9 +193,11 @@ content:
       autoplayInterval: '5000'
       navigation: none
       animation: swipe
+      css:
+        class: marcas
       items:
         -
-          image: 'gantry-media://slider.jpg'
+          image: 'gantry-media://p.png'
           videoiframe: ''
           alt: ''
           title: ''
@@ -209,7 +211,7 @@ content:
           class: ''
           name: 'New item'
         -
-          image: 'gantry-media://slider.jpg'
+          image: 'gantry-media://p.png'
           videoiframe: ''
           alt: ''
           title: ''
@@ -232,7 +234,24 @@ content:
     attributes:
       css:
         class: social-items
-      items: {  }
+      title: ''
+      target: _blank
+      items:
+        -
+          icon: 'fa fa-instagram'
+          text: ''
+          link: 'https://www.instagram.com/chefsocietybcn/'
+          name: Instagram
+        -
+          icon: 'fa fa-facebook'
+          text: ''
+          link: 'https://www.facebook.com/Chefsocietybcn-641245136023429/'
+          name: Facebook
+        -
+          icon: 'fa fa-youtube-play'
+          text: ''
+          link: 'https://www.youtube.com/channel/UCsIfvTynptwEh81T0uOQZEw'
+          name: Youtube
     block:
       class: disable-div-spaces
       variations: center

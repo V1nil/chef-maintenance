@@ -18,6 +18,7 @@ if($product_type[0]->slug == 'taller'){
 };
 
 $meta = get_post_meta( $post_ID );
+$featured = get_post_meta( $post_ID, '_featured' );
 
 $excerpt = get_the_excerpt();
 
@@ -60,7 +61,7 @@ if($post_type == 'post' && in_array('91',$categories)){ ?>
 	<?php if ( has_tag('Nuevo') ) {
 	echo '<div class="new">Nuevo</div>';
 	}  ?>
-<?php if ( $meta['_featured'][0] == 'yes' ) {
+<?php if ( $featured[0] == 'yes' ) {
 	echo '<div class="new">Nuevo</div>';
 	}  ?>
 
@@ -160,10 +161,10 @@ $product );
              echo'<div class="price">
              		<hr class="m-b-0">
                     <div class="gap-10"></div>      	
-                    <a href="'.$linkpromo.'" class="btn btn-primary"> <!--<i class="fa fa-shopping-cart" aria-hidden="true"></i>-->Leer más '.$meta['_regular_price'][0].' €  </a>
+                    <a href="'.$linkpromo.'" class="btn btn-primary"> <!--<i class="fa fa-shopping-cart" aria-hidden="true"></i>-->Leer más</a>
                   	<div class="gap-10"></div>
                  <div>
-                 	<span class="partner">'.$partner_price.'€ socios ('.$meta['_descuento_socios'][0].'% desc)</span>
+                 	<!--<span class="partner">'.$partner_price.'€ socios ('.$meta['_descuento_socios'][0].'% desc)</span>-->
                  </div>
                 </div><!--<p class="small patrocinado">Código descuento:<br><span class="codigo">'.$meta['_codigo_descuento'][0].'</span></p>-->'; ?>
   <?php 

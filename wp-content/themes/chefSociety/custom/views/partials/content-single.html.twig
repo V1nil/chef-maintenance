@@ -18,6 +18,7 @@
 
             {# Begin Entry Title #}
 {#            {% if gantry.config.get('content.' ~ scope ~ '.title.enabled', '1') %}
+				<div class="gap-20"></div>
                 <h2 class="entry-title">
                     {% if gantry.config.get('content.' ~ scope ~ '.title.link', '0') %}
                         <a href="{{ post.link }}" title="{{ post.title }}">{{ post.title }}</a>
@@ -57,6 +58,7 @@
 
                         {# Begin Entry Title #}
                         {% if gantry.config.get('content.' ~ scope ~ '.title.enabled', '1') %}
+							<div class="gap-20"></div>
                             <h2 class="entry-title">
                                 {% if gantry.config.get('content.' ~ scope ~ '.title.link', '0') %}
                                     <a href="{{ post.link }}" title="{{ post.title }}">{{ post.title }}</a>

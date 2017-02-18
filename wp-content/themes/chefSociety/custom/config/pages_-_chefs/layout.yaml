@@ -54,7 +54,7 @@ structure:
     type: section
     attributes:
       boxed: ''
-      class: ''
+      class: chefs-page
   main:
     inherit:
       outline: pages
