@@ -2,5 +2,7 @@
 wp-config.php
 wp-content/themes/chefSociety/custom/css-compiled/*
 wp-content/cache/*
+wp-content/uploads/GeoIP.dat
+wp-content/uploads/GeoIPv6.dat
 
 /nbproject/*

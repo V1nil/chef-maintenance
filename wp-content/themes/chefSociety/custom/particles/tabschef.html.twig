@@ -1,5 +1,17 @@
 {% extends '@nucleus/partials/particle.html.twig' %}
 
+{# Añadimos uno más al valor del meta de chef visitado #}
+{% set get = gantry.request.get %}
+
+{% set user_data = function ('get_user_meta',get.perfil) %}
+{% if user_data._chef_visits[0] != '' %} 
+    {% set vistos = user_data._chef_visits[0] + 1 %}
+    {% set vistos = function('update_user_meta',get.perfil,'_chef_visits',vistos) %}
+{% else %} 
+    {% set vistos = function('add_user_meta',get.perfil,'_chef_visits',1) %}
+{% endif %}
+
+
 {% set attr_extra = '' %}
 {% if particle.extra %}
     {% for attributes in particle.extra %}
@@ -21,8 +33,7 @@
 
 {% set tabsid = random() %}
 
-{# Ocultamos el tab de actividad si el flag está levantado #}
-{% set get = gantry.request.get %}
+{# Quitamos de la lista el tab de datos y actividad si el perfil no es el del usuario logueado #}
 {% set current_user = function ('wp_get_current_user') %}
 
 {% set tabsnav %}
@@ -48,6 +59,7 @@
         
 {% endset %}
 
+{# Ocultamos el tab de datos y actividad si el perfil no es el del usuario logueado #}
 {% set tabscontent %}
 
     {% if current_user.data.ID != get.perfil %}
