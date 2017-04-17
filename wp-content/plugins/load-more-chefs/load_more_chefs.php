@@ -25,7 +25,7 @@ function get_chefs_offset($offset){
     $user_query = new WP_User_Query( $args );
     if ( ! empty( $user_query->results ) ) {
     
-        $response = "<div class='g-grid grid-chefs'>";
+        $response = "<div class='g-grid grid-chefs loadmore-chefs-grid'>";
         
         foreach ( $user_query->results as $user ) 
         { 
@@ -85,9 +85,9 @@ function get_chefs_offset($offset){
         }
         
         $response = $response."</div>";
+                
+
         
-    }else{
-        $response = "Error cargando chefs";
     }
 
     return $response;

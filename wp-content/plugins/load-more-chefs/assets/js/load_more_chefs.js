@@ -1,26 +1,24 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 
 offset = 4;
-jQuery(".dcs_loadmore").click(function(event) {
-   	event.preventDefault();
-    jQuery.ajax({
+$=jQuery;
+
+$(document).on('click', ".loadmore-chefs", function (event) {
+    event.preventDefault();
+    $.ajax({
         type: "POST",
         url: ajaxurl,
-        data: ({ action: "loadMore_users", offset : offset}),
+        data: ({ action: "loadMore_chefs", offset : offset}),
         success: function(response) {
-          if(response !='0'){
+          if(response !==''){
             offset = offset  + 4;
-           jQuery('.load_me_here').append(response);
+            $(".load-more-chefs-reveal").before(response);
+            $(".grid-chefs").last().slideDown("slow");
+            
+
+//            jQuery('.load_me_here').append(response);
          }else{
-          //jQuery('.dcs_loadmore_related_innovators').hide();
-          jQuery('.load_me_here').append('<p class="dcs_para_center">No More Users to display...</p>');
-          jQuery('.dcs_loadmore').hide();
-          return false;
+             $(".loadmore-chefs").addClass("load-more-chefs-done");
+
          }
         },
     });

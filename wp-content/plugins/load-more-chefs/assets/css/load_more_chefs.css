@@ -1,0 +1,51 @@
+.loadmore-chefs-grid{
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.load-more-chefs-reveal{
+    text-align: center;
+}
+
+.load-more-chefs-done{
+    cursor: default;
+    opacity: 0.2;
+    filter: alpha(opacity=20);
+    background-color: #ed7070;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.loadmore-chefs{
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    width: auto;
+    height: 42px;
+    line-height: 44px;
+    background: #ed7070;
+    color: #fff;
+    border: none;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 0 0 4px;
+    padding: 0 20px;
+    display: inline-block;
+    position: relative;
+    -webkit-transition: padding 0.25s ease-in-out, width 0.25s ease-in-out;
+    -moz-transition: padding 0.25s ease-in-out, width 0.25s ease-in-out;
+    transition: padding 0.25s ease-in-out, width 0.25s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
