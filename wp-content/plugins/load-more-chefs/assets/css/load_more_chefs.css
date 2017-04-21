@@ -1,6 +1,10 @@
-.loadmore-chefs-grid{
-    margin-left: -10px;
-    margin-right: -10px;
+.loadmore-chefs-grid .chef-container .g-content{
+    margin: 0px !important;
+}
+
+.entry-content .grid-chefs{
+    margin-left: -10px!important;
+    margin-right: -10px!important;
 }
 
 .load-more-chefs-reveal{
@@ -48,4 +52,19 @@
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+        background-color: #be1622 !important;
+    margin: 0 auto;
+    margin-bottom: 2px;
+    border-bottom: 2px solid #7f1623;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    text-transform: inherit !important;
+    font-weight: 700;
+}
+
+.loadmore-chefs:hover {
+    background-color: #e06464 !important;
+    color: #fff;
+    text-decoration: none;
 }
