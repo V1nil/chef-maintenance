@@ -30,7 +30,7 @@ add_action('wp_ajax_nopriv_loadMore_chefs', 'loadmorechefs_func');
  * @param type $atts
  * @return type
  */
-function loadmorechefs_func() {
+function loadmorechefs_func($atts) {
     
     $offset = filter_input(INPUT_POST, 'offset');
     $action = filter_input(INPUT_POST, 'action');
@@ -40,7 +40,7 @@ function loadmorechefs_func() {
         $offset = 0;
     }
     
-    $response = get_chefs_offset($offset);
+    $response = get_chefs_offset($offset,$atts['filter']);
         
     //Si se trata de la carga inicial, ponemos el boton de cargar mas
     if($action == null || $action == '' || empty($action) || !isset($action)){

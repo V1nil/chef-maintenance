@@ -4,25 +4,34 @@
  * Archivo para llamadas AJAX y cargar más desde un offset determinado
  */
 
-if(isset($_POST['loadmorechefs_offset'])){
+function get_chefs_offset($offset,$filter){
+
     
-    $offset = filter_input(INPUT_POST, 'loadmorechefs_offset');
-
-    $response = get_chefs_offset($offset);
-    
-    echo $response;
-    ob_flush();
-    flush();
-}
-
-
-function get_chefs_offset($offset){
     
     $args = array (
-                    'number' =>'4', 
-                    'offset' => $offset
+                    'number' =>'4',
+                    'offset' => $offset,
                     );
+    
+    //Añadimos los argumentos necesarios en funcion del shortcode
+    switch($filter){
+        case 'featured':
+            $args['meta_key'] = 'wpfui2i_featured_user';
+            break;
+        case 'most-viewed':
+            $args['meta_key'] = '_chef_visits';
+            $args['orderby']  = 'meta_value_num';
+            $args['order'] = 'desc';            
+            break;
+        case 'more-valued':
+            
+            break;
+        default:
+            break;
+    }
+    
     $user_query = new WP_User_Query( $args );
+
     if ( ! empty( $user_query->results ) ) {
     
         $response = "<div class='g-grid grid-chefs loadmore-chefs-grid'>";
@@ -45,14 +54,13 @@ function get_chefs_offset($offset){
             $users = get_users();
             $cont_seguidores = 0;
             
-//            foreach ($users as $user_check) {
-//                $user_check_data = get_user_meta($user_check->data->ID);
-//                $following = json_decode($user_check_data->_chef_follow[0]);
-//                
-//                if(in_array($user->ID,$following)){
-//                    $cont_seguidores++;
-//                }
-//            }
+            foreach ($users as $user_check) {
+                $user_check_data = get_user_meta($user_check->data->ID);
+                $following = json_decode($user_check_data['_chef_follow'][0]);
+                if(in_array($user->ID,$following)){
+                    $cont_seguidores++;
+                }
+            }
             
             $response = $response."<div class='chef-container'> 
                             <div class='g-content'>                                                            
@@ -91,5 +99,16 @@ function get_chefs_offset($offset){
     }
 
     return $response;
+    
+}
+
+function get_chefs_favorites(){
+    
+    $users = get_users();
+    
+
+    
+    
+    return $chefsFavorites;
     
 }
