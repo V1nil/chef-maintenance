@@ -34,17 +34,24 @@ function loadmorechefs_func($atts) {
     
     $offset = filter_input(INPUT_POST, 'offset');
     $action = filter_input(INPUT_POST, 'action');
+    $filter = filter_input(INPUT_POST, 'filter');
     
     //SI se trata de la carga inicial...
     if($offset == null || $offset == '' || empty($offset) || !isset($offset)){
-        $offset = 0;
+        $offset = 0; //...offset a 0
+        $hidden_param= $atts['filter']."_".$atts['city'];  //...parametros ocultos para la llamada AJAX
+    }else{ //...si no, aprovechamos para emular el $atts de shortcode con el paso de argumentos hidden via AJAX                
+        $atts_array = explode('_',$filter);
+        $atts['filter'] = $atts_array[0];
+        $atts['city'] = $atts_array[1];        
     }
     
-    $response = get_chefs_offset($offset,$atts['filter']);
-        
+    $response = get_chefs_offset($offset,$atts);
+
     //Si se trata de la carga inicial, ponemos el boton de cargar mas
     if($action == null || $action == '' || empty($action) || !isset($action)){
-        $response = $response."<div class='load-more-chefs-reveal'><button class='loadmore-chefs'>Cargar más</button></div>";
+        $response = $response."<div class='load-more-chefs-reveal'><button class='loadmore-chefs'>Cargar más</button></div>"
+                . "<input type='hidden' name='filter-loadmorechefs' value='".$hidden_param."'>";
         echo $response;
     }else{
         echo $response; 

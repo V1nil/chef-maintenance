@@ -4,16 +4,18 @@
  * Archivo para llamadas AJAX y cargar más desde un offset determinado
  */
 
-function get_chefs_offset($offset,$filter){
+function get_chefs_offset($offset,$atts){
 
     
     
     $args = array (
                     'number' =>'4',
-                    'offset' => $offset,
+                    'offset' => $offset
                     );
     
     //Añadimos los argumentos necesarios en funcion del shortcode
+    $filter=$atts['filter'];
+    
     switch($filter){
         case 'featured':
             $args['meta_key'] = 'wpfui2i_featured_user';
@@ -25,6 +27,10 @@ function get_chefs_offset($offset,$filter){
             break;
         case 'more-valued':
             
+            break;
+        case 'city':
+            $args['meta_key'] = '_chef_city';
+            $args['meta_value'] = $atts['city'];
             break;
         default:
             break;

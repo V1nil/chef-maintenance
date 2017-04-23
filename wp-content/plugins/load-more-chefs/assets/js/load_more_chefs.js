@@ -4,11 +4,13 @@ $=jQuery;
 
 $(document).on('click', ".loadmore-chefs", function (event) {
     event.preventDefault();
-    $(document.body).css({'cursor' : 'wait'});
+    $(document.body).css({'cursor' : 'wait'});  //UX de carga
+    var filter = $('[name="filter-loadmorechefs"]').val();  //Filtros del shortcode
+    
     $.ajax({
         type: "POST",
         url: ajaxurl,
-        data: ({ action: "loadMore_chefs", offset : offset}),
+        data: ({ action: "loadMore_chefs", offset : offset, filter : filter}),
         success: function(response) {
         $(document.body).css({'cursor' : 'default'});
           if(response !==''){
