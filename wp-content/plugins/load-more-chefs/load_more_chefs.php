@@ -25,9 +25,13 @@ function get_chefs_offset($offset,$atts){
             $args['orderby']  = 'meta_value_num';
             $args['order'] = 'desc';            
             break;
-        case 'more-valued':
-            //TODO: respuesta mediante vlaor numerico en metas, hay qeu tocar extension.php y asegurar
+        case 'most-recent':
+            $args['orderby'] = 'ID';
+            $args['order'] = 'desc';
             break;
+        case 'most-valued':
+            //TODO: respuesta mediante vlaor numerico en metas, hay qeu tocar extension.php y asegurar            
+            break;       
         case 'city':
             $args['meta_key'] = '_chef_city';
             $args['meta_value'] = $atts['city'];
@@ -43,8 +47,7 @@ function get_chefs_offset($offset,$atts){
         $response = "<div class='g-grid grid-chefs loadmore-chefs-grid'>";
         
         foreach ( $user_query->results as $user ) 
-        { 
-            
+        {             
             $user_info = get_userdata($user->ID);
             $user_meta_info = get_user_meta($user->ID);
 
@@ -67,24 +70,24 @@ function get_chefs_offset($offset,$atts){
                     $cont_seguidores++;
                 }
             }
-            
+            $test=1;
             $response = $response."<div class='chef-container'> 
                             <div class='g-content'>                                                            
                                 <div class='g-array-item std-box'>
-                                        <a href='http://desarrolloesencial.dev/mi-perfil/?perfil='".$user->ID."'><div class='img-box' style='background-image:url('".$business_photo_chef."');'>
+                                        <a href='". site_url("mi-perfil/?perfil=".$user->ID)."'><div class='img-box' style='background-image:url('".$business_photo_chef."');'>
                                         </div></a>
                                     <div class='autor-img-box-sidebar'>
-                                        <a href='http://desarrolloesencial.dev/mi-perfil/?perfil='".$user->ID."'><img src='".$personal_photo_chef."'></a>
+                                        <a href='". site_url("mi-perfil/?perfil=".$user->ID)."'><img src='".$personal_photo_chef."'></a>
                                     </div>
                                     <div class='content-box-chefs text-center'>
 
-                                        <h3><a href='http://desarrolloesencial.dev/mi-perfil/?perfil='".$user->ID."'>".$nombre_chef."</a></h3>
+                                        <h3><a href='". site_url("mi-perfil/?perfil=".$user->ID)."'>".$nombre_chef."</a></h3>
                                         <p class='small ciudad'>'".$ciudad_chef."', '".$pais_chef."'</p>
                                         <p>".$business_chef."</p>                           
                                     </div>
 
                                     <div class='text-center'>
-                                        <a class='read-more' href='http://desarrolloesencial.dev/mi-perfil/?perfil='".$user->ID."'><i class='fa fa-plus-circle fa-3x' aria-hidden='true'></i></a>
+                                        <a class='read-more' href='". site_url("mi-perfil/?perfil=".$user->ID)."'><i class='fa fa-plus-circle fa-3x' aria-hidden='true'></i></a>
                                         <div class='gap-20'></div>                                    
                                     </div>
                                     <div class='bottom-box'>
