@@ -52,9 +52,9 @@ function loadmorechefs_func($atts) {
     if($action == null || $action == '' || empty($action) || !isset($action)){
         $response = $response."<div class='load-more-chefs-reveal'><button class='loadmore-chefs'>Cargar más</button></div>"
                 . "<input type='hidden' name='filter-loadmorechefs' value='".$hidden_param."'>";
-        echo $response;
+        return $response;   //Para evitar pintar contenido antes de la renderizacion del editor
     }else{
-        echo $response; 
+        echo $response;     //Para poder mandarlo a jQuery
         die();
     }
 }

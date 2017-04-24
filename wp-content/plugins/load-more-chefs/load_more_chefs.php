@@ -26,7 +26,7 @@ function get_chefs_offset($offset,$atts){
             $args['order'] = 'desc';            
             break;
         case 'more-valued':
-            
+            //TODO: respuesta mediante vlaor numerico en metas, hay qeu tocar extension.php y asegurar
             break;
         case 'city':
             $args['meta_key'] = '_chef_city';
