@@ -574,7 +574,7 @@ input.search-input-top[type="text"] {
 	padding:20px;
 }
 .facebook-login {
-	display:none;
+	/*display:none;*/
 }
 .box-receta {
     float:left;
