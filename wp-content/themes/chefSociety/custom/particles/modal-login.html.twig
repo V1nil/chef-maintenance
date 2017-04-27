@@ -283,8 +283,8 @@
                     <div class="uk-modal-body">
                         <div class="content-modal-body">
                             <div class="facebook-login">
-                                {{"[fbl_login_button redirect='' hide_if_logged='']"|shortcodes|raw}}
-{#                                    <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>#}
+                               {{function('do_action','facebook_login_button')}}
+ {#                                    <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>#}
                             </div>
                         </div>
                         <div class="content-modal-body bk-lg">
@@ -363,7 +363,8 @@
                     <div class="uk-modal-body">
                         <div class="content-modal-body">
                             <div class="facebook-login">
-                                {{"[fbl_login_button redirect='' hide_if_logged='']"|shortcodes|raw}}
+                                
+                                {{function('do_action','facebook_login_button')}}
                                 
 {#                                <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>#}
                             </div>
