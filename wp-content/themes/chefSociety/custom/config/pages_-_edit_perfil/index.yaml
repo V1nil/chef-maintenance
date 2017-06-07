@@ -1,5 +1,5 @@
 name: pages_-_edit_perfil
-timestamp: 1490607573
+timestamp: 1496835814
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -30,14 +30,12 @@ particles:
     chef_profile-8269: 'Chef Profile'
   chef_sidebar_perfil:
     chef_sidebar_perfil-9283: 'Chef Sidebar Perfil'
-  logo:
-    logo-6828: Logo
-    logo-7207: 'Logo / Image'
-    logo-7058: 'Logo / Image'
-  social:
-    social-8989: Social
   mobile-menu:
     mobile-menu-8085: Mobile-menu
+  logo:
+    logo-7207: 'Logo / Image'
+    logo-7058: 'Logo / Image'
+    logo-1685: 'Logo / Image'
   menu:
     menu-8644: Menu
     menu-4430: Menu
@@ -48,6 +46,8 @@ particles:
     modal-login-9548: 'Modal Login'
     modal-login-7694: 'Modal Login'
     modal-login-9195: 'Modal Login'
+  social:
+    social-5073: Social
 inherit:
   post_-_recetas:
     header: header
@@ -56,12 +56,11 @@ inherit:
     custom-1188: custom-2913
     custom-1430: custom-2737
     custom-3397: custom-8499
-    logo-6828: logo-6178
-    social-8989: social-4968
     offcanvas: offcanvas
     mobile-menu-8085: mobile-menu-5916
   pages:
     navigation: navigation
+    footer: footer
     logo-7207: logo-6922
     menu-8644: menu-8101
     chef_search-8839: chef_search-3140
@@ -73,3 +72,5 @@ inherit:
     modal-login-7694: modal-login-2830
     chef_search-6271: chef_search-6337
     modal-login-9195: modal-login-8521
+    logo-1685: logo-6178
+    social-5073: social-4968

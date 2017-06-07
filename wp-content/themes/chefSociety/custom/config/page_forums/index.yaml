@@ -1,0 +1,90 @@
+name: page_forums
+timestamp: 1496835804
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  custom:
+    custom-6038: Custom
+    custom-8754: 'Custom HTML'
+    custom-4730: 'Custom HTML'
+    custom-8018: 'Custom HTML'
+    custom-2114: 'Custom HTML'
+    custom-5072: 'Custom HTML'
+    custom-3336: 'Custom HTML'
+  logo:
+    logo-2736: 'Logo / Image'
+    logo-1657: 'Logo / Image'
+    logo-3267: 'Logo / Image'
+  menu:
+    menu-1861: Menu
+    menu-1622: Menu
+  chef_search:
+    chef_search-1179: 'Chef Search'
+    chef_search-8034: 'Chef Search'
+  modal-login:
+    modal-login-4359: 'Modal Login'
+    modal-login-6756: 'Modal Login'
+    modal-login-4801: 'Modal Login'
+  content:
+    system-content-9077: 'Page Content'
+  slideshow:
+    slideshow-5507: Slideshow
+  social:
+    social-4527: Social
+  mobile-menu:
+    mobile-menu-6464: 'Mobile Menu'
+  spacer:
+    spacer-7357: Spacer
+    spacer-3548: Spacer
+  totop:
+    totop-3203: 'To Top'
+inherit:
+  pages:
+    header: header
+    navigation: navigation
+    showcase: showcase
+    feature: feature
+    main: main
+    subfeature: subfeature
+    footer: footer
+    offcanvas: offcanvas
+    logo-2736: logo-6922
+    menu-1861: menu-8101
+    chef_search-1179: chef_search-3140
+    custom-8754: custom-3320
+    modal-login-4359: modal-login-4598
+    logo-1657: logo-4062
+    menu-1622: menu-7976
+    custom-4730: custom-6133
+    modal-login-6756: modal-login-2830
+    chef_search-8034: chef_search-6337
+    modal-login-4801: modal-login-8521
+    system-content-9077: system-content-6416
+    slideshow-5507: slideshow-3373
+    logo-3267: logo-6178
+    social-4527: social-4968
+    mobile-menu-6464: mobile-menu-5891
+  home:
+    prefooter: prefooter
+    custom-8018: custom-8930
+    custom-2114: custom-2913
+    custom-5072: custom-2737
+    custom-3336: custom-8499
+    spacer-7357: spacer-4674
+    totop-3203: totop-2079
+    spacer-3548: spacer-5099

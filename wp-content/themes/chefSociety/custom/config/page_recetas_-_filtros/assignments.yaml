@@ -2,18 +2,18 @@ context: {  }
 menu: {  }
 post:
   page:
-    722: true
-    729: true
-    724: true
-    727: true
     47: true
-    695: true
-    692: true
+    688: true
+    690: true
     563: true
     559: true
     566: true
     561: true
-    720: true
+    700: true
+    697: true
+    695: true
+    702: true
+    704: true
 taxonomy: {  }
 archive: {  }
 woocommerce: {  }

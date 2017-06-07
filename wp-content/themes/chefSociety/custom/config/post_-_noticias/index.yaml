@@ -1,5 +1,5 @@
 name: post_-_noticias
-timestamp: 1490607573
+timestamp: 1496835821
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -11,9 +11,8 @@ sections:
   navigation: Navigation
   postnavigation: Postnavigation
   prefooter: Prefooter
-  main: Main
-  main-mobile: Mobile
   sidebar: Sidebar
+  main-mobile: Mobile
   footer: Footer
   offcanvas: Offcanvas
 particles:
@@ -26,8 +25,8 @@ particles:
     custom-5623: 'Custom HTML'
     custom-9051: 'Custom HTML'
   content:
-    system-content-7284: 'Page Content'
     system-content-3611: 'Page Content'
+    system-content-9178: 'Page Content'
   chef_sidebar:
     chef_sidebar-7275: 'Chef Sidebar'
     chef_sidebar-3012: 'Chef Sidebar'
@@ -36,14 +35,12 @@ particles:
     spacer-5099: Spacer
   totop:
     totop-2079: 'To Top'
-  logo:
-    logo-6178: Logo
-    logo-6834: 'Logo / Image'
-    logo-4155: 'Logo / Image'
-  social:
-    social-4968: Social
   mobile-menu:
     mobile-menu-5916: Mobile-menu
+  logo:
+    logo-6834: 'Logo / Image'
+    logo-4155: 'Logo / Image'
+    logo-4278: 'Logo / Image'
   menu:
     menu-5163: Menu
     menu-3876: Menu
@@ -54,9 +51,12 @@ particles:
     modal-login-2078: 'Modal Login'
     modal-login-4069: 'Modal Login'
     modal-login-5989: 'Modal Login'
+  social:
+    social-4436: Social
 inherit:
   pages:
     navigation: navigation
+    footer: footer
     logo-6834: logo-6922
     menu-5163: menu-8101
     chef_search-3431: chef_search-3140
@@ -68,3 +68,5 @@ inherit:
     modal-login-4069: modal-login-2830
     chef_search-1241: chef_search-6337
     modal-login-5989: modal-login-8521
+    logo-4278: logo-6178
+    social-4436: social-4968

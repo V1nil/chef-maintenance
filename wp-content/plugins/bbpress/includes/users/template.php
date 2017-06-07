@@ -1634,7 +1634,6 @@ function bbp_author_link( $args = '' ) {
 		// Confirmed topic
 		if ( bbp_is_topic( $r['post_id'] ) ) {
 			return bbp_get_topic_author_link( $r );
-
 		// Confirmed reply
 		} elseif ( bbp_is_reply( $r['post_id'] ) ) {
 			return bbp_get_reply_author_link( $r );
@@ -1645,12 +1644,10 @@ function bbp_author_link( $args = '' ) {
 
 		// Neither a reply nor a topic, so could be a revision
 		if ( !empty( $r['post_id'] ) ) {
-
 			// Generate title with the display name of the author
 			if ( empty( $r['link_title'] ) ) {
 				$r['link_title'] = sprintf( !bbp_is_reply_anonymous( $r['post_id'] ) ? __( 'View %s\'s profile', 'bbpress' ) : __( 'Visit %s\'s website', 'bbpress' ), get_the_author_meta( 'display_name', $user_id ) );
 			}
-
 			// Assemble some link bits
 			$link_title = !empty( $r['link_title'] )
 				? ' title="' . esc_attr( $r['link_title'] ) . '"'
@@ -1672,7 +1669,7 @@ function bbp_author_link( $args = '' ) {
 			if ( empty( $anonymous ) && bbp_user_has_profile( $user_id ) ) {
 				$author_url = bbp_get_user_profile_url( $user_id );
 				foreach ( $author_links as $link_text ) {
-					$author_link[] = sprintf( '<a href="%1$s"%2$s>%3$s</a>', esc_url( $author_url ), $link_title, $link_text );
+					$author_link[] = sprintf( '<a href="%1$s"%2$s>%3$s que escribió </a>', esc_url( $author_url ), $link_title, $link_text );
 				}
 				$author_link = implode( '&nbsp;', $author_link );
 

@@ -3,6 +3,10 @@ menu: {  }
 post:
   page:
     33: true
+    1109: true
+    1105: true
+    1116: true
+    1107: true
 taxonomy: {  }
 archive: {  }
 woocommerce: {  }

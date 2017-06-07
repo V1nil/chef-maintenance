@@ -1914,3 +1914,97 @@ h5 span {
     background-color:white;
     margin-top:20px;
 }
+/*FORO*/
+#bbpress-forums {
+	font-family: "roboto", sans-serif;
+	font-size: 14px;
+}
+div.bbp-template-notice p {
+    margin: 0 !important;
+    padding: 0px;
+    font-size: 14px;
+    line-height: 140%;
+}
+#bbpress-forums li.bbp-header {
+    display: none;
+}
+#bbpress-forums li.bbp-body ul.forum, #bbpress-forums li.bbp-body ul.topic {
+    border-top: 1px solid #eee;
+    overflow: hidden;
+    padding: 8px;
+    min-width: 250px;
+    max-width: 100%;
+    float: left;
+}
+li.bbp-forum-info, li.bbp-topic-title {
+    float: none; 
+    text-align: left;
+    width: 100%;
+    min-height: 100px;
+    font-size: 24px;
+    text-align:center;
+    
+}
+#bbpress-forums .bbp-forum-info .bbp-forum-content {
+    font-size: 14px;
+    margin: 5px 0 5px;
+    word-wrap: break-word;
+    background-color: #3c3c3b;
+    color: #fff;
+    text-align: center;
+    padding: 7px;
+}
+li.bbp-forum-freshness, li.bbp-topic-freshness, li.bbp-forum-reply-count, li.bbp-forum-topic-count{
+	
+}
+a.bbp-forum-title {
+    cursor: pointer;
+}
+#bbpress-forums ul.bbp-forums{
+	border: 0;
+}
+#bbpress-forums li.bbp-footer {
+    background: #fff;
+    border-top: 1px solid #fff;
+    font-weight: bold;
+    padding: 8px;
+    text-align: center;
+}
+#bbpress-forums li.bbp-body ul.forum{
+	border: 1px solid #ccc;
+	margin-right: 1%;
+}
+#bbpress-forums li {
+	/*padding-top:20%;*/
+}
+div.bbp-template-notice.info{
+	border: 0px solid white;
+	padding: 0px;
+	background-color: #fff;
+}
+div.bbp-template-notice {
+    display:none;
+}
+div.bbp-submit-wrapper button{
+	background-color:#be1622;
+}
+#bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results, div.bbp-topic-tags {
+    font-size: 14px;
+}
+#bbpress-forums ul.bbp-replies, #bbpress-forums ul.bbp-search-results {
+    overflow: hidden;
+    border: 0px solid #eee;
+    margin-bottom: 20px;
+    clear: both;
+}
+span.bbp-admin-links a{
+	color: #be1622;
+}
+.bbp-forum-header a.bbp-forum-permalink, .bbp-topic-header a.bbp-topic-permalink, .bbp-reply-header a.bbp-reply-permalink{
+	color: #be1622;
+}
+#bbpress-forums div.bbp-forum-author img.avatar, #bbpress-forums div.bbp-topic-author img.avatar, #bbpress-forums div.bbp-reply-author img.avatar{
+	border-radius: 50%;
+	width:40px;
+	height:40px;
+}

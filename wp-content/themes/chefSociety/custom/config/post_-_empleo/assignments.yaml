@@ -1,0 +1,10 @@
+context: {  }
+menu: {  }
+post:
+  post-terms:
+    category: true
+    category-38: true
+taxonomy: {  }
+archive: {  }
+woocommerce: {  }
+buddypress: {  }

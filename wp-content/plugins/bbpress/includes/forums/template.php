@@ -1969,7 +1969,7 @@ function bbp_single_forum_description( $args = '' ) {
 		if ( !empty( $last_active ) ) {
 			$topic_text      = bbp_get_forum_topics_link( $forum_id );
 			$time_since      = bbp_get_forum_freshness_link( $forum_id );
-			$last_updated_by = bbp_get_author_link( array( 'post_id' => $last_active, 'size' => $r['size'] ) );
+			$last_updated_by = bbp_get_author_link( array( 'post_id' => $last_active, 'size' => '40' ) );
 
 		// Forum has no last active data
 		} else {

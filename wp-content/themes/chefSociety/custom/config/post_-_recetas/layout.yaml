@@ -37,10 +37,7 @@ layout:
       - 'custom-2913 15'
       - 'custom-2737 25'
       - 'custom-8499 45'
-  /footer/:
-    -
-      - 'logo-6178 90'
-      - 'social-4968 10'
+  footer: {  }
   offcanvas:
     -
       - mobile-menu-5916
@@ -107,8 +104,11 @@ structure:
         -
           style: 'background-color:#e9e9e9'
   footer:
-    attributes:
-      boxed: ''
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
 content:
   custom-3022:
     title: 'Custom HTML'
@@ -201,34 +201,3 @@ content:
       html: "<h4>Suscríbete a nuestra newsletter</h4>\n<p>Recibe promociones, noticias, ..</p>\n<form enctype=\"application/x-www-form-urlencoded\" action=\"http://chefsociety.ip-zone.com/ccm/subscribe/index/form/ixdcgqi7u7\" method=\"post\">\n<div style=\"display:flex\">\n\n<input class=\"button-subscribe\" name=\"email\" id=\"email\" value=\"\" placeholder=\"Email\" type=\"text\" required=\"\">\n\n\t\t\t\t\t\t\t\t\t\t<input class=\"btn btn-primary\" name=\"submit\" id=\"submit\" value=\"Suscribirme\" type=\"submit\">\n</div>\n\n</form>\n                    \n"
     block:
       class: prefooter
-  logo-6178:
-    attributes:
-      image: 'gantry-media://chefsociety.png'
-    block:
-      class: disable-div-spaces
-  social-4968:
-    attributes:
-      css:
-        class: social-items
-      items:
-        -
-          icon: 'fa fa-facebook'
-          text: ''
-          link: ''
-          name: Facebook
-        -
-          icon: 'fa fa-twitter'
-          text: ''
-          link: ''
-          name: Twitter
-        -
-          icon: 'fa fa-google-plus'
-          text: ''
-          link: ''
-          name: Google
-    block:
-      class: disable-div-spaces
-      variations: center
-      extra:
-        -
-          style: 'padding-top:5px;'

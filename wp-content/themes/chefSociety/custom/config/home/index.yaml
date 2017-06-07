@@ -1,5 +1,5 @@
 name: home
-timestamp: 1490607573
+timestamp: 1496835802
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/home.png'
@@ -42,14 +42,12 @@ particles:
     spacer-5099: Spacer
   totop:
     totop-2079: 'To Top'
-  logo:
-    logo-6178: 'Logo / Image'
-    logo-3673: 'Logo / Image'
-    logo-7104: 'Logo / Image'
-  social:
-    social-4968: Social
   mobile-menu:
     mobile-menu-5891: 'Mobile Menu'
+  logo:
+    logo-3673: 'Logo / Image'
+    logo-7104: 'Logo / Image'
+    logo-9228: 'Logo / Image'
   menu:
     menu-2921: Menu
     menu-6496: Menu
@@ -60,9 +58,12 @@ particles:
     modal-login-2042: 'Modal Login'
     modal-login-8954: 'Modal Login'
     modal-login-3940: 'Modal Login'
+  social:
+    social-4167: Social
 inherit:
   pages:
     navigation: navigation
+    footer: footer
     logo-3673: logo-6922
     menu-2921: menu-8101
     chef_search-3947: chef_search-3140
@@ -74,3 +75,5 @@ inherit:
     modal-login-8954: modal-login-2830
     chef_search-1991: chef_search-6337
     modal-login-3940: modal-login-8521
+    logo-9228: logo-6178
+    social-4167: social-4968

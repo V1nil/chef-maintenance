@@ -12,16 +12,13 @@ layout:
   /container-main/:
     -
       -
-        '/main/ 75':
+        sidebar:
           -
-            - system-content-7284
-      -
-        'sidebar 25':
-          -
-            - chef_sidebar-7275
+            - 'system-content-3611 75'
+            - 'chef_sidebar-7275 25'
   /main-mobile/:
     -
-      - system-content-3611
+      - system-content-9178
     -
       - chef_sidebar-3012
   /prefooter/:
@@ -34,10 +31,7 @@ layout:
       - 'spacer-4674 45'
       - 'totop-2079 22'
       - 'spacer-5099 33'
-  /footer/:
-    -
-      - 'logo-6178 90'
-      - 'social-4968 10'
+  footer: {  }
   offcanvas:
     -
       - mobile-menu-5916
@@ -60,10 +54,6 @@ structure:
       extra:
         -
           style: 'background-color:#dadada'
-  main:
-    attributes:
-      boxed: ''
-      class: ''
   sidebar:
     type: section
     subtype: aside
@@ -95,8 +85,11 @@ structure:
         -
           style: 'background-color:#D0D0D0'
   footer:
-    attributes:
-      boxed: ''
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
 content:
   custom-3022:
     title: 'Custom HTML'
@@ -138,19 +131,3 @@ content:
     attributes:
       icon: 'fa fa-angle-double-up fa-3x'
       content: ''
-  logo-6178:
-    attributes:
-      image: 'gantry-media://chefsociety.png'
-    block:
-      class: disable-div-spaces
-  social-4968:
-    attributes:
-      css:
-        class: social-items
-      items: {  }
-    block:
-      class: disable-div-spaces
-      variations: center
-      extra:
-        -
-          style: 'padding-top:5px;'

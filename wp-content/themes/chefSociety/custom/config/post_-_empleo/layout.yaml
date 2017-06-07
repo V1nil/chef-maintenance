@@ -1,0 +1,87 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+layout:
+  header: {  }
+  navigation: {  }
+  postnavigation: {  }
+  /container-main/:
+    -
+      -
+        sidebar: {  }
+  main-mobile: {  }
+  prefooter: {  }
+  footer: {  }
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: post_-_noticias
+      include:
+        - attributes
+        - block
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    inherit:
+      outline: post_-_noticias
+      include:
+        - attributes
+        - block
+        - children
+  sidebar:
+    type: section
+    subtype: aside
+    inherit:
+      outline: post_-_noticias
+      include:
+        - attributes
+        - block
+        - children
+    block:
+      fixed: '1'
+  container-main:
+    attributes:
+      boxed: ''
+      class: 'hidden-phone hidden-tablet'
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  main-mobile:
+    title: Mobile
+    inherit:
+      outline: post_-_noticias
+      include:
+        - attributes
+        - block
+        - children
+  prefooter:
+    type: section
+    inherit:
+      outline: post_-_noticias
+      include:
+        - attributes
+        - block
+        - children
+  footer:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  offcanvas:
+    inherit:
+      outline: post_-_noticias
+      include:
+        - attributes
+        - block
+        - children

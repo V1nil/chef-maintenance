@@ -116,6 +116,8 @@ content:
     title: 'Custom HTML'
     attributes:
       html: "<form>\n       <input type=\"text\" class=\"search-input-top\" placeholder=\"Search\">\n\n        <button type=\"submit\" class=\"search-btn-top\"><i class=\"fa fa-search fa-lg\" aria-hidden=\"true\"></i>\n</button>\n      </form>"
+      twig: '1'
+      filter: '1'
     block:
       class: 'hidden-desktop hidden-phone hidden-tablet'
       extra:

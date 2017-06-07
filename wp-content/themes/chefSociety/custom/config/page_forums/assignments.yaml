@@ -1,0 +1,25 @@
+context: {  }
+menu: {  }
+post:
+  page:
+    268: true
+    31: true
+    24: true
+    270: true
+    25: true
+    41: true
+    4: true
+    473: true
+  forum:
+    is_singular: true
+    is_archive: true
+    1018: true
+    1020: true
+  topic:
+    is_singular: true
+taxonomy: {  }
+archive: {  }
+woocommerce: {  }
+buddypress:
+  -
+    forums: true

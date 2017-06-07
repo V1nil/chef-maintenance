@@ -1,5 +1,5 @@
 name: post_-_promos
-timestamp: 1490607573
+timestamp: 1496835824
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -33,17 +33,15 @@ particles:
   content:
     system-content-7221: 'Page Content'
     system-content-9874: 'Page Content'
-  logo:
-    logo-4281: Logo
-    logo-9002: 'Logo / Image'
-    logo-7512: 'Logo / Image'
-  social:
-    social-5912: Social
   mobile-menu:
     mobile-menu-2133: Mobile-menu
   chef_sidebar:
     chef_sidebar-4304: 'Chef Sidebar'
     chef_sidebar-3453: 'Chef Sidebar'
+  logo:
+    logo-9002: 'Logo / Image'
+    logo-7512: 'Logo / Image'
+    logo-9866: 'Logo / Image'
   menu:
     menu-2991: Menu
     menu-9937: Menu
@@ -54,6 +52,8 @@ particles:
     modal-login-3452: 'Modal Login'
     modal-login-2498: 'Modal Login'
     modal-login-2544: 'Modal Login'
+  social:
+    social-8747: Social
 inherit:
   post_-_recetas:
     header: header
@@ -64,8 +64,6 @@ inherit:
     custom-9014: custom-2913
     custom-7634: custom-2737
     custom-7644: custom-8499
-    logo-4281: logo-6178
-    social-5912: social-4968
     mobile-menu-2133: mobile-menu-5916
     chef_sidebar-4304: chef_sidebar-7275
     tabschef-2593: tabschef-5820
@@ -73,6 +71,7 @@ inherit:
     chef_sidebar-3453: chef_sidebar-3012
   pages:
     navigation: navigation
+    footer: footer
     logo-9002: logo-6922
     menu-2991: menu-8101
     chef_search-6241: chef_search-3140
@@ -84,5 +83,7 @@ inherit:
     modal-login-2498: modal-login-2830
     chef_search-5210: chef_search-6337
     modal-login-2544: modal-login-8521
+    logo-9866: logo-6178
+    social-8747: social-4968
   post_-_talleres:
     system-content-7221: system-content-1395

@@ -6,7 +6,10 @@ preset:
 layout:
   header: {  }
   navigation: {  }
-  postnavigation: {  }
+  /postnavigation/:
+    -
+      - 'custom-9524 30'
+      - 'menu-1235 70'
   showcase: {  }
   /feature/:
     -
@@ -36,12 +39,12 @@ structure:
         - children
   postnavigation:
     type: section
-    inherit:
-      outline: pages
-      include:
-        - attributes
-        - block
-        - children
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
   showcase:
     type: section
     inherit:
@@ -93,6 +96,18 @@ structure:
         - block
         - children
 content:
+  custom-9524:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+      particle: custom-3022
+  menu-1235:
+    attributes:
+      menu: chefs-filtros
+    block:
+      class: filtros
   custom-4891:
     title: 'Custom HTML'
     attributes:

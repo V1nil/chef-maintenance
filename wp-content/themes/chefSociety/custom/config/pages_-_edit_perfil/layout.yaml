@@ -27,10 +27,7 @@ layout:
       - 'custom-1188 15'
       - 'custom-1430 25'
       - 'custom-3397 45'
-  /footer/:
-    -
-      - 'logo-6828 90'
-      - 'social-8989 10'
+  footer: {  }
   offcanvas: {  }
 structure:
   header:
@@ -98,9 +95,11 @@ structure:
         -
           style: 'background-color:#e9e9e9'
   footer:
-    attributes:
-      boxed: ''
-      class: ''
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
   offcanvas:
     inherit:
       outline: post_-_recetas
@@ -149,17 +148,3 @@ content:
         - attributes
         - block
       particle: custom-8499
-  logo-6828:
-    inherit:
-      outline: post_-_recetas
-      include:
-        - attributes
-        - block
-      particle: logo-6178
-  social-8989:
-    inherit:
-      outline: post_-_recetas
-      include:
-        - attributes
-        - block
-      particle: social-4968

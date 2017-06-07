@@ -36,27 +36,32 @@
                     
                     {% set author_data = function ('get_user_meta',post.post_author) %}
                     {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
- 
+ 					{% set author_fullname = post.author.first_name ~ post.author.last_name %}
+				{% if author_fullname != '' %} {% set author_fullname = [post.author.first_name, post.author.last_name]|join(' ') %} {% else %} {% set author_fullname = post.author.name %} {% endif %}
                     <div class="g-block">
                         <div class="g-content">
                             <div class="g-array-item std-box">
-                                <div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+                                <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
 
                                 </div>
+								</a>
                                 <div>
                                     <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
                                 </div>
                                 
                                 <div class="content-box">
 
-                                    <h3>{{ display.title.limit ? post.title|truncate(display.title.limit)|raw : post.title|raw }}</h3>
+                                    <h3><a href="{{ post.link }}">{{ display.title.limit ? post.title|truncate(display.title.limit)|raw : post.title|raw }}</a></h3>
 
                                     
-                                    <p class="small"><em>{{ post.post_date|date(display.date.format) }}</em></p>
-                                    
-                                    {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}
+                                     <!--<p class="small"><em>{{ post.post_date|date(display.date.format) }}</em></p>-->
+
+                                                {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}
+												
+ {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}
                                     
                                     <p>{{ post_text|truncate(display.text.limit)|raw }}</p>
+												<p class="small receta-author">Una noticia de:<br><strong>{{ author_fullname }}</strong></p>
                                 </div>
                                 <div class="text-center">
                                     <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>

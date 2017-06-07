@@ -1,5 +1,5 @@
 name: pages_-_mi_perfil
-timestamp: 1490607573
+timestamp: 1496835817
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -72,5 +72,3 @@ inherit:
     custom-8621: custom-2590
     custom-3462: custom-1188
     custom-6773: custom-3397
-    logo-8926: logo-6828
-    social-3413: social-8989

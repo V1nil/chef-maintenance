@@ -1,5 +1,5 @@
 name: post_-_recetas
-timestamp: 1490607573
+timestamp: 1496835826
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/2-col-right.png'
@@ -36,14 +36,12 @@ particles:
   chef_sidebar:
     chef_sidebar-7275: 'Chef Sidebar'
     chef_sidebar-3012: 'Chef Sidebar'
-  logo:
-    logo-6178: Logo
-    logo-1364: 'Logo / Image'
-    logo-2455: 'Logo / Image'
-  social:
-    social-4968: Social
   mobile-menu:
     mobile-menu-5916: Mobile-menu
+  logo:
+    logo-1364: 'Logo / Image'
+    logo-2455: 'Logo / Image'
+    logo-8706: 'Logo / Image'
   menu:
     menu-5176: Menu
     menu-1517: Menu
@@ -54,9 +52,12 @@ particles:
     modal-login-7395: 'Modal Login'
     modal-login-7916: 'Modal Login'
     modal-login-5813: 'Modal Login'
+  social:
+    social-8833: Social
 inherit:
   pages:
     navigation: navigation
+    footer: footer
     logo-1364: logo-6922
     menu-5176: menu-8101
     chef_search-8289: chef_search-3140
@@ -68,3 +69,5 @@ inherit:
     modal-login-7916: modal-login-2830
     chef_search-6360: chef_search-6337
     modal-login-5813: modal-login-8521
+    logo-8706: logo-6178
+    social-8833: social-4968
