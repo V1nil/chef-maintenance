@@ -1,0 +1,102 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+layout:
+  header: {  }
+  navigation: {  }
+  /postnavigation/:
+    -
+      - custom-5538
+  showcase: {  }
+  feature: {  }
+  main: {  }
+  subfeature: {  }
+  prefooter: {  }
+  footer: {  }
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  postnavigation:
+    type: section
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#dadada'
+  showcase:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  feature:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  main:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  subfeature:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  prefooter:
+    type: section
+    inherit:
+      outline: home
+      include:
+        - attributes
+        - children
+  footer:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+  offcanvas:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+        - children
+content:
+  custom-5538:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - block
+      particle: custom-3022

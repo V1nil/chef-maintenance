@@ -1,0 +1,91 @@
+name: page_empleo_-_filtros
+timestamp: 1496850013
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/home.png'
+  name: home
+  timestamp: 1465201940
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  showcase: Showcase
+  feature: Feature
+  subfeature: Subfeature
+  prefooter: Prefooter
+  main: Main
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  logo:
+    logo-7555: 'Logo / Image'
+    logo-4295: 'Logo / Image'
+    logo-1036: 'Logo / Image'
+  menu:
+    menu-8777: Menu
+    menu-9773: Menu
+  chef_search:
+    chef_search-1517: 'Chef Search'
+    chef_search-2363: 'Chef Search'
+  custom:
+    custom-4829: 'Custom HTML'
+    custom-7035: 'Custom HTML'
+    custom-5538: Custom
+    custom-4628: 'Custom HTML'
+    custom-2146: 'Custom HTML'
+    custom-6998: 'Custom HTML'
+    custom-9656: 'Custom HTML'
+  modal-login:
+    modal-login-7887: 'Modal Login'
+    modal-login-8403: 'Modal Login'
+    modal-login-3188: 'Modal Login'
+  content:
+    system-content-7376: 'Page Content'
+  slideshow:
+    slideshow-5510: Slideshow
+  spacer:
+    spacer-1138: Spacer
+    spacer-1342: Spacer
+  totop:
+    totop-6044: 'To Top'
+  social:
+    social-7985: Social
+  mobile-menu:
+    mobile-menu-2489: 'Mobile Menu'
+inherit:
+  pages:
+    header: header
+    navigation: navigation
+    logo-7555: logo-6922
+    menu-8777: menu-8101
+    chef_search-1517: chef_search-3140
+    custom-4829: custom-3320
+    modal-login-7887: modal-login-4598
+    logo-4295: logo-4062
+    menu-9773: menu-7976
+    custom-7035: custom-6133
+    modal-login-8403: modal-login-2830
+    chef_search-2363: chef_search-6337
+    modal-login-3188: modal-login-8521
+    custom-5538: custom-3022
+    showcase: showcase
+    feature: feature
+    system-content-7376: system-content-6416
+    main: main
+    subfeature: subfeature
+    slideshow-5510: slideshow-3373
+    footer: footer
+    logo-1036: logo-6178
+    social-7985: social-4968
+    offcanvas: offcanvas
+    mobile-menu-2489: mobile-menu-5891
+  home:
+    prefooter: prefooter
+    custom-4628: custom-8930
+    custom-2146: custom-2913
+    custom-6998: custom-2737
+    custom-9656: custom-8499
+    spacer-1138: spacer-4674
+    totop-6044: totop-2079
+    spacer-1342: spacer-5099
