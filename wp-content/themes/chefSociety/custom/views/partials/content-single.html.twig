@@ -192,7 +192,10 @@
                         {%  if is_user_logged_in == false %}
                         
                         <h3 class="del-uppercase">¿Cómo apuntarse?</h3>
-                        <p class=""><a class="pointer" data-target="#myModalLogin" data-toggle="modal">Entra</a> o <a class="btn btn-primary pointer" data-target="#myModalRegister" data-toggle="modal"> Crea cuenta</a> para ver los datos de contacto de esta oferta</p>
+                            <p class="">
+                                <a href="#modal-login-1" data-uk-modal="{center:true}">Entra</a> o 
+                                <a href="#modal-create-1" data-uk-modal="{center:true}" class="btn btn-primary pointer">Crea Cuenta</a>  para ver los datos de contacto de esta oferta
+                            </p>
                         <div class="gap-20"></div>
 
                         {% endif %}
@@ -229,9 +232,79 @@
                         <div class="gap-20"></div>
                         <div class="gap-40"></div>
                     </div>
+                    <div class="bottom-box">
+                        <p><i class="fa fa-lg" aria-hidden="true"></i></p>
+                    </div>
                 </section>
-            {% endif %}
             
+
+            {# Comienzo empleos relacionadas #}    
+
+                <section class="related-news-container">
+                    <h3><i class="fa fa-exclamation" aria-hidden="true"></i> Empleos relacionados</h3>
+                    <div class="gap-20"></div>
+
+                {# Query Posts #}   
+
+                    {% set query_parameters = {
+                        'cat': cat,
+                        'post_type' : 'empleo',
+                        'posts_per_page': 3,
+                        'post__not_in': [post.ID]
+
+                    } %}
+
+                    {% set posts = wordpress.call('Timber::get_posts', query_parameters) %}
+
+                    {% for column in posts|batch(3) %}
+                        <div class="g-grid related-news-post">
+                            {% for post in column %}
+                                
+                                {% set author_data = function ('get_user_meta',post.post_author) %}
+                                {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
+								                                
+                                <div class="g-block">
+                                    <div class="">
+                                        <div class="g-array-item std-box">
+										
+                                            <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
+
+                                            </div>
+											</a>
+                                            <div>
+                                                <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
+                                            </div>
+                                            <div class="content-box">
+                                                <h3><a href="{{ post.link }}">{{ post.title|truncate(title_limit) }}</a></h3>
+
+                                                {% set post_text = display.text.type == 'excerpt' ? post.post_excerpt : post.content %}
+												
+                                                <p>{{ post_text|truncate(content_limit) }}</p>
+                                                
+                                                {% set post_empleo_meta = function ('get_post_meta',post.ID) %}
+                                                <p class="prof">{{post_empleo_meta.puesto[0]}}</p>
+                                                <p class="small ciudad">{{post_empleo_meta.ciudad[0]}}, España</p>
+                                            </div>
+                                            <div class="text-center">
+                                                <a class="read-more" href="{{ post.link }}"><i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></a>
+                                                <div class="gap-20"></div>
+                                            </div>
+                                            <div class="bottom-box">
+                                                <p><i class="fa fa-lg" aria-hidden="true"></i></p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+
+                </section>
+            
+            {# End empleos relacionados #}
+            {% endif %}
             
             {{ function('the_ratings')}}
             
