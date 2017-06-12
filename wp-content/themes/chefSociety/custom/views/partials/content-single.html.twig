@@ -8,6 +8,9 @@
         {% if post.category == 'Recetas' %}
             {% set cat = 36 %}
         {% endif %}  
+        {% if post.category == 'Empleo' %}
+            {% set cat = 38 %}
+        {% endif %}  
 
         {# Variables limite de contenido #}
         {% set title_limit = 7 %}
@@ -58,7 +61,7 @@
 
                         {# Begin Entry Title #}
                         {% if gantry.config.get('content.' ~ scope ~ '.title.enabled', '1') %}
-							<div class="gap-20"></div>
+                            <div class="gap-20"></div>
                             <h2 class="entry-title">
                                 {% if gantry.config.get('content.' ~ scope ~ '.title.link', '0') %}
                                     <a href="{{ post.link }}" title="{{ post.title }}">{{ post.title }}</a>
@@ -161,6 +164,75 @@
                 <div class="clearfix"></div>
             {% endif %}
 
+            {# Empleos #}
+            {% if cat==38 %}
+                
+                <section class="entry-content page-content-chef">
+
+                    {# Begin Featured Image #}
+                    {% if gantry.config.get('content.' ~ scope ~ '.featured-image.enabled', '1') and post.thumbnail.src %}
+                        {% set position = (gantry.config.get('content.' ~ scope ~ '.featured-image.position', 'none') == 'none') ? '' : 'float-' ~ gantry.config.get('content.' ~ scope ~ '.featured-image.position', 'none') %}
+                        <a href="{{ post.link }}" class="post-thumbnail" aria-hidden="true">
+                            <img src="{{ post.thumbnail.src|resize(gantry.config.get('content.' ~ scope ~ '.featured-image.width', '1200'), gantry.config.get('content.' ~ scope ~ '.featured-image.height', '350')) }}" class="featured-image tease-featured-image {{ position }}" alt="{{ post.title }}" />
+                        </a>
+                    {% endif %}
+                    {# End Featured Image #}
+                    
+                    {# Begin Page Content #}
+                    <div class="post-content-chef">
+                        
+                        <h2 class="del-uppercase">Descripción</h2>
+
+                        {{ post.paged_content|raw }}
+
+                        {{ function('wp_link_pages', {'before': '<div class="page-links" itemprop="pagination">', 'after': '</div>', 'link_before': '<span class="page-number page-numbers">', 'link_after': '</span>', 'echo': 0}) }}
+
+                        <div class="gap-20"></div>
+
+                        {%  if is_user_logged_in == false %}
+                        
+                        <h3 class="del-uppercase">¿Cómo apuntarse?</h3>
+                        <p class=""><a class="pointer" data-target="#myModalLogin" data-toggle="modal">Entra</a> o <a class="btn btn-primary pointer" data-target="#myModalRegister" data-toggle="modal"> Crea cuenta</a> para ver los datos de contacto de esta oferta</p>
+                        <div class="gap-20"></div>
+
+                        {% endif %}
+
+                        {% set post_empleo_meta = function ('get_post_meta',post.ID) %}
+
+                        <h3 class="del-uppercase">Resumen</h3>
+                        <p><strong>Puesto:</strong> {{post_empleo_meta.puesto[0]}}</p>
+                        <p><strong>Empresa:</strong> {{post_empleo_meta.empresa[0]}}</p>
+                        <p><strong>Ciudad:</strong> {{post_empleo_meta.ciudad[0]}}</p>
+                        <p><strong>Sueldo:</strong> {{post_empleo_meta.sueldo[0]}}</p>
+                        <p><strong>Dirección:</strong> {{post_empleo_meta.direccion[0]}}</p>
+
+                        <h3 class="del-uppercase">Áreas</h3>
+                        
+                        {% set author_meta = function ('get_user_meta',post.post_author) %}
+                        {# Tipos de cocina #}
+                        {% set tipos_name = [] %}
+                        {% if author_meta._tipos_cocina[0] != '' and author_meta._tipos_cocina[0] != 'null' %}
+                            {% set tipos_ids = author_meta._tipos_cocina[0]|split(',') %}
+                            {% for tipo_id in tipos_ids %}
+                                {% set term = function('get_term',tipo_id) %}
+                                {% set tipos_name = tipos_name|merge([term.name]) %}
+                            {% endfor %}
+                        {% else %} 
+                            {% set tipos_name = ['Fusión', 'Local', 'Japonesa'] %}
+                        {% endif %}
+                        
+                        
+                        {% for tipo_name in tipos_name %}
+                        <a href="#" class="tag">{{tipo_name}}</a> 
+                        {% endfor %}
+                        
+                        <div class="gap-20"></div>
+                        <div class="gap-40"></div>
+                    </div>
+                </section>
+            {% endif %}
+            
+            
             {{ function('the_ratings')}}
             
             
