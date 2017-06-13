@@ -8,7 +8,8 @@ layout:
   navigation: {  }
   /postnavigation/:
     -
-      - custom-5538
+      - 'custom-5538 30'
+      - 'menu-5365 70'
   showcase: {  }
   feature: {  }
   main: {  }
@@ -100,3 +101,8 @@ content:
         - attributes
         - block
       particle: custom-3022
+  menu-5365:
+    attributes:
+      menu: empleo-filtros
+    block:
+      class: filtros
