@@ -36,7 +36,13 @@ function simple_breadcrumb() {
                                 echo "<a href=";
                                 echo site_url('/que-se-cuece');
                                 echo ">Que se cuece</a>";
-                        }
+                        }                        
+                        //Si es un empleo
+                        if($category[0]->slug == 'empleo'){
+                                echo "<a href=";
+                                echo site_url('/empleo');
+                                echo ">Empleo</a>";
+                        }                        
                         //Si es un producto
                         if( is_product() ){
                             $product_cats = wp_get_post_terms( get_the_ID(), 'product_cat' );
