@@ -120,7 +120,7 @@
     
     
     
-  {%  if is_user_logged_in %}
+  {%  if function('is_user_logged_in') %}
     {% set current_user_visit_data = function ('get_user_meta',current_user.data.ID) %}
     
 

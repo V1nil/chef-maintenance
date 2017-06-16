@@ -231,7 +231,7 @@
 	{# End loading assets #}
         
         {# Si el usuario esta logueado #}
-        {%  if is_user_logged_in %}
+        {%  if function('is_user_logged_in') %}
             {% set wp_user = function ('wp_get_current_user') %}
             <div class="uk-button-dropdown pointer" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-plus fa-lg" aria-hidden="true"></i>
