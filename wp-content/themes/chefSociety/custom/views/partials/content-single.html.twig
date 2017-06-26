@@ -166,16 +166,18 @@
 
             {# Empleos #}
             {% if cat==38 %}
+                {% set author_meta = function ('get_user_meta',post.post_author) %}
+
                 
                 <section class="entry-content page-content-chef">
 
                     {# Begin Featured Image #}
-                    {% if gantry.config.get('content.' ~ scope ~ '.featured-image.enabled', '1') and post.thumbnail.src %}
-                        {% set position = (gantry.config.get('content.' ~ scope ~ '.featured-image.position', 'none') == 'none') ? '' : 'float-' ~ gantry.config.get('content.' ~ scope ~ '.featured-image.position', 'none') %}
-                        <a href="{{ post.link }}" class="post-thumbnail" aria-hidden="true">
-                            <img src="{{ post.thumbnail.src|resize(gantry.config.get('content.' ~ scope ~ '.featured-image.width', '1200'), gantry.config.get('content.' ~ scope ~ '.featured-image.height', '350')) }}" class="featured-image tease-featured-image {{ position }}" alt="{{ post.title }}" />
-                        </a>
-                    {% endif %}
+                    <a href="{{ post.link }}" class="post-thumbnail" aria-hidden="true">
+                        {% if author_meta._chef_business_photo[0] != '' %} {% set src_business_photo = function('site_url',author_meta._chef_business_photo[0]) %} {% else %} {% set src_business_photo = function('site_url','wp-content/uploads/users/logosombrero.png') %} {% endif %}
+                        <img src="{{src_business_photo}}" class="featured-image tease-featured-image" alt="{{ post.title }}" />
+
+                    </a>
+
                     {# End Featured Image #}
                     
                     {# Begin Page Content #}
@@ -211,7 +213,6 @@
 
                         <h3 class="del-uppercase">Áreas</h3>
                         
-                        {% set author_meta = function ('get_user_meta',post.post_author) %}
                         {# Tipos de cocina #}
                         {% set tipos_name = [] %}
                         {% if author_meta._tipos_cocina[0] != '' and author_meta._tipos_cocina[0] != 'null' %}
@@ -262,15 +263,15 @@
                                 
                                 {% set author_data = function ('get_user_meta',post.post_author) %}
                                 {% if author_data._chef_personal_photo[0] != '' %} {% set author_personal_photo = function('site_url',author_data._chef_personal_photo[0]) %} {% else %} {% set author_personal_photo = function ('site_url','/wp-content/uploads/users/user.jpg') %} {% endif %}
-								                                
+                                {% if author_data._chef_business_photo[0] != '' %} {% set author_src_business_photo = function('site_url',author_data._chef_business_photo[0]) %} {% else %} {% set author_src_business_photo = function('site_url','wp-content/uploads/users/logosombrero.png') %} {% endif %}
+				
                                 <div class="g-block">
                                     <div class="">
                                         <div class="g-array-item std-box">
 										
-                                            <a href="{{ post.link }}"><div class="img-box" style="background-image:url('{{ url(post.thumbnail.src) }}');">
-
-                                            </div>
-											</a>
+                                            <a href="{{ post.link }}">
+                                                <div class="img-box" style="background-image:url('{{ url(author_src_business_photo) }}');"></div>
+                                            </a>
                                             <div>
                                                 <a href="{{function ('site_url','mi-perfil/?perfil='~post.post_author)}}"><img class="autor-img-box" src="{{author_personal_photo}}"></a>
                                             </div>

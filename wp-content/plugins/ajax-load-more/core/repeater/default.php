@@ -60,11 +60,23 @@ if($post_type == 'post' && in_array('91',$categories)){
         <?php 
         if ( has_tag('Nuevo') || $meta['_featured'][0] == 'yes') {
             echo '<div class="new">Nuevo</div>';
-        }  
-        ?>
-
+        } 
+        
+        //Los empleos no cogen la foto de fondo del post, la cogen del user
+        if($post_type == 'empleo'){
+            $src_bussiness_photo = get_the_author_meta('_chef_business_photo');
+            if($src_bussiness_photo == '' ){
+                $src_bussiness_photo = site_url('wp-content/uploads/users/logosombrero.png');
+            }else{
+                $src_bussiness_photo=site_url($src_bussiness_photo);
+            }
+        }else{
+            if(has_post_thumbnail()){ $src_bussiness_photo = the_post_thumbnail_url();}
+        }
+        
+        ?>        
         <a href="<?php the_permalink(); ?>">
-            <div class="img-box" style="background-image:url('<?php if(has_post_thumbnail()){ the_post_thumbnail_url();}?>');"></div>
+            <div class="img-box" style="background-image:url('<?php echo $src_bussiness_photo;?>');"></div>
         </a>
         <div>
             <a href="<?php echo $perfil?>"><img class="autor-img-box" src="<?php echo $author_photo ?>"></a>
