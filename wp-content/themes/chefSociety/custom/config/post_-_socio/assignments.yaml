@@ -1,0 +1,13 @@
+context: {  }
+menu: {  }
+post:
+  product:
+    1328: true
+  product-terms:
+    product_cat-163: true
+taxonomy: {  }
+archive:
+  product_cat:
+    163: true
+woocommerce: {  }
+buddypress: {  }

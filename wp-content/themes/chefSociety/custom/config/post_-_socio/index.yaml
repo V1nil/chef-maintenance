@@ -1,0 +1,103 @@
+name: post_-_socio
+timestamp: 1498468616
+version: 7
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+positions: {  }
+sections:
+  header: Header
+  navigation: Navigation
+  postnavigation: Postnavigation
+  premain: Premain
+  prefooter: Prefooter
+  main: Main
+  main-mobile: Mobile
+  sidebar: Sidebar
+  footer: Footer
+  offcanvas: Offcanvas
+particles:
+  custom:
+    custom-8778: 'Custom HTML'
+    custom-9967: 'Custom HTML'
+    custom-5686: 'Custom HTML'
+    custom-4121: 'Custom HTML'
+    custom-4351: 'Custom HTML'
+    custom-3162: 'Custom HTML'
+    custom-7449: 'Custom HTML'
+    custom-2753: 'Custom HTML'
+    custom-7042: 'Custom HTML'
+  content:
+    system-content-2296: 'Page Content'
+    system-content-9641: 'Page Content'
+  tabschef:
+    tabschef-3409: 'Tabs Chef'
+  chef_sidebar:
+    chef_sidebar-1991: 'Chef Sidebar'
+  logo:
+    logo-5594: 'Logo / Image'
+    logo-1158: 'Logo / Image'
+    logo-2303: 'Logo / Image'
+  menu:
+    menu-1290: Menu
+    menu-7522: Menu
+  chef_search:
+    chef_search-1077: 'Chef Search'
+    chef_search-3410: 'Chef Search'
+  modal-login:
+    modal-login-4473: 'Modal Login'
+    modal-login-7310: 'Modal Login'
+    modal-login-8739: 'Modal Login'
+  social:
+    social-4885: Social
+  spacer:
+    spacer-7397: Spacer
+    spacer-5874: Spacer
+  totop:
+    totop-1526: 'To Top'
+  mobile-menu:
+    mobile-menu-3323: Mobile-menu
+  chef_sidebar_perfil:
+    chef_sidebar_perfil-9901: 'Chef Sidebar Perfil'
+inherit:
+  post_-_recetas:
+    header: header
+    main-mobile: main-mobile
+    tabschef-3409: tabschef-5820
+    system-content-9641: system-content-3611
+    chef_sidebar-1991: chef_sidebar-3012
+  pages:
+    navigation: navigation
+    footer: footer
+    logo-5594: logo-6922
+    menu-1290: menu-8101
+    chef_search-1077: chef_search-3140
+    custom-9967: custom-3320
+    modal-login-4473: modal-login-4598
+    logo-1158: logo-4062
+    menu-7522: menu-7976
+    custom-5686: custom-6133
+    modal-login-7310: modal-login-2830
+    chef_search-3410: chef_search-6337
+    modal-login-8739: modal-login-8521
+    logo-2303: logo-6178
+    social-4885: social-4968
+  post_-_talleres:
+    postnavigation: postnavigation
+    premain: premain
+    prefooter: prefooter
+    offcanvas: offcanvas
+    custom-4121: custom-2775
+    custom-4351: custom-4869
+    custom-3162: custom-8930
+    custom-7449: custom-2913
+    custom-2753: custom-2737
+    custom-7042: custom-8499
+    spacer-7397: spacer-4674
+    totop-1526: totop-2079
+    spacer-5874: spacer-5099
+    mobile-menu-3323: mobile-menu-6188
+  pages_-_mi_perfil:
+    sidebar: sidebar
+    chef_sidebar_perfil-9901: chef_sidebar_perfil-1258

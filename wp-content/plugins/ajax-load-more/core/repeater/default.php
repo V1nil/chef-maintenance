@@ -12,10 +12,10 @@ $product_type = get_the_terms($post_ID, 'product_cat');
 $promocion = $taller = false;
 if($product_type[0]->slug == 'promocion'){
 	$promocion = true;
-}
+};
 if($product_type[0]->slug == 'taller'){
 	$taller = true;
-}
+};
 
 //Recuperamos sus metas y otra información de interés y que puede ser común a toda la template
 $meta = get_post_meta( $post_ID );
@@ -111,10 +111,10 @@ if($post_type == 'post' && in_array('91',$categories)){
                     if($post_type == 'recipe') {
                         echo '<p class="small receta-author">Una receta de:<br><strong>'.$author_first.' '.$author_last.'</strong></p>';
                         echo '<p class="restaurante-author"><strong>'.$businame.'</strong></p>';
-                    }
+                    };
                     if($post_type == 'post') {
                         echo '<p class="small receta-author">Una noticia de:<br><strong>'.$author_first.' '.$author_last.'</strong></p>';
-                    }
+                    };
                 }
                 ?>
 

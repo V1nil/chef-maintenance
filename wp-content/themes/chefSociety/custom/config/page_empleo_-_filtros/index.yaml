@@ -1,5 +1,5 @@
 name: page_empleo_-_filtros
-timestamp: 1497342284
+timestamp: 1498468589
 version: 7
 preset:
   image: 'gantry-admin://images/layouts/home.png'
@@ -18,25 +18,25 @@ sections:
   footer: Footer
   offcanvas: Offcanvas
 particles:
-  logo:
-    logo-7555: 'Logo / Image'
-    logo-4295: 'Logo / Image'
-    logo-1036: 'Logo / Image'
-  menu:
-    menu-8777: Menu
-    menu-9773: Menu
-    menu-5365: Menu
-  chef_search:
-    chef_search-1517: 'Chef Search'
-    chef_search-2363: 'Chef Search'
   custom:
+    custom-5538: Custom
     custom-4829: 'Custom HTML'
     custom-7035: 'Custom HTML'
-    custom-5538: Custom
     custom-4628: 'Custom HTML'
     custom-2146: 'Custom HTML'
     custom-6998: 'Custom HTML'
     custom-9656: 'Custom HTML'
+  menu:
+    menu-5365: Menu
+    menu-8777: Menu
+    menu-9773: Menu
+  logo:
+    logo-7555: 'Logo / Image'
+    logo-4295: 'Logo / Image'
+    logo-1036: 'Logo / Image'
+  chef_search:
+    chef_search-1517: 'Chef Search'
+    chef_search-2363: 'Chef Search'
   modal-login:
     modal-login-7887: 'Modal Login'
     modal-login-8403: 'Modal Login'
@@ -45,19 +45,26 @@ particles:
     system-content-7376: 'Page Content'
   slideshow:
     slideshow-5510: Slideshow
+  social:
+    social-7985: Social
+  mobile-menu:
+    mobile-menu-2489: 'Mobile Menu'
   spacer:
     spacer-1138: Spacer
     spacer-1342: Spacer
   totop:
     totop-6044: 'To Top'
-  social:
-    social-7985: Social
-  mobile-menu:
-    mobile-menu-2489: 'Mobile Menu'
 inherit:
   pages:
     header: header
     navigation: navigation
+    custom-5538: custom-3022
+    showcase: showcase
+    feature: feature
+    main: main
+    subfeature: subfeature
+    footer: footer
+    offcanvas: offcanvas
     logo-7555: logo-6922
     menu-8777: menu-8101
     chef_search-1517: chef_search-3140
@@ -69,17 +76,10 @@ inherit:
     modal-login-8403: modal-login-2830
     chef_search-2363: chef_search-6337
     modal-login-3188: modal-login-8521
-    custom-5538: custom-3022
-    showcase: showcase
-    feature: feature
     system-content-7376: system-content-6416
-    main: main
-    subfeature: subfeature
     slideshow-5510: slideshow-3373
-    footer: footer
     logo-1036: logo-6178
     social-7985: social-4968
-    offcanvas: offcanvas
     mobile-menu-2489: mobile-menu-5891
   home:
     prefooter: prefooter

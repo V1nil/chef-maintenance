@@ -239,9 +239,9 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{function ('site_url','anadir-receta')}}">Publicar receta</a></li>
                         <li><a href="{{function ('site_url','alta-taller')}}">Publicar taller</a></li>
-                        <!--<li><a href="/subir-empleo.php">Publicar oferta de empleo</a></li>
-                        <li><a href="/subir-foro.php">Publicar foro</a></li>
-                        <li><a href="/hacerse-socio.php">Hacerme socio</a></li>-->
+                        <li><a href="{{function ('site_url','anadir-oferta-de-trabajo')}}">Publicar oferta de empleo</a></li>
+                        <li><a href="{{function ('site_url','forums')}}">Foros</a></li>
+                        {% if wp_user.roles['0']!='chef' %}<li><a href="{{function ('site_url','tienda/socio/hacerme-socio')}}">Hacerme socio</a></li>{% endif %}
                     </ul>
                 </div>
             </div>
@@ -258,10 +258,10 @@
                         <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mis talleres</a></li>
                         <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mis recetas</a></li>
                         <li><a href="/mi-perfil/?perfil={{wp_user.ID}}">Mis promociones</a></li>
-                        <!--<li><a href="/empleo-chef.php">Mis ofertas de empleo</a></li>-->
+                        <li><a href="/listado-empleos-publicados">Mis ofertas de empleo</a></li>
                         <!--<li><a href="/foros-chef.php">Mis foros</a></li>-->
-                        <!--<li class="divider"></li>-->
-                        <!--<li><a href="/amigos.php">Amigos</a></li>-->
+                        <li class="divider"></li>
+                        <li><a href="/amigos">Amigos</a></li>
                         <li class="divider"></li>
                         <li><a href="{{ function('wp_logout_url',function('home_url'))|raw }}">Salir</a></li>
                     </ul>
@@ -286,6 +286,9 @@
                                {{function('do_action','facebook_login_button')}}
  {#                                    <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>#}
                             </div>
+						    <!--<div class = "google-login" style="height: 60px; width: 300px;background-color: red; margin:0 auto; display:block;">
+						   <a style="color:white;" href=”wp-login.php?loginGoogle=1&redirect={{ function('get_site_url') }}” onclick=”window.location = \’{{ function('get_site_url') }}/wp-login.php?loginGoogle=1&redirect=\’+window.location.href; return false;”>Entra con Google +</a>	
+						   </div>-->
                         </div>
                         <div class="content-modal-body bk-lg">
                             <p>Entra con tu email</p>
@@ -368,6 +371,9 @@
                                 
 {#                                <a href="" class="btn btn-facebook btn-lg btn-block"><i class="fa fa-facebook fa-lg"></i> &nbsp; Entra con Facebook</a>#}
                             </div>
+						<!--   <div class = "google-login" style="height: 40px; width: 300px;background-color: red; margin:0 auto; display:block;">
+						   <a style="color:white; vertical-align: middle; display:table-cell;font-size: 1rem; padding-left: 3.8rem;padding-top: 0.5rem;"  href=”wp-login.php?loginGoogle=1&redirect={{ function('get_site_url') }}” onclick=”window.location = \’{{ function('get_site_url') }}/wp-login.php?loginGoogle=1&redirect=\’+window.location.href; return false;”>Entra con Google +</a>
+							</div>	-->
                         </div>
                         <div class="content-modal-body bk-lg">
                             <p>o regístrate con tu email</p>

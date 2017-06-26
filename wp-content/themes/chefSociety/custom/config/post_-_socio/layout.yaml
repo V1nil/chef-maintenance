@@ -1,0 +1,112 @@
+version: 2
+preset:
+  image: 'gantry-admin://images/layouts/2-col-right.png'
+  name: 2_column_-_right
+  timestamp: 1467015210
+layout:
+  header: {  }
+  navigation: {  }
+  postnavigation: {  }
+  premain: {  }
+  /container-main/:
+    -
+      -
+        '/main/ 75':
+          -
+            - custom-8778
+          -
+            - system-content-2296
+      -
+        'sidebar 25': {  }
+  main-mobile: {  }
+  prefooter: {  }
+  footer: {  }
+  offcanvas: {  }
+structure:
+  header:
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - block
+        - children
+  navigation:
+    type: section
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  postnavigation:
+    type: section
+    inherit:
+      outline: post_-_talleres
+      include:
+        - attributes
+        - block
+        - children
+  premain:
+    type: section
+    inherit:
+      outline: post_-_talleres
+      include:
+        - attributes
+        - block
+        - children
+  main:
+    attributes:
+      boxed: '0'
+      class: ''
+  sidebar:
+    type: section
+    subtype: aside
+    inherit:
+      outline: pages_-_mi_perfil
+      include:
+        - attributes
+        - block
+        - children
+    block:
+      fixed: '1'
+  container-main:
+    attributes:
+      boxed: ''
+      class: ''
+      extra:
+        -
+          style: 'background-color:#f5f5f5'
+  main-mobile:
+    title: Mobile
+    inherit:
+      outline: post_-_recetas
+      include:
+        - attributes
+        - children
+  prefooter:
+    type: section
+    inherit:
+      outline: post_-_talleres
+      include:
+        - attributes
+        - block
+        - children
+  footer:
+    inherit:
+      outline: pages
+      include:
+        - attributes
+        - children
+  offcanvas:
+    inherit:
+      outline: post_-_talleres
+      include:
+        - attributes
+        - block
+        - children
+content:
+  custom-8778:
+    title: 'Custom HTML'
+    attributes:
+      html: "{% set post_socio = function('get_post') %}\n<div class=\"bk-w row m-l-r-0\">\n    <div class=\"gap-20\"></div>\n    <div class=\"content-detalle\">\n        {{post_socio.post_content|raw}}\n    </div>\n    <div class=\"gap-20\"></div>\n    <div class=\"text-center\">\n       [add_to_cart id=\"{{post_socio.ID}}\"]\n        <div><span class=\"c-b\">{{post_socio._regular_price}}€</span> </div>\n    </div>\n    <div class=\"gap-40\"></div>\n    <div class=\"bottom-box\">\n        <div class=\"row\">\n            <div class=\"col-xs-6\"></div>\n            <div class=\"col-xs-6 text-right\">\n                <p class=\"content-detalle-social\">\n                   \n            </div>\n        </div>\n    </div>\n</div>"
+      twig: '1'
+      filter: '1'

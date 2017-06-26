@@ -9,6 +9,11 @@ post:
     25: true
     473: true
 taxonomy: {  }
-archive: {  }
-woocommerce: {  }
+archive:
+  product_cat:
+    163: true
+woocommerce:
+  -
+    is_product: true
+    is_cart: true
 buddypress: {  }
