@@ -217,8 +217,9 @@ if($post_type == 'post' && in_array('91',$categories)){
                 <?php 
                 //Empleos
                 if($post_type == 'empleo'){
-                    echo '<p class="prof">'.$meta['puesto'][0].'</p>
-                          <p class="small ciudad">'.$meta['ciudad'][0].', España</p>';
+                    echo '<p class="small ciudad">'.$meta['acf-fecha-inicio-convocatoria'][0].' - '.$meta['acf-fecha_fin_convocatoria'][0].'</p>'
+                    . '<p class="prof">'.$meta['acf-field-puesto'][0].'</p>
+                          <p class="small ciudad">'.$meta['acf-ciudad'][0].', España</p>';
                 }
                 ?>
                 
@@ -274,7 +275,7 @@ if($post_type == 'post' && in_array('91',$categories)){
             //Si es un empleo
             if($post_type == 'empleo'){
             ?>
-                <i class="fa fa-lg" aria-hidden="true"></i>
+                <i class="fa fa-eye" aria-hidden="true"></i> <?php if(function_exists('the_views')) { the_views(); } ?>
             <?php
             }
             ?>
