@@ -433,7 +433,7 @@ if( isset( $_POST['action'] ) && 'edit-photo' == $_POST['action'] ) {
         $extensiones_validas = array("jpeg", "jpg", "png");
         $mark_up = explode(".", $_FILES["file"]["name"]);
         $file_extension = end($mark_up); 
-        if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) && ($_FILES["file"]["size"] < 100000)
+        if ((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) && ($_FILES["file"]["size"] < 1000000)
         && in_array($file_extension, $extensiones_validas)) {
             if ($_FILES["file"]["error"] > 0){
                 $results = false;
